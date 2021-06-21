@@ -1,0 +1,22 @@
+model Tree driver EMF {
+nsuri = "TreeDsl"
+};
+
+model Graph driver EMF {
+nsuri = "Graph"
+};
+
+rule Tree2Node
+	transform t:Tree!Tree
+	to n : Graph!Node {
+
+	//guard : UserInput.confirm('Transform tree ' + t.label + '?', true)
+	n.label := t.label;
+	var target : Graph!Node := t.parent.equivalent();
+	if (target.isDefined()) { 
+		var edge := new Graph!Edge;
+		edge.source := target;
+		edge.target := n;
+	}
+	
+}

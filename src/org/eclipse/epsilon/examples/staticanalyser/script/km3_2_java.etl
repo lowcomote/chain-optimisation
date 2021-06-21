@@ -1,0 +1,46 @@
+pre { "Transformation starting". println();}
+
+rule Package2Package
+	transform s: KM3!Package
+	to t:Java!JavaSource {
+		"1".println();
+		t.classes = s.contents;
+		"2".println();
+	}
+
+rule Class2Class
+	transform s:KM3!Class
+	to t: Java!ClassDeclaration {
+	t.name = s.name;
+	t.superclass = s.supertypes;
+	t.prop = s.structuralFeatures;
+}
+
+rule PrimitiveAttribute 
+	transform
+		e : KM3!Attribute
+	to
+		c : Java!Property, t1:Java!MethodDefinition, t2:Java!MethodDefinition {
+			//guard {
+			//e.type.isKindOf(KM3!DataType);
+			//e.type.isKindOf(KM3!Enumeration);
+			//}
+			c.name = e.name;
+			
+			t1.class = e.owner;
+			t1.name = 'set'+e.name.asString().toUpperCase();
+			
+			t2.class = e.owner;
+			t2.name = 'get'+e.name.asString().toUpperCase();
+}
+		
+
+rule Reference
+	transform
+		e : KM3!Reference
+	to
+		c : Java!Property {
+			c.name <- e.name;
+}
+
+post { "Transformation done.". println();}

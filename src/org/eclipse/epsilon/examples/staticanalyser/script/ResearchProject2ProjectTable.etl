@@ -1,0 +1,19 @@
+pre {"Transformation starting".println();}
+
+rule Project2Project
+	transform p:ResearchProject!Project
+	to t:ProjectTable!Project {
+	//t.wps=p.wps;
+	t.wps.addAll(p.wps);
+}
+
+post {
+	var root:new ProjectTable!Content;
+	root.projects.addAll(ProjectTable!Project.all);
+	"Transformation finished".println();
+}
+
+
+
+
+

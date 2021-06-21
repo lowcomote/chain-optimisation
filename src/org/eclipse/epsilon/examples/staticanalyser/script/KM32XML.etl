@@ -1,0 +1,189 @@
+pre { "Transformation starting". println();}
+
+rule Metamodel2Root 
+	transform 
+		i: KM3!Metamodel
+	to
+		o: XML!Root {
+		
+			o.name = 'Metamodel';
+			o.children = i.contents;
+			
+	}
+	
+rule Package2Attribute_Element
+	transform
+		i: KM3!Package
+	to
+		a: XML!Attribute, o: XML!Element {
+			a.name = 'name';
+			a.value = i.name;
+			 
+			o.name = 'Package';
+			o.children = i.contents.including(a);
+			//"2".println();
+	}
+
+rule Class2Attribute
+	transform
+		i: KM3!Class
+	to
+		a:XML!Attribute, o: XML!Element, attribute_isAbstract: XML!Attribute, reference_supertypes: XML!Attribute {
+		a.name = 'name';
+		a.value = i.name;
+		o.name = 'Class';
+		o.value = i.name;
+		//"a".println();
+		o.children = i.structuralFeatures.including(a) + i.structuralFeatures.including(attribute_isAbstract) + i.structuralFeatures.including(reference_supertypes);
+		//"2".println();
+		attribute_isAbstract.name = 'isAbstract';
+		attribute_isAbstract.value = i.isAbstract.toString();
+		reference_supertypes.name = 'supertypes';
+		//"a".println();
+		reference_supertypes.value = "to be update";
+		}
+		
+rule DataType2Attribute_Element
+	transform
+		i: KM3!DataType
+	to
+	a: XML!Attribute, o: XML!Element {
+			a.name = 'name';
+			a.value = i.name;
+			
+			o.name = 'DataType';
+			o.value = i.name;
+			//"1".println();
+			o.children = i.package.contents.including(a);
+			//"2".println();
+	}
+
+rule Enumeration2Attribute_Element
+	transform
+		i: KM3!Enumeration
+	to
+	a: XML!Attribute, o: XML!Element {
+			"a".println();
+			a.name = 'name';
+			a.value = i.name;
+				
+			o.name = 'Enumeration';
+			o.value = i.name;
+			"2".println();
+			o.children = i.literals.including(a);
+			"21".println();
+		}
+
+rule EnumLiteral2Attribute_Element
+	transform
+		i: KM3!EnumLiteral
+	to
+	a: XML!Attribute, o: XML!Element {
+			a.name = 'name';
+			a.value = i.name;
+			
+		
+			o.name = 'EnumLiteral';
+			o.value = i.name;
+			o.children = i.enum.including(a);
+	}
+
+@abstract 
+rule StructuralFeature2Attribute
+	transform
+		i: KM3!StructuralFeature
+	to
+		a_l: XML!Attribute, a_u: XML!Attribute, a_o: XML!Attribute, r_t: XML!Attribute {
+			a_l.name = 'lower';
+			a_l.value = i.lower->toString();
+			
+			a_u.name = 'upper';
+			a_u.value = i.upper->toString();
+		
+			a_o.name = 'isOrdered';
+			a_o.value = i.isOrdered->toString();
+		
+			r_l.name = 'type';
+			r_l.value = i.type.getFQL();
+	}
+	
+rule Attribute2Attribute 
+	transform
+		i: KM3!Attribute
+	to
+	a: XML!Attribute, o: XML!Element, a_u: XML!Attribute extends StructuralFeature2Attribute{
+			a.name = 'name';
+			a.value = i.name;
+			
+			o.name = 'Attribute';
+			o.value = i.name;
+			o.children = Sequence(a, a_l, a_u, a_o, a_u, r_t);
+			
+			a_u.name = 'isUnique';
+			a_u.value = i.isUnique->toString();
+	}
+	
+rule Reference  
+	transform
+		i: KM3!Reference
+	to
+	a: XML!Attribute, o: XML!Element, a_c: XML!Attribute, r_o: XML!Attribute extends StructuralFeature2Attribute{
+			a.name = 'name';
+			a.value = i.name;
+			
+			o.name = 'Reference';
+			o.value = i.name;
+			o.children = Sequence(a, a_l, a_u, a_o, a_c, r_t, r_o);
+		
+			a_c.name = 'isContainer';
+			a_c.value = i.isContainer->toString();
+		
+			r_o.name = 'opposite';
+			if (i.opposite.isUndefined())
+			{ r_o.value='';}
+			else
+			{ r_o.value= i.opposite.getFQL();}
+			
+			//r_o.value = (i.opposite.isUndefined()) ? '' : i.opposite.getFQL(); 
+	}
+	
+operation KM3!ModelElement getFQL() {
+	return self.getFQLWithSeparator('::');
+	}
+
+operation KM3!ModelElement getFQLWithSeparator(separator: String) {
+	if (self.isKindOf(KM3!EnumLiteral)) {
+		if (self.enumeration <> isUndefined()) {
+			self.enumeration.getFQLWithSeparator(separator) + separator + self.name;
+		}
+		else {
+			self.name;}
+	}	
+	else {
+		if (self.isKindOf(KM3!StructuralFeature)) {
+				if (self.owner <> isUndefined) {
+					self.owner.getFQLWithSeparator(separator) + separator + self.name;
+					}
+				else {
+					self.name;}
+		}	
+		else {
+			if (self.isKindOf(KM3!Classifier)) {
+				if (self.package <> OclUndefined) {
+					self.package.getFQLWithSeparator(separator) + separator + self.name;
+				}
+				else {
+					self.name; }
+				}
+			else {
+				self.name;
+			}
+		}
+	}
+	}
+
+post { "Transformation done.". println();}
+
+
+
+
