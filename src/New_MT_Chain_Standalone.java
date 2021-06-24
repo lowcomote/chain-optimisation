@@ -14,13 +14,82 @@ import org.eclipse.epsilon.etl.EtlModule;
 import org.eclipse.epsilon.etl.launch.EtlRunConfiguration;
 
 public class New_MT_Chain_Standalone {
+	/*
+	public static void main(String[] args) throws Exception {
+		Path root = Paths.get("src/org/eclipse/epsilon/examples/staticanalyser/models");
+		Path modelsRoot = root.getParent().resolve("models");
+		Path scriptRoot = root.getParent().resolve("script");
+		Path genmodelsRoot = root.getParent().resolve("models/generatedmodels");
+		
+		String sourceMM = modelsRoot.resolve("Tree.ecore").toAbsolutePath().toString();
+		String interTargetMM = modelsRoot.resolve("Graph.ecore").toAbsolutePath().toString();
+		String targetMM = modelsRoot.resolve("SimpleTrace.ecore").toAbsolutePath().toString();
+		
+		EmfModel emfmodel1 = new EmfModel();
+		EmfModel emfmodel2 = new EmfModel();
+		EmfModel emfmodel3 = new EmfModel();
+		
+		emfmodel1.setName("Tree");
+		emfmodel1.setModelFile(modelsRoot.resolve("Tree2.xmi").toAbsolutePath().toString());
+		emfmodel1.setMetamodelFile(sourceMM);
+		emfmodel1.setReadOnLoad(true);
+		emfmodel1.setStoredOnDisposal(false);
+		
+		emfmodel2.setName("Graph");
+		emfmodel2.setModelFile(genmodelsRoot.resolve("Gen_Graph1.xmi").toAbsolutePath().toString());
+		emfmodel2.setMetamodelFile(interTargetMM);
+		emfmodel2.setReadOnLoad(false);
+		emfmodel2.setStoredOnDisposal(true);
+		
+		emfmodel3.setName("SimpleTrace");
+		emfmodel3.setModelFile(genmodelsRoot.resolve("Gen_SimpleTrace1.xmi").toAbsolutePath().toString());
+		emfmodel3.setMetamodelFile(targetMM);
+		emfmodel3.setReadOnLoad(false);
+		emfmodel3.setStoredOnDisposal(true);
+		
+		EtlModule module1 = new EtlModule();
+		EtlModule module2 = new EtlModule();
+		
+		emfmodel1.load();
+		emfmodel2.load();
+		emfmodel3.load();
+		
+		module1.parse(scriptRoot.resolve("Tree2Graph.etl"));
+		module2.parse(scriptRoot.resolve("Graph2SimpleTrace.etl"));
+		
+		module1.getContext().getModelRepository().addModel(emfmodel1);
+		module1.getContext().getModelRepository().addModel(emfmodel2);
+		
+		module2.getContext().getModelRepository().addModel(emfmodel2);
+		module2.getContext().getModelRepository().addModel(emfmodel3);
+		
+		emfmodel1.dispose();
+		emfmodel2.dispose();
+		emfmodel3.dispose();
+		
+		module1.execute();
+		
+		module2.execute();
+		
+		System.out.println("Chain Transformation Completed.");
+		
+	}*/
 	
+	//Path root = Paths.get(EtlStaticAnalysisStandaloneExample.class.getResource("").toURI());
+			//Path root = new File(System.getProperty("/")).toPath();
 	public static void main(String[] args) throws Exception {
 			Path root = Paths.get("src/org/eclipse/epsilon/examples/staticanalyser/models");
 			Path modelsRoot = root.getParent().resolve("models");
 			Path scriptRoot = root.getParent().resolve("script");
 			Path genmodelsRoot = root.getParent().resolve("models/generatedmodels");
 			
+			//File directoryPath = new File("src/org/eclipse/epsilon/examples/staticanalyser/metamodels");
+			
+			//String contents[] = directoryPath.list();
+			
+			//Scanner sourceMM = new Scanner(new File("sourceMM"));
+			//Scanner sourceModel = new Scanner(new File("sourceModel"));
+			//Scanner targetMM = new Scanner(new File("targetMM"));
 			
 			String sourceMM = modelsRoot.resolve("Tree.ecore").toString();
 			String interTargetMM = modelsRoot.resolve("Graph.ecore").toString();

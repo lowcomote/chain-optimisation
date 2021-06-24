@@ -99,7 +99,7 @@ public class MT_Chain_Standalone {
 		EtlPreExecuteConfiguration sm = new EtlPreExecuteConfiguration(runConfig);
 		sm.run();
 		
-		sm.calculateMTChain(modelsRoot.resolve("Tree2.xmi").toAbsolutePath().toUri().toString(), sourceMM, genmodelsRoot.resolve("Gen_SimpleTrace.xmi").toAbsolutePath().toUri().toString(), targetMM);
+		//sm.calculateMTChain(modelsRoot.resolve("Tree2.xmi").toAbsolutePath().toUri().toString(), sourceMM, genmodelsRoot.resolve("Gen_SimpleTrace.xmi").toAbsolutePath().toUri().toString(), targetMM);
 		
 		EtlRunConfiguration runConfig2 = EtlRunConfiguration.Builder()
 				.withScript(scriptRoot.resolve("Graph2SimpleTrace.etl"))
@@ -113,7 +113,7 @@ public class MT_Chain_Standalone {
 		
 		sm2.run();
 			
-		sm2.calculateMTChain(modelsRoot.resolve("Tree2.xmi").toAbsolutePath().toUri().toString(), sourceMM, genmodelsRoot.resolve("Gen_SimpleTrace.xmi").toAbsolutePath().toUri().toString(), targetMM);
+		//sm2.calculateMTChain(modelsRoot.resolve("Tree2.xmi").toAbsolutePath().toUri().toString(), sourceMM, genmodelsRoot.resolve("Gen_SimpleTrace.xmi").toAbsolutePath().toUri().toString(), targetMM);
 		
 		runConfig.dispose();	
 		runConfig2.dispose();

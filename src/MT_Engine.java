@@ -30,7 +30,10 @@ public class MT_Engine {
 		String contents[] = metamodelPath.list();
 		
 		Chaining_MT chainingmt = new Chaining_MT();
-		
+		//chainingmt.findchain(sourcemodel, sourceMM, targetmodel, targetMM);
+		//ArrayList<ArrayList<String>> l = chainingmt.runChain(sourcemodel, sourceMM, targetmodel, targetMM);
+		//chainingmt.chaintwo(sourcemodel, sourceMM, targetmodel, targetMM);
+		//ArrayList<ArrayList<String>> l = chainingmt.chaintwo(sourcemodel, sourceMM, targetmodel, targetMM);
 		
 		List<ArrayList<String>> l = chainingmt.identifychain(sourcemodel, sourceMM, targetmodel, targetMM);
 	//}
@@ -66,11 +69,10 @@ public class MT_Engine {
 					
 					exec = chainingmt.executeETL(newsourcemodel, metamodelPath+"\\"+l.get(i).get(j), newtargetmodel, metamodelPath+"\\"+l.get(i).get(j+1));
 					module=exec.getModule();
-					
-					
+					total = chainingmt.calculateMTChain(module);
+					sum[i]=sum[i]+total;
 				}
-				total = chainingmt.calculateMTChain(module);
-				sum[i]=sum[i]+total;
+				
 				//else
 					//System.out.println("No MM availabe for transformation");
 				
@@ -86,7 +88,7 @@ public class MT_Engine {
 			
 		}
 		
-		System.out.println("\nMinimum statements in MT Chain "+index+" is "+ min);
+		System.out.println("\nMT Chain "+index+" has minimum statements of " + min);
 		
 	//public static void execute() throws Exception {
 		/*

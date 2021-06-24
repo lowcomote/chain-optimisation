@@ -22,6 +22,8 @@ public class Chain_MT {
 		File scriptPath = new File("src/org/eclipse/epsilon/examples/staticanalyser/script");
 		String scriptcontents[] = scriptPath.list();
 		
+		Chaining_MT chainingmt = new Chaining_MT();
+		
 		EmfModel emfmodel1 = new EmfModel();
 		EmfModel emfmodel2 = new EmfModel();
 		EmfModel emfmodel3 = new EmfModel();
@@ -35,7 +37,7 @@ public class Chain_MT {
 			emfmodel3.setName(contents[i].replaceFirst("[.][^.]+$", ""));
 		}*/
 		//System.out.println(contents[0].replaceFirst("[.][^.]+$", ""));
-		
+		//Chaining_MT chainingmt = new Chaining_MT();
 		
 		emfmodel1.setName("Tree");
 		emfmodel1.setModelFile(modelsRoot.resolve("Tree2.xmi").toString());
@@ -58,13 +60,20 @@ public class Chain_MT {
 		EtlModule module1 = new EtlModule();
 		EtlModule module2 = new EtlModule();
 		
-		emfmodel1.load();
-		emfmodel2.load();
-		emfmodel3.load();
+		
+		
+		chainingmt.calculateMTChain(module1);
+		chainingmt.calculateMTChain(module2);
 		
 		module1.parse(scriptRoot.resolve("Tree2Graph.etl"));
 		
 		module2.parse(scriptRoot.resolve("Graph2SimpleTrace.etl"));
+		
+		emfmodel1.load();
+		emfmodel2.load();
+		emfmodel3.load();
+		
+		
 		
 		module1.getContext().getModelRepository().addModel(emfmodel1);
 		module1.getContext().getModelRepository().addModel(emfmodel2);
@@ -80,16 +89,18 @@ public class Chain_MT {
 		
 		module2.getContext().getModelRepository().addModel(emfmodel2);
 		module2.getContext().getModelRepository().addModel(emfmodel3);
-		//module2.getContext().setModule(module2);
+		
 		
 		IModel m3 = module2.getContext().getModelRepository().getModels().get(0);
 		IModel m4 = module2.getContext().getModelRepository().getModels().get(1);
 		System.out.println(m3.getName() + " -> "+m4.getName());
 		
 		module1.getContext().setModule(module1);
-		
+		module2.getContext().setModule(module2);
 		//IModel m = module1.getContext().getModelRepository().getModels().get(0);
 		//System.out.println(m.getName());
+//		int tot1 = chainingmt.calculateMTChain(module1);
+//		int tot2 = chainingmt.calculateMTChain(module2);
 		
 		module1.execute();
 		
