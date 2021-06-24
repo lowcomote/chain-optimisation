@@ -15,4 +15,4 @@ A prototype for optimisation of transformation chains built on-the-top of Epsilo
 
 7. Clone this repository master branch and import all plugins in your workspace.
 
-8. Right-click on /src/org.eclipse.epsilon.chain.selection/Chain_MT.java in the Project Explorer and select Run as → Java Application.
+8. Right-click on org.eclipse.epsilon.chain.selection/src/org.eclipse.epsilon.chain.selection/Chain_MT.java in the Project Explorer and select Run as → Java Application.
