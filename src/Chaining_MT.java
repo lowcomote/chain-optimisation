@@ -1213,8 +1213,8 @@ public class Chaining_MT {
 		if (module instanceof EtlModule)
 		{
 			EtlStaticAnalyser staticAnalyser = new EtlStaticAnalyser();
-			//staticAnalyser.validate(module);
-		Chaining_MT chainingmt = new Chaining_MT();
+			
+		//Chaining_MT chainingmt = new Chaining_MT();
 		//List<ArrayList<String>> l = chainingmt.identifychain(sourceModel, sourceMM, targetModel, targetMM);
 		int c=0, max=0;;
 		for (ModelDeclaration modelDeclaration : module.getDeclaredModelDeclarations()) {
@@ -1226,6 +1226,8 @@ public class Chaining_MT {
 			}
 
 		}
+		staticAnalyser.validate(module);
+		
 		for(int i=0;i<((EtlModule) module).getTransformationRules().size();i++)
 		{
 			EolModelElementType type =(EolModelElementType) staticAnalyser.getType(((EtlModule) module).getTransformationRules().get(i).getSourceParameter());
