@@ -1148,9 +1148,8 @@ public class Chaining_MT {
 		//chainN(sourceModel, sourceMM, intermediateModel, intermediateMM);
 		//chainN(intermediateModel, intermediateMM, targetModel, targetMM);
 		
-				
-		
 	}
+	
 	public EtlRunConfiguration executeETL(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
 	{
 		etlscript=scriptRoot.resolve(sourceMM.substring(59).replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(59).replaceFirst("[.][^.]+$", "")+".etl");
