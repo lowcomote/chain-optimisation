@@ -30,6 +30,9 @@ public class MT_Engine {
 		String contents[] = metamodelPath.list();
 		
 		Chaining_MT chainingmt = new Chaining_MT();
+		//ModelProperties modelProperties = new ModelProperties();
+		
+		
 		//chainingmt.findchain(sourcemodel, sourceMM, targetmodel, targetMM);
 		//ArrayList<ArrayList<String>> l = chainingmt.runChain(sourcemodel, sourceMM, targetmodel, targetMM);
 		//chainingmt.chaintwo(sourcemodel, sourceMM, targetmodel, targetMM);
