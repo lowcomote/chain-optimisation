@@ -1,5 +1,3 @@
-package org.eclipse.epsilon.etl.chain.selection;
-
 /*******************************************************************************
  * Copyright (c) 2008 The University of York.
  * This program and the accompanying materials
@@ -9,7 +7,7 @@ package org.eclipse.epsilon.etl.chain.selection;
  * Contributors:
  *     Dimitrios Kolovos - initial API and implementation
  ******************************************************************************/
-
+package org.eclipse.epsilon.etl.chain.selection;
 
 import java.io.File;
 import java.nio.file.Path;

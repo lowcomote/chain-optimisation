@@ -30,7 +30,6 @@ import org.eclipse.epsilon.eol.m3.MetaClass;
 import org.eclipse.epsilon.eol.m3.Metamodel;
 import org.eclipse.epsilon.eol.m3.StructuralFeature;
 import org.eclipse.epsilon.eol.models.IModel;
-import org.eclipse.epsilon.eol.staticanalyser.SubEmfModelFactory;
 import org.eclipse.epsilon.eol.types.EolModelElementType;
 import org.eclipse.epsilon.eol.types.EolType;
 import org.eclipse.epsilon.etl.EtlModule;
@@ -38,6 +37,7 @@ import org.eclipse.epsilon.etl.dom.TransformationRule;
 import org.eclipse.epsilon.etl.execute.context.IEtlContext;
 import org.eclipse.epsilon.etl.staticanalyser.EtlStaticAnalyser;
 import org.eclipse.epsilon.etl.trace.TransformationTrace;
+import org.eclipse.epsilon.examples.staticanalyser.eol.SubEmfModelFactory;
 
 public class EtlPreExecuteConfiguration extends EolRunConfiguration {
 	IEolModule module;

@@ -1,6 +1,4 @@
 package org.eclipse.epsilon.etl.chain.selection;
-
-
 import org.eclipse.epsilon.common.util.StringProperties;
 import org.eclipse.epsilon.emc.emf.EmfModel;
 

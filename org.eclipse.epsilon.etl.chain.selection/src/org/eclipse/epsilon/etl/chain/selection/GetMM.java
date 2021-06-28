@@ -1,7 +1,5 @@
 package org.eclipse.epsilon.etl.chain.selection;
 
-
-
 import java.nio.file.Path;
 
 import org.eclipse.epsilon.eol.dom.ModelDeclaration;
