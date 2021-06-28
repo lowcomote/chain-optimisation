@@ -1,0 +1,20 @@
+model Source driver EMF {
+nsuri = "TreeDsl"
+};
+
+model Target2 driver EMF {
+nsuri = "TreeDsl"
+};
+
+pre {
+	parameterPassedFromJava.println();
+}
+
+rule Tree2Tree
+	transform s : Source!Tree
+	to t : Target2!Tree {
+	
+	t.label := 'source_CopyOf' + s.label;
+	t.children ::= s.children;
+	
+}

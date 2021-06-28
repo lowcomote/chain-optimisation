@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Optimisation
+Bundle-SymbolicName: org.eclipse.epsilon.etl.chain.optimisation
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: org.eclipse.epsilon.etl.chain.optimisation
+Bundle-RequiredExecutionEnvironment: JavaSE-14
+Require-Bundle: org.eclipse.epsilon.eol.engine,
+ org.eclipse.epsilon.etl.engine,
+ org.eclipse.epsilon.etl.staticanalyser,
+ org.eclipse.epsilon.eol.staticanalyser,
+ org.eclipse.epsilon.emc.emf;bundle-version="2.4.0"

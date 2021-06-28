@@ -1,0 +1,19 @@
+rule Tree2TraceLink
+	transform t:Tree!Tree
+	to n:SimpleTrace!TraceLink {
+
+	n.description := t.label;
+	//var target: SimpleTrace!TraceLink := t.parent.equivalents();
+	//if (target.isDefined()) {
+	//	var link := new SimpleTrace!TraceLink;
+	//	link.sources := t.children;
+	//	link.targets := target;
+	//}
+	n.sources=t.parent.equivalents();
+	n.targets=t.children;
+	
+}
+
+post {
+"Tree2SimpleTrace transformation finished".println();
+}
