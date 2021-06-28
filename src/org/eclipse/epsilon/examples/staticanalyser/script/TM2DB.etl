@@ -1,7 +1,0 @@
-rule TypeMap2Database
-	transform t:TM!TypeMap
-	to d:DB!Database {
-	d.contents=t.mappings;
-	}
-
-post { "TM2DB transformation finished.".println(); }
