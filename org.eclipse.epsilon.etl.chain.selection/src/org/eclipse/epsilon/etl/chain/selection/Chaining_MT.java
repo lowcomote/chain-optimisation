@@ -424,6 +424,89 @@ private List<List<ModuleElement>> calculateExpressions(List<ModuleElement> expNa
 		//return null;
 	}
 
+public ArrayList<String> identifybestchain(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
+{
+	
+	
+	//List<ArrayList<String>> l1 = chainingmt.identifyMT(sourcemodel, sourceMM, targetmodel, targetMM);
+	List<ArrayList<String>> l = identifychain(sourceModel, sourceMM, targetModel, targetMM);
+	
+		EtlRunConfiguration exec=null;
+		IEolModule module = null;
+		int min=9999;
+		ArrayList<String> index = null;
+		System.out.println("\n");
+		int[] sum = new int[l.size()];
+		
+		for(int i=0;i<l.size();i++)
+		{
+			//int[] sum = new int[l.size()];
+			System.out.println("Chain"+(i+1)+" "+l.get(i)+"\n");
+			//sum[i]=0;
+			
+//			chainingmt.calculateMTChain(sourcemodel, sourceMM, targetmodel, targetMM);
+			//System.out.println(l.get(i).get(0));
+			int total=0;
+			int tot1=0;
+			for(int j=0;j<l.get(i).size();j++)
+			{
+				
+				EtlModule module1 = new EtlModule();
+				
+				if(j+1<l.get(i).size())
+				{
+					
+					
+					System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1)+"\n");
+					
+					module1.parse(scriptRoot.resolve(l.get(i).get(j).replaceFirst("[.][^.]+$", "")+"2"+l.get(i).get(j+1).replaceFirst("[.][^.]+$", "")+".etl"));
+					
+					total = calculateMTChain(module1);
+					sum[i]=sum[i]+total;
+
+					System.out.println("Total operators used in the transformation "+l.get(i).get(j)+" -> "+l.get(i).get(j+1)+": "+total+"\n");
+				}
+				
+		
+			}
+			if(sum[i]<min)
+			{
+				min=sum[i];
+				index=l.get(i);
+			}
+			
+			System.out.println("Total operators used in the chain: "+sum[i]);
+			System.out.println("---------------------------------------------------------\n");
+			
+		}
+		
+		System.out.println("\nMT Chain "+index+" has minimum structural features of " + min);
+		System.out.println("------------------Executing best chain--------------------");
+		for(int k=0;k<index.size();k++)
+		{
+			if(k+1<index.size())
+			{
+				
+				//System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1));
+				
+				Path newsourcemodelpath = modelsRoot.resolve(index.get(k).replaceFirst("[.][^.]+$", "")+".xmi");
+				String newsourcemodel = newsourcemodelpath.toAbsolutePath().toUri().toString();
+				
+				Path newtargetmodelpath = modelsRoot.resolve(index.get(k+1).replaceFirst("[.][^.]+$", "")+".xmi");
+				String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
+				
+				exec = executeETL(newsourcemodel, metamodelPath+"\\"+index.get(k), newtargetmodel, metamodelPath+"\\"+index.get(k+1));
+				
+			}
+			
+		}
+		return index;
+		
+
+
+}
+
+
 //public int estimateMTChain(IEolModule module) throws Exception
 //{
 //	String statementName, expressionName, operationName = null;
