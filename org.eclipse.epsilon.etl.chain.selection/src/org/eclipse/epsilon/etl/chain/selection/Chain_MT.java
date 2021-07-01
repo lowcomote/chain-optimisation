@@ -23,14 +23,16 @@ public class Chain_MT {
 		String contents[] = metamodelPath.list();
 
 		
+		
 		Chaining_MT chainingmt = new Chaining_MT();
 		
 		
-		String sourcemodel=modelsRoot.resolve("Tree2.xmi").toAbsolutePath().toString();
-		String sourceMM = metamodelsRoot.resolve("Tree.ecore").toAbsolutePath().toString();
-		String targetMM = metamodelsRoot.resolve("DB.ecore").toAbsolutePath().toString();
-		String targetmodel= genmodelsRoot.resolve("Gen_Graph20.xmi").toAbsolutePath().toString();
+		String sourcemodel=modelsRoot.resolve("Tree2.xmi").toAbsolutePath().toUri().toString();
+		String sourceMM = metamodelsRoot.resolve("Tree.ecore").toString();
+		String targetMM = metamodelsRoot.resolve("DB.ecore").toString();
+		String targetmodel= genmodelsRoot.resolve("Gen_Graph20.xmi").toAbsolutePath().toUri().toString();
 		
+		//List<ArrayList<String>> l1 = chainingmt.identifyMT(sourcemodel, sourceMM, targetmodel, targetMM);
 		List<ArrayList<String>> l = chainingmt.identifychain(sourcemodel, sourceMM, targetmodel, targetMM);
 		
 			EtlRunConfiguration exec=null;

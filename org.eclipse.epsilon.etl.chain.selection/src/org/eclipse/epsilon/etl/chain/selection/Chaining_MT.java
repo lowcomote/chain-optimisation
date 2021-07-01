@@ -9,10 +9,12 @@ import java.util.Map;
 import java.util.Spliterator;
 import java.util.stream.Collector;
 
+import org.eclipse.epsilon.common.module.ModuleElement;
 import org.eclipse.epsilon.common.util.StringProperties;
 import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.eol.IEolModule;
 import org.eclipse.epsilon.eol.dom.ModelDeclaration;
+import org.eclipse.epsilon.eol.dom.Statement;
 import org.eclipse.epsilon.eol.dom.StatementBlock;
 import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.eol.staticanalyser.SubEmfModelFactory;
@@ -54,7 +56,23 @@ public class Chaining_MT {
 
 	}
 	
-	
+//	public List<ArrayList<String>> identifyMT(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
+//	{
+//		List<ArrayList<String>> newmodelsuse = new ArrayList<ArrayList<String>>();
+//		ArrayList<String> modelsuse0 = new ArrayList<String>();
+//		Path etlscript1 = scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
+//		if(etlscript1.toFile().exists())
+//		{
+//			chainMT(sourceModel, sourceMM, targetModel, targetMM);
+//			
+//			modelsuse0.add(sourceMM.substring(11));
+//			modelsuse0.add(targetMM.substring(11));
+//			newmodelsuse.add(modelsuse0);
+//			//System.out.println(newmodelsuse);
+//			return newmodelsuse;
+//		}
+//		return null;
+//	}
 	
 	public List<ArrayList<String>> identifychain(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
 	{
@@ -78,19 +96,18 @@ public class Chaining_MT {
 			modelsuse0.add(sourceMM.substring(11));
 			modelsuse0.add(targetMM.substring(11));
 			
-			
 		}
 		
 		else {
-		
+			
 			for(int j=0;j<contents.length;j++) 
 			{
 				Path etlscript2 = scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+contents[j].replaceFirst("[.][^.]+$", "")+".etl");
-				Path etlscript3 = scriptRoot.resolve(contents[j].replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
+				//Path etlscript3 = scriptRoot.resolve(contents[j].replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
 				
 				String intermetamodel = metamodelPath+"\\"+contents[j];
 				Path intermodelpath = genmodelsRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+contents[j].replaceFirst("[.][^.]+$", "")+".xmi");
-				String intermodel = intermodelpath.toAbsolutePath().toString();
+				String intermodel = intermodelpath.toAbsolutePath().toUri().toString();
 				
 			
 					if(etlscript2.toFile().exists())
@@ -124,9 +141,6 @@ public class Chaining_MT {
 						}
 						
 					}
-					
-					
-					
 			
 			}
 			
@@ -213,6 +227,10 @@ public class Chaining_MT {
 		int numberofexpression = 0, numberofoperation = 0, totalstatement = 0;
 		int totalfeatures = 0, totalexpressionandoperation, totalstructuratlfeatures = 0;
 //		int sumofoperation = 0;
+		String newOp = null;
+		List<ModuleElement> opName, expName;
+		List<List<ModuleElement>> totexpName = null;
+		Statement stName;
 		
 		if (module instanceof EtlModule)
 		{
@@ -245,7 +263,7 @@ public class Chaining_MT {
 						
 			StatementBlock ruleblock=(StatementBlock) ((EtlModule) module).getTransformationRules().get(i).getBody().getBody();
 			int c=0;
-			int sumofoperation;
+			int sumofoperation, totexpSize = 0;
 			totalstatement=0;
 			totalfeatures=0;
 			//int sumofoperation = 0;
@@ -253,21 +271,75 @@ public class Chaining_MT {
 			{
 				sumofoperation = 0;
 				//statementName=ruleblock.getStatements().get(k).toString().split(" ")[0];
-				statementName=ruleblock.getStatements().get(k).toString();
-				expressionName=ruleblock.getStatements().get(k).getChildren().toString();
-				numberofexpression=ruleblock.getStatements().get(k).getChildren().size();
+				stName = ruleblock.getStatements().get(k);
+				statementName=stName.toString();
+				expName = stName.getChildren();
+				expressionName=expName.toString();
+				numberofexpression=expName.size();
 				c++;
 				System.out.println("Statement number "+c);
 				System.out.println(statementName+"\n"+expressionName+"\n");
+				
+				//calculateExpressions(expName);
 				for(int l=0;l<numberofexpression;l++)
 				{
-					operationName=ruleblock.getStatements().get(k).getChildren().get(l).getChildren().toString();
-					numberofoperation=ruleblock.getStatements().get(k).getChildren().get(l).getChildren().size();
-					System.out.println(operationName+"\n");
-					sumofoperation=sumofoperation+numberofoperation;
+					opName=expName.get(l).getChildren();
+//					for(int m=0;m<opName.size();m++)
+//					{
+					if(!opName.isEmpty())
+					{
+						totexpName = calculateExpressions(opName);
+//						System.out.println(totexpName);
+						for(int m=0;m<totexpName.size();m++)
+						{
+							totexpSize = totexpName.get(m).size();
+							System.out.println(totexpName.get(m));
+							sumofoperation=sumofoperation+totexpSize;
+							System.out.println(totexpSize);
+						}
+						
+						//totexpSize++;
+						
+					}
+						
 					
+//					}
+					
+//					else
+//						System.out.println("Empty");
+					
+					
+					
+					//System.out.println(sumofoperation);
 				}
-				System.out.println("Number of operation: "+sumofoperation+"\n");
+				
+				
+				
+				
+//				for(int l=0;l<numberofexpression;l++)
+//				{
+//					opName = stName.getChildren().get(l).getChildren();
+//					operationName=opName.toString();
+//					numberofoperation=opName.size();
+//					System.out.println(operationName+"\n");
+//					
+//					for(int m=0;m<numberofoperation;m++)
+//					{
+//						if(!opName.isEmpty())
+//						{
+//							sumofoperation=sumofoperation+numberofoperation;
+//							newOp=opName.get(m).getChildren().toString();
+//							//System.out.println(newOp);
+//						}
+//
+//					}
+//					//System.out.println(opName);
+//					
+//											
+//				}
+				//System.out.println(newOp);
+				System.out.println("Number of expressions and operations: "+sumofoperation+"\n");
+				
 				
 				//System.out.println("Number of expression: "+numberofexpression+"\n");
 				
@@ -303,5 +375,127 @@ public class Chaining_MT {
 	
 	}
 	
+
+private List<List<ModuleElement>> calculateExpressions(List<ModuleElement> expName) {
+		
+	int c = 0;
+	List<ModuleElement> opName = null;
+	List<List<ModuleElement>> op = new ArrayList<List<ModuleElement>>();
+		for(int i=0;i<expName.size();i++)
+		{
+			opName = expName.get(i).getChildren();
+		//}
+//			for(int j=0;j<opName.size();j++)
+//			{
+				if(opName.isEmpty())
+				{
+					op.add(expName);
+					//System.out.println(expName);
+					//i++;
+					//return expName;
+					return op;
+					//continue;
+					//break x;
+				}
+				else
+				{
+					c++;
+					//for(int j=0;j<opName.size();j++)
+					calculateExpressions(opName);
+//					for(int j=0;j<opName.size();j++)
+//						calculateExpressions(opName.get(j).getChildren());
+					op.add(opName);
+					//return expName;
+//					for(int j=0;j<opName.size();j++)
+//					System.out.println("123 "+expName.get(j));
+					//return opName;
+					//System.out.println(opName);
+					//return op;
+				}
+				
+			}
+//		System.out.println("123 "+op);
+//		System.out.println("count "+c);
+			//return opName;
+		//}
+		//return expName;
+		//return opName;
+		return op;
+		//return null;
+	}
+
+//public int estimateMTChain(IEolModule module) throws Exception
+//{
+//	String statementName, expressionName, operationName = null;
+//	int numberofexpression = 0, numberofoperation = 0, totalstatement = 0;
+//	int totalfeatures = 0, totalexpressionandoperation, totalstructuratlfeatures = 0;
+//	String newOp = null;
+//	List<ModuleElement> opName;
+//	Statement stName;
+//	
+//	if (module instanceof EtlModule)
+//	{
+//		EtlStaticAnalyser staticAnalyser = new EtlStaticAnalyser();
+//		
+//		int max=0;;
+//		for (ModelDeclaration modelDeclaration : module.getDeclaredModelDeclarations()) 
+//		{
+//		if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
+//
+//			staticAnalyser.getContext().setModelFactory(new SubEmfModelFactory());
+//
+//		}
+//
+//	}
+//	staticAnalyser.validate(module);
+//	
+//	for(int i=0;i<((EtlModule) module).getTransformationRules().size();i++)
+//	{
+//		EolModelElementType type =(EolModelElementType) staticAnalyser.getType(((EtlModule) module).getTransformationRules().get(i).getSourceParameter());
+//					
+//		for(int j=0;j<((EtlModule) module).getTransformationRules().get(i).getTargetParameters().size();j++)
+//		{
+//			EolModelElementType type1 =(EolModelElementType) staticAnalyser.getType(((EtlModule) module).getTransformationRules().get(i).getTargetParameters().get(j));
+//			System.out.println("Transformation rule"+(i+1)+": "+type.getTypeName()+" to "+type1.getTypeName()+"\n");
+//						
+//		}
+//		StatementBlock ruleblock=(StatementBlock) ((EtlModule) module).getTransformationRules().get(i).getBody().getBody();
+//		int c=0;
+//		int sumofoperation;
+//		totalstatement=0;
+//		totalfeatures=0;
+//		
+//		for(int k=0;k<ruleblock.getStatements().size();k++)
+//		{
+//			sumofoperation = 0;
+//			//statementName=ruleblock.getStatements().get(k).toString().split(" ")[0];
+//			stName = ruleblock.getStatements().get(k);
+//			statementName=stName.toString();
+//			expressionName=stName.getChildren().toString();
+//			numberofexpression=stName.getChildren().size();
+//			c++;
+//			System.out.println("Statement number "+c);
+//			System.out.println(statementName+"\n"+expressionName+"\n");
+//			
+//			for(int l=0;l<numberofexpression;l++)
+//			{
+//				opName = stName.getChildren().get(l).getChildren();
+//				operationName=opName.toString();
+//				numberofoperation=opName.size();
+//				System.out.println(operationName+"\n");
+//					
+//				if(!opName.isEmpty())
+//				{
+//					sumofoperation=sumofoperation+numberofoperation;
+//					newOp=opName.get(0).getChildren().toString();
+//				}
+//						
+//				
+//			}
+//		}
+//		
+//	}
+//	}
+//}
 
 }
