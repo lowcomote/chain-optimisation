@@ -17,16 +17,13 @@ public class Chain_MT {
 		
 		Path modelsRoot = Paths.get("models");
 		Path metamodelsRoot = Paths.get("metamodels");
-		Path scriptRoot = Paths.get("scripts");
+		//Path scriptRoot = Paths.get("scripts");
 		Path genmodelsRoot = Paths.get("models/generatedmodels");
 		
-		File metamodelPath = new File("metamodels");
-		String contents[] = metamodelPath.list();
+		//File metamodelPath = new File("metamodels");
+		//String contents[] = metamodelPath.list();
 
-		
-		
 		Chaining_MT chainingmt = new Chaining_MT();
-		
 		
 		String sourcemodel=modelsRoot.resolve("Tree2.xmi").toAbsolutePath().toUri().toString();
 		String sourceMM = metamodelsRoot.resolve("Tree.ecore").toString();

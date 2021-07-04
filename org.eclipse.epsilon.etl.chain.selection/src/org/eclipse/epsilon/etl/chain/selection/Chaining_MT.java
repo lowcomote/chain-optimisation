@@ -35,7 +35,7 @@ public class Chaining_MT {
 	File metamodelPath = new File("metamodels");
 	String contents[] = metamodelPath.list();
 	
-	File scriptPath = new File("src/org/eclipse/epsilon/examples/staticanalyser/script");
+	File scriptPath = new File("scripts");
 	String scriptcontents[] = scriptPath.list();
 	
 	ModelProperties modelProperties = new ModelProperties();
@@ -45,13 +45,9 @@ public class Chaining_MT {
 	public void chainMT(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
 	{
 		
-
-
 		int k;
-		etlscript=scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
+		//etlscript=scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
 		
-
-
 		System.out.println(sourceMM.substring(11)+" -> "+targetMM.substring(11));
 
 	}
@@ -87,9 +83,14 @@ public class Chaining_MT {
 		List<String> modelsuse40 = new ArrayList<String>();
 		ArrayList<String> modelsuse5 = new ArrayList<String>();
 		
-		Path etlscript1 = scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
+		boolean etl1 = findETL(sourceMM, targetMM);
+//		//if(!etl1.isEmpty())
+//		System.out.println(etl1);
+//		//Path etlscript1 = scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
+//		Path etlscript1 = scriptRoot.resolve(findETL(sourceMM, targetMM));
 		
-		if(etlscript1.toFile().exists())
+		//if(etlscript1.toFile().exists())
+		if(etl1)
 		{
 			chainMT(sourceModel, sourceMM, targetModel, targetMM);
 			
@@ -102,21 +103,27 @@ public class Chaining_MT {
 			
 			for(int j=0;j<contents.length;j++) 
 			{
-				Path etlscript2 = scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+contents[j].replaceFirst("[.][^.]+$", "")+".etl");
+				//Path etlscript2 = scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+contents[j].replaceFirst("[.][^.]+$", "")+".etl");
 				//Path etlscript3 = scriptRoot.resolve(contents[j].replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
 				
 				String intermetamodel = metamodelPath+"\\"+contents[j];
 				Path intermodelpath = genmodelsRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+contents[j].replaceFirst("[.][^.]+$", "")+".xmi");
 				String intermodel = intermodelpath.toAbsolutePath().toUri().toString();
-				
 			
-					if(etlscript2.toFile().exists())
-					{
+//			System.out.println("1"+sourceMM);
+////			System.out.println(contents[j]);
+//			System.out.println("2"+intermetamodel);
+//			System.out.println(findETL(sourceMM, intermetamodel));
+					//if(etlscript2.toFile().exists())
+					if(findETL(sourceMM, intermetamodel))
+					{	
+//						System.out.println("123");
 						identifychain(sourceModel, sourceMM, intermodel, intermetamodel);
 						
-						boolean s1 = scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+intermetamodel.substring(11).replaceFirst("[.][^.]+$", "")+".etl").toFile().exists();
-						boolean s2 = scriptRoot.resolve(intermetamodel.substring(11).replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl").toFile().exists();
-						
+						//boolean s1 = scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+intermetamodel.substring(11).replaceFirst("[.][^.]+$", "")+".etl").toFile().exists();
+						boolean s1 = findETL(sourceMM, intermetamodel);
+						//boolean s2 = scriptRoot.resolve(intermetamodel.substring(11).replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl").toFile().exists();
+						boolean s2 = findETL(intermetamodel, targetMM);
 						
 						modelsuse1.add(sourceMM.substring(11));
 						
@@ -126,10 +133,7 @@ public class Chaining_MT {
 							sourceMM=intermetamodel;
 							
 						}
-							
-						
-						
-						
+					
 						//chainMT(sourceModel, sourceMM, targetModel, targetMM);
 						if(s2)
 							modelsuse1.add(targetMM.substring(11));
@@ -154,7 +158,9 @@ public class Chaining_MT {
 				
 				for(int l=k+2;l<modelsuse3.size();l++)
 				{
-				boolean sc1 = scriptRoot.resolve(modelsuse3.get(k).replaceFirst("[.][^.]+$", "")+"2"+modelsuse3.get(l).replaceFirst("[.][^.]+$", "")+".etl").toFile().exists();
+				//boolean sc1 = scriptRoot.resolve(modelsuse3.get(k).replaceFirst("[.][^.]+$", "")+"2"+modelsuse3.get(l).replaceFirst("[.][^.]+$", "")+".etl").toFile().exists();
+				//System.out.println(modelsuse3.get(k));
+				boolean sc1 = findETL(metamodelPath+"\\"+modelsuse3.get(k), metamodelPath+"\\"+modelsuse3.get(l));
 				if(sc1)
 				{
 					modelsuse40=modelsuse3.subList(0, l-1);
@@ -185,8 +191,7 @@ public class Chaining_MT {
 				
 			System.out.println(newmodelsuse);
 			return newmodelsuse;
-		
-		
+	
 	}
 	
 	
@@ -234,11 +239,11 @@ public class Chaining_MT {
 		
 		if (module instanceof EtlModule)
 		{
-			EtlStaticAnalyser staticAnalyser = new EtlStaticAnalyser();
+		EtlStaticAnalyser staticAnalyser = new EtlStaticAnalyser();
 			
 		//Chaining_MT chainingmt = new Chaining_MT();
 		//List<ArrayList<String>> l = chainingmt.identifychain(sourceModel, sourceMM, targetModel, targetMM);
-		int max=0;;
+		int max=0;
 		for (ModelDeclaration modelDeclaration : module.getDeclaredModelDeclarations()) {
 
 			if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
@@ -302,41 +307,9 @@ public class Chaining_MT {
 						
 					}
 						
-					
-//					}
-					
-//					else
-//						System.out.println("Empty");
-					
-					
-					
-					//System.out.println(sumofoperation);
+
 				}
-				
-				
-				
-				
-//				for(int l=0;l<numberofexpression;l++)
-//				{
-//					opName = stName.getChildren().get(l).getChildren();
-//					operationName=opName.toString();
-//					numberofoperation=opName.size();
-//					System.out.println(operationName+"\n");
-//					
-//					for(int m=0;m<numberofoperation;m++)
-//					{
-//						if(!opName.isEmpty())
-//						{
-//							sumofoperation=sumofoperation+numberofoperation;
-//							newOp=opName.get(m).getChildren().toString();
-//							//System.out.println(newOp);
-//						}
-//
-//					}
-//					//System.out.println(opName);
-//					
-//											
-//				}
+	
 				//System.out.println(newOp);
 				System.out.println("Number of expressions and operations: "+sumofoperation+"\n");
 				
@@ -376,7 +349,7 @@ public class Chaining_MT {
 	}
 	
 
-private List<List<ModuleElement>> calculateExpressions(List<ModuleElement> expName) {
+public List<List<ModuleElement>> calculateExpressions(List<ModuleElement> expName) {
 		
 	int c = 0;
 	List<ModuleElement> opName = null;
@@ -427,12 +400,11 @@ private List<List<ModuleElement>> calculateExpressions(List<ModuleElement> expNa
 public ArrayList<String> identifybestchain(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
 {
 	
-	
 	//List<ArrayList<String>> l1 = chainingmt.identifyMT(sourcemodel, sourceMM, targetmodel, targetMM);
 	List<ArrayList<String>> l = identifychain(sourceModel, sourceMM, targetModel, targetMM);
 	
 		EtlRunConfiguration exec=null;
-		IEolModule module = null;
+//		IEolModule module = null;
 		int min=9999;
 		ArrayList<String> index = null;
 		System.out.println("\n");
@@ -455,11 +427,11 @@ public ArrayList<String> identifybestchain(String sourceModel, String sourceMM, 
 				
 				if(j+1<l.get(i).size())
 				{
-					
-					
+				
 					System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1)+"\n");
 					
-					module1.parse(scriptRoot.resolve(l.get(i).get(j).replaceFirst("[.][^.]+$", "")+"2"+l.get(i).get(j+1).replaceFirst("[.][^.]+$", "")+".etl"));
+					//module1.parse(scriptRoot.resolve(l.get(i).get(j).replaceFirst("[.][^.]+$", "")+"2"+l.get(i).get(j+1).replaceFirst("[.][^.]+$", "")+".etl"));
+					module1.parse(scriptRoot.resolve(identifyETL(metamodelPath+"\\"+l.get(i).get(j), metamodelPath+"\\"+l.get(i).get(j+1))));
 					
 					total = calculateMTChain(module1);
 					sum[i]=sum[i]+total;
@@ -501,84 +473,147 @@ public ArrayList<String> identifybestchain(String sourceModel, String sourceMM, 
 			
 		}
 		return index;
-		
-
 
 }
 
-
-//public int estimateMTChain(IEolModule module) throws Exception
-//{
-//	String statementName, expressionName, operationName = null;
-//	int numberofexpression = 0, numberofoperation = 0, totalstatement = 0;
-//	int totalfeatures = 0, totalexpressionandoperation, totalstructuratlfeatures = 0;
-//	String newOp = null;
-//	List<ModuleElement> opName;
-//	Statement stName;
-//	
-//	if (module instanceof EtlModule)
-//	{
-//		EtlStaticAnalyser staticAnalyser = new EtlStaticAnalyser();
-//		
-//		int max=0;;
-//		for (ModelDeclaration modelDeclaration : module.getDeclaredModelDeclarations()) 
-//		{
-//		if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
-//
-//			staticAnalyser.getContext().setModelFactory(new SubEmfModelFactory());
-//
-//		}
-//
-//	}
-//	staticAnalyser.validate(module);
-//	
-//	for(int i=0;i<((EtlModule) module).getTransformationRules().size();i++)
-//	{
-//		EolModelElementType type =(EolModelElementType) staticAnalyser.getType(((EtlModule) module).getTransformationRules().get(i).getSourceParameter());
-//					
-//		for(int j=0;j<((EtlModule) module).getTransformationRules().get(i).getTargetParameters().size();j++)
-//		{
-//			EolModelElementType type1 =(EolModelElementType) staticAnalyser.getType(((EtlModule) module).getTransformationRules().get(i).getTargetParameters().get(j));
-//			System.out.println("Transformation rule"+(i+1)+": "+type.getTypeName()+" to "+type1.getTypeName()+"\n");
-//						
-//		}
-//		StatementBlock ruleblock=(StatementBlock) ((EtlModule) module).getTransformationRules().get(i).getBody().getBody();
-//		int c=0;
-//		int sumofoperation;
-//		totalstatement=0;
-//		totalfeatures=0;
-//		
-//		for(int k=0;k<ruleblock.getStatements().size();k++)
-//		{
-//			sumofoperation = 0;
-//			//statementName=ruleblock.getStatements().get(k).toString().split(" ")[0];
-//			stName = ruleblock.getStatements().get(k);
-//			statementName=stName.toString();
-//			expressionName=stName.getChildren().toString();
-//			numberofexpression=stName.getChildren().size();
-//			c++;
-//			System.out.println("Statement number "+c);
-//			System.out.println(statementName+"\n"+expressionName+"\n");
-//			
-//			for(int l=0;l<numberofexpression;l++)
+public boolean findETL(String sourceMM, String targetMM) throws Exception
+{
+	String etlname = null;
+	String sourceMetamodel = null, targetMetamodel = null;
+	List<ModelDeclaration> mm;
+	//String x = null;
+	boolean flag = false;;
+	
+//	EtlModule module = new EtlModule();
+//	System.out.println(sourceMM);
+//	System.out.println(targetMM);
+	for(int i=0;i<scriptcontents.length;i++)
+	{
+		EtlModule module = new EtlModule();
+		module.parse(scriptRoot.resolve(scriptcontents[i]));
+		module.getContext().setModule(module);
+//		System.out.println("123");
+		//if (module instanceof EtlModule) {
+//			System.out.println("abc");
+//			System.out.println(scriptcontents[i]);
+//			System.out.println(module);
+			EtlStaticAnalyser staticAnalyser = new EtlStaticAnalyser();
+			//module.parse(scriptcontents[i]);
+			
+			
+				for (ModelDeclaration modelDeclaration : module.getDeclaredModelDeclarations()) {
+					if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
+						staticAnalyser.getContext().setModelFactory(new SubEmfModelFactory());
+//				System.out.println(modelDeclaration);	
+					}
+				}
+				staticAnalyser.validate(module);
+				mm = ((EtlModule) module).getDeclaredModelDeclarations();
+				//mm = modelDeclaration.getModel().getName();
+				//String[] input = mm.split("\n"); 
+				//System.out.println(input[0]);
+				
+				
+//			for (ModelDeclaration modelDeclaration1 : mm)
 //			{
-//				opName = stName.getChildren().get(l).getChildren();
-//				operationName=opName.toString();
-//				numberofoperation=opName.size();
-//				System.out.println(operationName+"\n");
-//					
-//				if(!opName.isEmpty())
-//				{
-//					sumofoperation=sumofoperation+numberofoperation;
-//					newOp=opName.get(0).getChildren().toString();
-//				}
-//						
-//				
+//				x = modelDeclaration1.getModel().getName();
+//				System.out.println(x);
 //			}
-//		}
-//		
-//	}
-//	}
-//}
+//				System.out.println(mm.get(0));
+				
+				sourceMetamodel = mm.get(0).getModel().getName();
+				targetMetamodel = mm.get(1).getModel().getName();
+				
+				
+//				System.out.println(sourceMetamodel);
+//				System.out.println(targetMetamodel);
+////				System.out.println(sourceMM.substring(11));
+				//System.out.println(sourceMM.substring(11).replaceFirst("[.][^.]+$", ""));
+//				System.out.println(targetMM.substring(11).replaceFirst("[.][^.]+$", ""));
+				//System.out.println(i+" "+sourceMM.substring(11).replaceFirst("[.][^.]+$", "").equals(sourceMetamodel));
+				if(sourceMM.substring(11).replaceFirst("[.][^.]+$", "").equals(sourceMetamodel) && targetMM.substring(11).replaceFirst("[.][^.]+$", "").equals(targetMetamodel))
+				{
+					
+//					etlname = ((EtlModule) module).getSourceFile().getName();
+//					System.out.println(etlname);
+					//return etlname;
+					flag=true;
+					//return true;
+					break;
+				}
+				
+				
+//				else
+//					return false;
+					
+				//System.out.println(i);
+//				else
+//				{
+//					System.out.println(i);
+////					System.out.println(scriptcontents.length-1);
+//					if(i==(scriptcontents.length-1))
+//						return false;
+//				}
+				
+	} 
+	return flag;
+	//return flag;
+	
+	}
+
+
+public String identifyETL(String sourceMM, String targetMM) throws Exception
+{
+	String etlname = null;
+	String sourceMetamodel = null, targetMetamodel = null;
+	List<ModelDeclaration> mm;
+	//String x = null;
+	//boolean flag = false;
+	
+
+	
+	for(int i=0;i<scriptcontents.length;i++)
+	{
+		EtlModule module = new EtlModule();
+		module.parse(scriptRoot.resolve(scriptcontents[i]));
+		module.getContext().setModule(module);
+
+			EtlStaticAnalyser staticAnalyser = new EtlStaticAnalyser();
+			
+			
+				for (ModelDeclaration modelDeclaration : module.getDeclaredModelDeclarations()) {
+					if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
+						staticAnalyser.getContext().setModelFactory(new SubEmfModelFactory());
+	
+					}
+				}
+				staticAnalyser.validate(module);
+				mm = ((EtlModule) module).getDeclaredModelDeclarations();
+	
+				
+				sourceMetamodel = mm.get(0).getModel().getName();
+				targetMetamodel = mm.get(1).getModel().getName();
+				
+				if(sourceMM.substring(11).replaceFirst("[.][^.]+$", "").equals(sourceMetamodel) && targetMM.substring(11).replaceFirst("[.][^.]+$", "").equals(targetMetamodel))
+				{
+					etlname = ((EtlModule) module).getSourceFile().getName();
+//					System.out.println(etlname);
+					//return etlname;
+					break;
+					//return true;
+
+				}
+				
+//				
+//				else
+//					return null;
+					
+
+	} 
+	return etlname;
+	//return flag;
+	
+	}
+
 
 }

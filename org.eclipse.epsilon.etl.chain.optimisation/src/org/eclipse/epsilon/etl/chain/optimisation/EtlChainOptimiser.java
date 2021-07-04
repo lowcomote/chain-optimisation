@@ -79,6 +79,7 @@ public class EtlChainOptimiser {
 		modules.add(module2);
 		modules.add(module1);
 		
+		System.out.println();
 		ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
 		staticAnalysers.add(staticAnlayser1);
 		staticAnalysers.add(staticAnlayser);

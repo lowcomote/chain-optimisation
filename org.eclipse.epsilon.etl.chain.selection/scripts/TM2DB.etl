@@ -2,7 +2,7 @@ model TM driver EMF {
 nsuri = "TM"
 };
 
-model TM driver EMF {
+model DB driver EMF {
 nsuri = "DB"
 };
 
