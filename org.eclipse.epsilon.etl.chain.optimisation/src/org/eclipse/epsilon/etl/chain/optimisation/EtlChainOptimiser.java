@@ -13,6 +13,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.eol.dom.ModelDeclaration;
@@ -27,90 +28,78 @@ import org.eclipse.epsilon.etl.staticanalyser.EtlStaticAnalyser;
  * @author Qurat ul ain Ali
  */
 public class EtlChainOptimiser {
-	
+
 	public static void main(String[] args) throws Exception {
 		Path modelsRoot = Paths.get("models");
 		Path scriptRoot = Paths.get("scripts");
 		Path metamodelsRoot = Paths.get("metamodels");
 		Path genmodelsRoot = Paths.get("models/generatedmodels");
-		
+
 		File metamodelPath = new File("metamodels");
-		
-//		String sourcemodel=modelsRoot.resolve("Tree2.xmi").toAbsolutePath().toUri().toString();
-//		String targetmodel= modelsRoot.resolve("Gen_Graph20.xmi").toAbsolutePath().toUri().toString();
-		
+
 		Chaining_MT chainingmt = new Chaining_MT();
-		
+
 		String simpleTraceMM = metamodelsRoot.resolve("SimpleTrace.ecore").toString();
 		String tmMM = modelsRoot.resolve("TM.ecore").toString();
 		String dbMM = metamodelsRoot.resolve("DB.ecore").toString();
-//		System.out.println("123");
-		String sourcemodel=modelsRoot.resolve("SimpleTrace.xmi").toAbsolutePath().toUri().toString();
-		String targetmodel= genmodelsRoot.resolve("Gen_Graph20.xmi").toAbsolutePath().toUri().toString();
-		
+		String sourcemodel = modelsRoot.resolve("SimpleTrace.xmi").toAbsolutePath().toUri().toString();
+		String targetmodel = genmodelsRoot.resolve("Gen_Graph20.xmi").toAbsolutePath().toUri().toString();
+
 		ArrayList<String> bestchain = chainingmt.identifybestchain1(sourcemodel, simpleTraceMM, targetmodel, dbMM);
-		
-		System.out.println("Best chain: "+bestchain);
-		EmfModel sourceEmfModel = new EmfModel();
-		sourceEmfModel.setName("SimpleTrace");
-		sourceEmfModel.setModelFile(modelsRoot.resolve("SimpleTrace.xmi").toString());
-		sourceEmfModel.setMetamodelFile(simpleTraceMM);
-		sourceEmfModel.setReadOnLoad(true);
-		sourceEmfModel.setStoredOnDisposal(false);
-		
-		EmfModel intermediateEmfModel = new EmfModel();
-		intermediateEmfModel.setName("TM");
-		intermediateEmfModel.setModelFile(modelsRoot.resolve("Gen_SimpleTrace2TM.xmi").toString());
-		intermediateEmfModel.setMetamodelFile(tmMM);
-		intermediateEmfModel.setReadOnLoad(false);
-		intermediateEmfModel.setStoredOnDisposal(true);
-		
-		EmfModel targetEmfModel = new EmfModel();
-		targetEmfModel.setName("DB");
-		targetEmfModel.setModelFile(modelsRoot.resolve("Gen_TM2DB.xmi").toString());
-		targetEmfModel.setMetamodelFile(dbMM);
-		targetEmfModel.setReadOnLoad(false);
-		targetEmfModel.setStoredOnDisposal(true);
-		
-		//System.out.println(bestchain);
-		ArrayList<EtlStaticAnalyser> staticAnalysers = null;
-		ArrayList<EtlModule> modules = null;
-		for(int i=0;i<bestchain.size();i++)
-		{
-			
-			//System.out.println(bestchain);
+
+		System.out.println("Best chain: " + bestchain);
+		try (EmfModel sourceEmfModel = new EmfModel()) {
+			sourceEmfModel.setName("SimpleTrace");
+			sourceEmfModel.setModelFile(modelsRoot.resolve("SimpleTrace.xmi").toString());
+			sourceEmfModel.setMetamodelFile(simpleTraceMM);
+			sourceEmfModel.setReadOnLoad(true);
+			sourceEmfModel.setStoredOnDisposal(false);
+		}
+		try (EmfModel intermediateEmfModel = new EmfModel()) {
+			intermediateEmfModel.setName("TM");
+			intermediateEmfModel.setModelFile(modelsRoot.resolve("Gen_SimpleTrace2TM.xmi").toString());
+			intermediateEmfModel.setMetamodelFile(tmMM);
+			intermediateEmfModel.setReadOnLoad(false);
+			intermediateEmfModel.setStoredOnDisposal(true);
+		}
+		try (EmfModel targetEmfModel = new EmfModel()) {
+			targetEmfModel.setName("DB");
+			targetEmfModel.setModelFile(modelsRoot.resolve("Gen_TM2DB.xmi").toString());
+			targetEmfModel.setMetamodelFile(dbMM);
+			targetEmfModel.setReadOnLoad(false);
+			targetEmfModel.setStoredOnDisposal(true);
+		}
+		ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
+		ArrayList<EtlModule> modules = new ArrayList<>();
+
+		for (int i = 0; i < bestchain.size(); i++) {
 			EtlModule module1 = new EtlModule();
-			
-			if(i+1<bestchain.size())
-			{
-				
-				System.out.println("\n"+bestchain.get(i)+" -> "+bestchain.get(i+1)+"\n");
-				
+
+			if (i + 1 < bestchain.size()) {
+
+				System.out.println("\n" + bestchain.get(i) + " -> " + bestchain.get(i + 1) + "\n");
+
 				EtlStaticAnalyser staticAnlayser = new EtlStaticAnalyser();
-				module1.parse(scriptRoot.resolve(chainingmt.identifyETL(metamodelPath+"/"+bestchain.get(i), metamodelPath+"/"+(bestchain.get(i+1)))));
+				module1.parse(scriptRoot.resolve(chainingmt.identifyETL(metamodelPath + "/" + bestchain.get(i),
+						metamodelPath + "/" + (bestchain.get(i + 1)))));
 				for (ModelDeclaration modelDeclaration : module1.getDeclaredModelDeclarations()) {
 					if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
 						staticAnlayser.getContext().setModelFactory(new SubEmfModelFactory());
 					}
 				}
-				
+
 				staticAnlayser.validate(module1);
-				
-				modules = new ArrayList<>();
-				
+
 				modules.add(module1);
-//				System.out.println();
-				
-				staticAnalysers = new ArrayList<>();
 				staticAnalysers.add(staticAnlayser);
-			
-//				System.out.println(modules);
-//				System.out.println(staticAnalysers);
-				new EtlRewritingHandler().invokeRewriters(modules, staticAnalysers);
+
 			}
-			
+
 		}
-		
+		Collections.reverse(modules);
+		Collections.reverse(staticAnalysers);
+		new EtlRewritingHandler().invokeRewriters(modules, staticAnalysers);
+
 //		EtlModule module1 = new EtlModule();
 //		EtlModule module2 = new EtlModule();
 //		
@@ -157,6 +146,6 @@ public class EtlChainOptimiser {
 //		sourceEmfModel.dispose();
 //		intermediateEmfModel.dispose();
 //		targetEmfModel.dispose();	
-		
+
 	}
 }
