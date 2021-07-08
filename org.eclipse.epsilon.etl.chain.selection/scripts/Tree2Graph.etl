@@ -10,9 +10,8 @@ rule Tree2Node
 	transform t:Tree!Tree
 	to n : Graph!Node {
 
-	//guard : UserInput.confirm('Transform tree ' + t.label + '?', true)
-	n.label := t.label;
-	var target : Graph!Node := t.parent.equivalent();
+	n.label := t.label; //Number of op/exp = 2+2= 4
+	var target : Graph!Node := t.parent.equivalent(); //Number of op/exp = 2+2+2= 6
 	if (target.isDefined()) { 
 		var edge := new Graph!Edge;
 		edge.source := target;

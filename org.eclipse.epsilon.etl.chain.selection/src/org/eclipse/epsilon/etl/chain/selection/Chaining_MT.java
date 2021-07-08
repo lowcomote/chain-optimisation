@@ -106,7 +106,7 @@ public class Chaining_MT {
 				//Path etlscript2 = scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+contents[j].replaceFirst("[.][^.]+$", "")+".etl");
 				//Path etlscript3 = scriptRoot.resolve(contents[j].replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
 				
-				String intermetamodel = metamodelPath+"\\"+contents[j];
+				String intermetamodel = metamodelPath+"/"+contents[j];
 				Path intermodelpath = genmodelsRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+contents[j].replaceFirst("[.][^.]+$", "")+".xmi");
 				String intermodel = intermodelpath.toAbsolutePath().toUri().toString();
 			
@@ -137,16 +137,17 @@ public class Chaining_MT {
 						//chainMT(sourceModel, sourceMM, targetModel, targetMM);
 						if(s2)
 							modelsuse1.add(targetMM.substring(11));
-						
-						
-						for (String element : modelsuse1) {
-							if (!modelsuse3.contains(element))
-								modelsuse3.add(element);
-						}
+
+					
 						
 					}
 			
+					for (String element : modelsuse1) {
+						if (!modelsuse3.contains(element))
+							modelsuse3.add(element);
+					}
 			}
+			
 			
 		}
 
@@ -160,7 +161,7 @@ public class Chaining_MT {
 				{
 				//boolean sc1 = scriptRoot.resolve(modelsuse3.get(k).replaceFirst("[.][^.]+$", "")+"2"+modelsuse3.get(l).replaceFirst("[.][^.]+$", "")+".etl").toFile().exists();
 				//System.out.println(modelsuse3.get(k));
-				boolean sc1 = findETL(metamodelPath+"\\"+modelsuse3.get(k), metamodelPath+"\\"+modelsuse3.get(l));
+				boolean sc1 = findETL(metamodelPath+"/"+modelsuse3.get(k), metamodelPath+"/"+modelsuse3.get(l));
 				if(sc1)
 				{
 					modelsuse40=modelsuse3.subList(0, l-1);
@@ -174,6 +175,7 @@ public class Chaining_MT {
 						if (!modelsuse5.contains(element))
 							modelsuse5.add(element);
 					}
+					//System.out.println(modelsuse5);
 					
 				}
 				
@@ -183,12 +185,13 @@ public class Chaining_MT {
 			}
 			
 			
-			if(!modelsuse3.isEmpty() && !modelsuse5.isEmpty())
-			{
+			if(!modelsuse3.isEmpty())
 				newmodelsuse.add(modelsuse3);
-				newmodelsuse.add(modelsuse5);
-			}
 				
+			
+			if(!modelsuse5.isEmpty())
+				newmodelsuse.add(modelsuse5);
+			
 			System.out.println(newmodelsuse);
 			return newmodelsuse;
 	
@@ -431,7 +434,7 @@ public ArrayList<String> identifybestchain(String sourceModel, String sourceMM, 
 					System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1)+"\n");
 					
 					//module1.parse(scriptRoot.resolve(l.get(i).get(j).replaceFirst("[.][^.]+$", "")+"2"+l.get(i).get(j+1).replaceFirst("[.][^.]+$", "")+".etl"));
-					module1.parse(scriptRoot.resolve(identifyETL(metamodelPath+"\\"+l.get(i).get(j), metamodelPath+"\\"+l.get(i).get(j+1))));
+					module1.parse(scriptRoot.resolve(identifyETL(metamodelPath+"/"+l.get(i).get(j), metamodelPath+"/"+l.get(i).get(j+1))));
 					
 					total = calculateMTChain(module1);
 					sum[i]=sum[i]+total;
@@ -467,7 +470,7 @@ public ArrayList<String> identifybestchain(String sourceModel, String sourceMM, 
 				Path newtargetmodelpath = modelsRoot.resolve(index.get(k+1).replaceFirst("[.][^.]+$", "")+".xmi");
 				String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
 				
-				exec = executeETL(newsourcemodel, metamodelPath+"\\"+index.get(k), newtargetmodel, metamodelPath+"\\"+index.get(k+1));
+				exec = executeETL(newsourcemodel, metamodelPath+"/"+index.get(k), newtargetmodel, metamodelPath+"/"+index.get(k+1));
 				
 			}
 			
@@ -614,6 +617,210 @@ public String identifyETL(String sourceMM, String targetMM) throws Exception
 	//return flag;
 	
 	}
+
+
+//-----------repeated codes for EtlChainOptimiser---------------
+
+public int calculateMTChain1(IEolModule module) throws Exception
+{
+	String statementName, expressionName, operationName = null;
+	int numberofexpression = 0, numberofoperation = 0, totalstatement = 0;
+	int totalfeatures = 0, totalexpressionandoperation, totalstructuratlfeatures = 0;
+//	int sumofoperation = 0;
+	String newOp = null;
+	List<ModuleElement> opName, expName;
+	List<List<ModuleElement>> totexpName = null;
+	Statement stName;
+	
+	if (module instanceof EtlModule)
+	{
+	EtlStaticAnalyser staticAnalyser = new EtlStaticAnalyser();
+		
+	//Chaining_MT chainingmt = new Chaining_MT();
+	//List<ArrayList<String>> l = chainingmt.identifychain(sourceModel, sourceMM, targetModel, targetMM);
+	int max=0;
+	for (ModelDeclaration modelDeclaration : module.getDeclaredModelDeclarations()) {
+
+		if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
+
+			staticAnalyser.getContext().setModelFactory(new SubEmfModelFactory());
+
+		}
+
+	}
+	staticAnalyser.validate(module);
+	
+	for(int i=0;i<((EtlModule) module).getTransformationRules().size();i++)
+	{
+		EolModelElementType type =(EolModelElementType) staticAnalyser.getType(((EtlModule) module).getTransformationRules().get(i).getSourceParameter());
+					
+		for(int j=0;j<((EtlModule) module).getTransformationRules().get(i).getTargetParameters().size();j++)
+		{
+			EolModelElementType type1 =(EolModelElementType) staticAnalyser.getType(((EtlModule) module).getTransformationRules().get(i).getTargetParameters().get(j));
+//			System.out.println("Transformation rule"+(i+1)+": "+type.getTypeName()+" to "+type1.getTypeName()+"\n");
+						
+		}
+					
+		StatementBlock ruleblock=(StatementBlock) ((EtlModule) module).getTransformationRules().get(i).getBody().getBody();
+		int c=0;
+		int sumofoperation, totexpSize = 0;
+		totalstatement=0;
+		totalfeatures=0;
+		//int sumofoperation = 0;
+		for(int k=0;k<ruleblock.getStatements().size();k++)
+		{
+			sumofoperation = 0;
+			//statementName=ruleblock.getStatements().get(k).toString().split(" ")[0];
+			stName = ruleblock.getStatements().get(k);
+			statementName=stName.toString();
+			expName = stName.getChildren();
+			expressionName=expName.toString();
+			numberofexpression=expName.size();
+			c++;
+//			System.out.println("Statement number "+c);
+//			System.out.println(statementName+"\n"+expressionName+"\n");
+			
+			//calculateExpressions(expName);
+			for(int l=0;l<numberofexpression;l++)
+			{
+				opName=expName.get(l).getChildren();
+//				for(int m=0;m<opName.size();m++)
+//				{
+				if(!opName.isEmpty())
+				{
+					totexpName = calculateExpressions(opName);
+//					System.out.println(totexpName);
+					for(int m=0;m<totexpName.size();m++)
+					{
+						totexpSize = totexpName.get(m).size();
+//						System.out.println(totexpName.get(m));
+						sumofoperation=sumofoperation+totexpSize;
+//						System.out.println(totexpSize);
+					}
+					
+					//totexpSize++;
+					
+				}
+					
+
+			}
+
+			//System.out.println(newOp);
+//			System.out.println("Number of expressions and operations: "+sumofoperation+"\n");
+			
+			
+			//System.out.println("Number of expression: "+numberofexpression+"\n");
+			
+			
+			//totalexpressionandoperation = numberofexpression+numberofoperation;
+			totalfeatures=totalfeatures+sumofoperation;
+			//System.out.println("Total no. of expression and operation: "+totalexpressionandoperation+"\n");
+		}
+					
+		//System.out.println("The no. of statements used in the transformation rule are "+c+"\n");
+		//totalstatement=totalstatement+sumofoperation;
+		totalstatement=totalstatement+totalfeatures;
+		//System.out.println("Total statements and expressions in the transformation: "+totalstatement+"\n");
+		//System.out.println(totalfeatures);
+				
+			//}
+		for(int j=0;j<((EtlModule) module).getTransformationRules().get(i).getTargetParameters().size();j++)
+		{
+			EolModelElementType type1 =(EolModelElementType) staticAnalyser.getType(((EtlModule) module).getTransformationRules().get(i).getTargetParameters().get(j));
+//			System.out.println("Total operators used in the transformation rule "+type.getTypeName()+" to "+type1.getTypeName()+":"+totalstatement+"\n");
+		}
+			//return totalstatement;
+		//}
+		
+		//if(totalstatement>max)
+			//max=totalstatement;
+	//}
+	totalstructuratlfeatures=totalstructuratlfeatures+totalstatement;
+	}
+	//return totalstatement;
+}
+return totalstructuratlfeatures;
+
+}
+
+public ArrayList<String> identifybestchain1(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
+{
+	
+	//List<ArrayList<String>> l1 = chainingmt.identifyMT(sourcemodel, sourceMM, targetmodel, targetMM);
+	List<ArrayList<String>> l = identifychain(sourceModel, sourceMM, targetModel, targetMM);
+	
+		EtlRunConfiguration exec=null;
+//		IEolModule module = null;
+		int min=9999;
+		ArrayList<String> index = null;
+		System.out.println("\n");
+		int[] sum = new int[l.size()];
+		
+		for(int i=0;i<l.size();i++)
+		{
+			//int[] sum = new int[l.size()];
+//			System.out.println("Chain"+(i+1)+" "+l.get(i)+"\n");
+			//sum[i]=0;
+			
+//			chainingmt.calculateMTChain(sourcemodel, sourceMM, targetmodel, targetMM);
+			//System.out.println(l.get(i).get(0));
+			int total=0;
+			int tot1=0;
+			for(int j=0;j<l.get(i).size();j++)
+			{
+				
+				EtlModule module1 = new EtlModule();
+				
+				if(j+1<l.get(i).size())
+				{
+				
+//					System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1)+"\n");
+					
+					//module1.parse(scriptRoot.resolve(l.get(i).get(j).replaceFirst("[.][^.]+$", "")+"2"+l.get(i).get(j+1).replaceFirst("[.][^.]+$", "")+".etl"));
+					module1.parse(scriptRoot.resolve(identifyETL(metamodelPath+"/"+l.get(i).get(j), metamodelPath+"/"+l.get(i).get(j+1))));
+					
+					total = calculateMTChain1(module1);
+					sum[i]=sum[i]+total;
+
+//					System.out.println("Total operators used in the transformation "+l.get(i).get(j)+" -> "+l.get(i).get(j+1)+": "+total+"\n");
+				}
+				
+		
+			}
+			if(sum[i]<min)
+			{
+				min=sum[i];
+				index=l.get(i);
+			}
+			
+//			System.out.println("Total operators used in the chain: "+sum[i]);
+//			System.out.println("---------------------------------------------------------\n");
+			
+		}
+		
+//		System.out.println("\nMT Chain "+index+" has minimum structural features of " + min);
+//		System.out.println("------------------Executing best chain--------------------");
+		for(int k=0;k<index.size();k++)
+		{
+			if(k+1<index.size())
+			{
+				
+				//System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1));
+				
+				Path newsourcemodelpath = modelsRoot.resolve(index.get(k).replaceFirst("[.][^.]+$", "")+".xmi");
+				String newsourcemodel = newsourcemodelpath.toAbsolutePath().toUri().toString();
+				
+				Path newtargetmodelpath = modelsRoot.resolve(index.get(k+1).replaceFirst("[.][^.]+$", "")+".xmi");
+				String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
+				
+				//exec = executeETL(newsourcemodel, metamodelPath+"/"+index.get(k), newtargetmodel, metamodelPath+"/"+index.get(k+1));
+				
+			}
+			
+		}
+		return index;
+
+}
 
 
 }

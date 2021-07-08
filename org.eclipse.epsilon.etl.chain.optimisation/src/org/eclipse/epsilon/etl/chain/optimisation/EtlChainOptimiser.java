@@ -1,5 +1,6 @@
 package org.eclipse.epsilon.etl.chain.optimisation;
 
+import java.io.File;
 /*******************************************************************************
  * Copyright (c) 2008 The University of York.
  * This program and the accompanying materials
@@ -17,6 +18,7 @@ import org.eclipse.epsilon.emc.emf.EmfModel;
 import org.eclipse.epsilon.eol.dom.ModelDeclaration;
 import org.eclipse.epsilon.eol.staticanalyser.SubEmfModelFactory;
 import org.eclipse.epsilon.etl.EtlModule;
+import org.eclipse.epsilon.etl.chain.selection.Chaining_MT;
 import org.eclipse.epsilon.etl.staticanalyser.EtlStaticAnalyser;
 
 /**
@@ -29,11 +31,26 @@ public class EtlChainOptimiser {
 	public static void main(String[] args) throws Exception {
 		Path modelsRoot = Paths.get("models");
 		Path scriptRoot = Paths.get("scripts");
+		Path metamodelsRoot = Paths.get("metamodels");
+		Path genmodelsRoot = Paths.get("models/generatedmodels");
 		
-		String simpleTraceMM = modelsRoot.resolve("SimpleTrace.ecore").toString();
+		File metamodelPath = new File("metamodels");
+		
+//		String sourcemodel=modelsRoot.resolve("Tree2.xmi").toAbsolutePath().toUri().toString();
+//		String targetmodel= modelsRoot.resolve("Gen_Graph20.xmi").toAbsolutePath().toUri().toString();
+		
+		Chaining_MT chainingmt = new Chaining_MT();
+		
+		String simpleTraceMM = metamodelsRoot.resolve("SimpleTrace.ecore").toString();
 		String tmMM = modelsRoot.resolve("TM.ecore").toString();
-		String dbMM = modelsRoot.resolve("DB.ecore").toString();
+		String dbMM = metamodelsRoot.resolve("DB.ecore").toString();
+//		System.out.println("123");
+		String sourcemodel=modelsRoot.resolve("SimpleTrace.xmi").toAbsolutePath().toUri().toString();
+		String targetmodel= genmodelsRoot.resolve("Gen_Graph20.xmi").toAbsolutePath().toUri().toString();
 		
+		ArrayList<String> bestchain = chainingmt.identifybestchain1(sourcemodel, simpleTraceMM, targetmodel, dbMM);
+		
+		System.out.println("Best chain: "+bestchain);
 		EmfModel sourceEmfModel = new EmfModel();
 		sourceEmfModel.setName("SimpleTrace");
 		sourceEmfModel.setModelFile(modelsRoot.resolve("SimpleTrace.xmi").toString());
@@ -55,37 +72,77 @@ public class EtlChainOptimiser {
 		targetEmfModel.setReadOnLoad(false);
 		targetEmfModel.setStoredOnDisposal(true);
 		
-		EtlModule module1 = new EtlModule();
-		EtlModule module2 = new EtlModule();
-		
-		module1.parse(scriptRoot.resolve("SimpleTrace2TM.etl"));
-		EtlStaticAnalyser staticAnlayser = new EtlStaticAnalyser();
-		for (ModelDeclaration modelDeclaration : module1.getDeclaredModelDeclarations()) {
-			if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
-				staticAnlayser.getContext().setModelFactory(new SubEmfModelFactory());
+		//System.out.println(bestchain);
+		ArrayList<EtlStaticAnalyser> staticAnalysers = null;
+		ArrayList<EtlModule> modules = null;
+		for(int i=0;i<bestchain.size();i++)
+		{
+			
+			//System.out.println(bestchain);
+			EtlModule module1 = new EtlModule();
+			
+			if(i+1<bestchain.size())
+			{
+				
+				System.out.println("\n"+bestchain.get(i)+" -> "+bestchain.get(i+1)+"\n");
+				
+				EtlStaticAnalyser staticAnlayser = new EtlStaticAnalyser();
+				module1.parse(scriptRoot.resolve(chainingmt.identifyETL(metamodelPath+"/"+bestchain.get(i), metamodelPath+"/"+(bestchain.get(i+1)))));
+				for (ModelDeclaration modelDeclaration : module1.getDeclaredModelDeclarations()) {
+					if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
+						staticAnlayser.getContext().setModelFactory(new SubEmfModelFactory());
+					}
+				}
+				
+				staticAnlayser.validate(module1);
+				
+				modules = new ArrayList<>();
+				
+				modules.add(module1);
+//				System.out.println();
+				
+				staticAnalysers = new ArrayList<>();
+				staticAnalysers.add(staticAnlayser);
+			
+//				System.out.println(modules);
+//				System.out.println(staticAnalysers);
+				new EtlRewritingHandler().invokeRewriters(modules, staticAnalysers);
 			}
+			
 		}
-		staticAnlayser.validate(module1);
 		
-		module2.parse(scriptRoot.resolve("TM2DB.etl"));
-		EtlStaticAnalyser staticAnlayser1 = new EtlStaticAnalyser();
-		for (ModelDeclaration modelDeclaration : module2.getDeclaredModelDeclarations()) {
-			if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
-				staticAnlayser.getContext().setModelFactory(new SubEmfModelFactory());
-			}
-		}
-		staticAnlayser.validate(module2);
-		ArrayList<EtlModule> modules = new ArrayList<>();
-		modules.add(module2);
-		modules.add(module1);
-		
-		System.out.println();
-		ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
-		staticAnalysers.add(staticAnlayser1);
-		staticAnalysers.add(staticAnlayser);
-
-		new EtlRewritingHandler().invokeRewriters(modules, staticAnalysers);
-
+//		EtlModule module1 = new EtlModule();
+//		EtlModule module2 = new EtlModule();
+//		
+//		module1.parse(scriptRoot.resolve("SimpleTrace2TM.etl"));
+//		EtlStaticAnalyser staticAnlayser = new EtlStaticAnalyser();
+//		for (ModelDeclaration modelDeclaration : module1.getDeclaredModelDeclarations()) {
+//			if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
+//				staticAnlayser.getContext().setModelFactory(new SubEmfModelFactory());
+//			}
+//		}
+//		staticAnlayser.validate(module1);
+//		
+//		module2.parse(scriptRoot.resolve("TM2DB.etl"));
+//		EtlStaticAnalyser staticAnlayser1 = new EtlStaticAnalyser();
+//		for (ModelDeclaration modelDeclaration : module2.getDeclaredModelDeclarations()) {
+//			if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
+//				staticAnlayser1.getContext().setModelFactory(new SubEmfModelFactory());
+//			}
+//		}
+//		staticAnlayser1.validate(module2);
+//		ArrayList<EtlModule> modules = new ArrayList<>();
+//		
+//		modules.add(module1);
+//		modules.add(module2);
+//		
+//		System.out.println();
+//		ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
+//		staticAnalysers.add(staticAnlayser);
+//		staticAnalysers.add(staticAnlayser1);
+//
+//		new EtlRewritingHandler().invokeRewriters(modules, staticAnalysers);
+//
 //		sourceEmfModel.load();
 //		intermediateEmfModel.load();
 //		targetEmfModel.load();

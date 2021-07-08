@@ -1,3 +1,11 @@
+model Tree driver EMF {
+nsuri = "TreeDsl"
+};
+
+model SimpleTrace driver EMF {
+nsuri = "SimpleTrace "
+};
+
 rule Tree2TraceLink
 	transform t:Tree!Tree
 	to n:SimpleTrace!TraceLink {

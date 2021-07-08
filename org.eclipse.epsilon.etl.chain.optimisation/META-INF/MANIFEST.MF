@@ -10,3 +10,4 @@ Require-Bundle: org.eclipse.epsilon.eol.engine,
  org.eclipse.epsilon.etl.staticanalyser,
  org.eclipse.epsilon.eol.staticanalyser,
  org.eclipse.epsilon.emc.emf;bundle-version="2.4.0"
+Import-Package: org.eclipse.epsilon.etl.chain.selection

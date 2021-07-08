@@ -25,7 +25,7 @@ public class Chain_MT {
 
 		Chaining_MT chainingmt = new Chaining_MT();
 		
-		String sourcemodel=modelsRoot.resolve("Tree2.xmi").toAbsolutePath().toUri().toString();
+		String sourcemodel=modelsRoot.resolve("Tree.xmi").toAbsolutePath().toUri().toString();
 		String sourceMM = metamodelsRoot.resolve("Tree.ecore").toString();
 		String targetMM = metamodelsRoot.resolve("DB.ecore").toString();
 		String targetmodel= genmodelsRoot.resolve("Gen_Graph20.xmi").toAbsolutePath().toUri().toString();
