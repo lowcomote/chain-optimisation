@@ -5,9 +5,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Spliterator;
-import java.util.stream.Collector;
 
 import org.eclipse.epsilon.common.module.ModuleElement;
 import org.eclipse.epsilon.common.util.StringProperties;
@@ -16,11 +13,9 @@ import org.eclipse.epsilon.eol.IEolModule;
 import org.eclipse.epsilon.eol.dom.ModelDeclaration;
 import org.eclipse.epsilon.eol.dom.Statement;
 import org.eclipse.epsilon.eol.dom.StatementBlock;
-import org.eclipse.epsilon.eol.models.IModel;
 import org.eclipse.epsilon.eol.staticanalyser.SubEmfModelFactory;
 import org.eclipse.epsilon.eol.types.EolModelElementType;
 import org.eclipse.epsilon.etl.EtlModule;
-import org.eclipse.epsilon.etl.IEtlModule;
 import org.eclipse.epsilon.etl.launch.EtlRunConfiguration;
 import org.eclipse.epsilon.etl.staticanalyser.EtlStaticAnalyser;
 
