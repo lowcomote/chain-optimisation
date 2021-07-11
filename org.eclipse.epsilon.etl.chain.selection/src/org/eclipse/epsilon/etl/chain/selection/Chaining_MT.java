@@ -110,10 +110,10 @@ public class Chaining_MT {
 				Path intermodelpath = genmodelsRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+contents[j].replaceFirst("[.][^.]+$", "")+".xmi");
 				String intermodel = intermodelpath.toAbsolutePath().toUri().toString();
 			
-//			System.out.println("1"+sourceMM);
+//				System.out.println("1"+sourceMM);
 ////			System.out.println(contents[j]);
-//			System.out.println("2"+intermetamodel);
-//			System.out.println(findETL(sourceMM, intermetamodel));
+//				System.out.println("2"+intermetamodel);
+//				System.out.println(findETL(sourceMM, intermetamodel));
 					//if(etlscript2.toFile().exists())
 					if(findETL(sourceMM, intermetamodel))
 					{	
@@ -137,9 +137,7 @@ public class Chaining_MT {
 						//chainMT(sourceModel, sourceMM, targetModel, targetMM);
 						if(s2)
 							modelsuse1.add(targetMM.substring(11));
-
-					
-						
+	
 					}
 			
 					for (String element : modelsuse1) {
@@ -147,7 +145,7 @@ public class Chaining_MT {
 							modelsuse3.add(element);
 					}
 			}
-			
+
 			
 		}
 
@@ -200,7 +198,8 @@ public class Chaining_MT {
 	
 	public EtlRunConfiguration executeETL(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
 	{
-		etlscript=scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
+//		etlscript=scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
+		etlscript=scriptRoot.resolve(identifyETL(metamodelPath+"/"+sourceMM.substring(11).replaceFirst("[.][^.]+$", ""), metamodelPath+"/"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")));
 		
 		sourceProperties = modelProperties.properties(sourceMM.substring(11).replaceFirst("[.][^.]+$", ""), sourceMM, sourceModel,"true","false");
 		targetProperties = modelProperties.properties(targetMM.substring(11).replaceFirst("[.][^.]+$", ""), targetMM, targetModel,"false","true");
@@ -224,8 +223,7 @@ public class Chaining_MT {
 		
 		runConfig.dispose();
 		return runConfig;
-		
-		
+	
 	}
 	
 	
@@ -745,7 +743,7 @@ return totalstructuratlfeatures;
 
 public ArrayList<String> identifybestchain1(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
 {
-	
+//	System.out.println("123");
 	//List<ArrayList<String>> l1 = chainingmt.identifyMT(sourcemodel, sourceMM, targetmodel, targetMM);
 	List<ArrayList<String>> l = identifychain(sourceModel, sourceMM, targetModel, targetMM);
 	
@@ -774,9 +772,9 @@ public ArrayList<String> identifybestchain1(String sourceModel, String sourceMM,
 				if(j+1<l.get(i).size())
 				{
 				
-//					System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1)+"\n");
+					System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1)+"\n");
 					
-					//module1.parse(scriptRoot.resolve(l.get(i).get(j).replaceFirst("[.][^.]+$", "")+"2"+l.get(i).get(j+1).replaceFirst("[.][^.]+$", "")+".etl"));
+					module1.parse(scriptRoot.resolve(l.get(i).get(j).replaceFirst("[.][^.]+$", "")+"2"+l.get(i).get(j+1).replaceFirst("[.][^.]+$", "")+".etl"));
 					module1.parse(scriptRoot.resolve(identifyETL(metamodelPath+"/"+l.get(i).get(j), metamodelPath+"/"+l.get(i).get(j+1))));
 					
 					total = calculateMTChain1(module1);
@@ -805,7 +803,7 @@ public ArrayList<String> identifybestchain1(String sourceModel, String sourceMM,
 			if(k+1<index.size())
 			{
 				
-				//System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1));
+//				System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1));
 				
 				Path newsourcemodelpath = modelsRoot.resolve(index.get(k).replaceFirst("[.][^.]+$", "")+".xmi");
 				String newsourcemodel = newsourcemodelpath.toAbsolutePath().toUri().toString();
@@ -813,7 +811,7 @@ public ArrayList<String> identifybestchain1(String sourceModel, String sourceMM,
 				Path newtargetmodelpath = modelsRoot.resolve(index.get(k+1).replaceFirst("[.][^.]+$", "")+".xmi");
 				String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
 				
-				//exec = executeETL(newsourcemodel, metamodelPath+"/"+index.get(k), newtargetmodel, metamodelPath+"/"+index.get(k+1));
+				exec = executeETL(newsourcemodel, metamodelPath+"/"+index.get(k), newtargetmodel, metamodelPath+"/"+index.get(k+1));
 				
 			}
 			

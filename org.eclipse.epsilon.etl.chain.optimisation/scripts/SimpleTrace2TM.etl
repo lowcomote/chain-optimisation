@@ -6,8 +6,8 @@ model TM driver EMF {
 nsuri = "TM"
 };
 
-pre{"
-	SimpleTrace2TM transformation begins".println();
+pre{
+	"SimpleTrace2TM transformation begins".println();
 }
 
 rule Trace2TypeMap
@@ -15,6 +15,7 @@ rule Trace2TypeMap
 	to n:TM!TypeMap {
 	n.mappings=t.links;
 	//"1".println();
+	"Rule1 executed".println();
 	}
 	
 rule TraceLink2TypeMapping
@@ -23,8 +24,9 @@ rule TraceLink2TypeMapping
 	//t.source=tr.sources;
 	//t.target=tr.targets;
 	t.source="source";
+	"Rule2 executed".println();
 	}
 	
-post{"
-	SimpleTrace2TM transformation ends".println();
+post{
+	"SimpleTrace2TM transformation ends".println();
 }
