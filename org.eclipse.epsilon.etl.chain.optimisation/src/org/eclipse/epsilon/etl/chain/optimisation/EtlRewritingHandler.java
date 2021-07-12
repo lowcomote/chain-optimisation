@@ -61,6 +61,8 @@ public class EtlRewritingHandler {
 		
 		EtlRunConfiguration exec=null;
 		
+		int calc, total = 0;
+		
 		for (EtlModule module : modules) {
 			System.out.println("------------------");
 			System.out.println(module.getSourceFile().getName());
@@ -85,6 +87,10 @@ public class EtlRewritingHandler {
 			targetProperties = modelProperties.properties(mm.get(1).getModel().getName(), targetMetamodel, targetModel,"false","true");
 			
 //			exec = chainingmt.executeETL(sourceModel, sourceMetamodel, targetModel, targetMetamodel);
+//			module.parse(scriptRoot.resolve("Script"+".etl"));
+			calc = chainingmt.calculateMTChain(module);
+			
+			total+=calc;
 			
 			EtlRunConfiguration runConfig = EtlRunConfiguration.Builder()
 					.withScript(scriptRoot.resolve("Script"+".etl"))
@@ -108,7 +114,7 @@ public class EtlRewritingHandler {
 			System.out.println(module.getSourceFile());
 			System.out.println(module);
 		}
-		
+		System.out.println("\nTotal structural features in an optimized chain "+total);
 		sourceRules.toString();
 		targetRules.toString();
 		return str;

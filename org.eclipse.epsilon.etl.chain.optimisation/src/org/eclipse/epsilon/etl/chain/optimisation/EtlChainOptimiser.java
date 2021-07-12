@@ -55,7 +55,7 @@ public class EtlChainOptimiser {
 		String sourcemodel=modelsRoot.resolve("SimpleTrace.xmi").toAbsolutePath().toUri().toString();
 		String targetmodel= genmodelsRoot.resolve("Gen_Graph20.xmi").toAbsolutePath().toUri().toString();
 		
-		ArrayList<String> bestchain = chainingmt.identifybestchain1(sourcemodel, simpleTraceMM, targetmodel, dbMM);
+		ArrayList<String> bestchain = chainingmt.identifybestchain(sourcemodel, simpleTraceMM, targetmodel, dbMM);
 		
 		System.out.println("Best chain: "+bestchain);
 		

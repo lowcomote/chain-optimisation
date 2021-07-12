@@ -769,7 +769,7 @@ public ArrayList<String> identifybestchain1(String sourceModel, String sourceMM,
 				
 					System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1)+"\n");
 					
-					module1.parse(scriptRoot.resolve(l.get(i).get(j).replaceFirst("[.][^.]+$", "")+"2"+l.get(i).get(j+1).replaceFirst("[.][^.]+$", "")+".etl"));
+//					module1.parse(scriptRoot.resolve(l.get(i).get(j).replaceFirst("[.][^.]+$", "")+"2"+l.get(i).get(j+1).replaceFirst("[.][^.]+$", "")+".etl"));
 					module1.parse(scriptRoot.resolve(identifyETL(metamodelPath+"/"+l.get(i).get(j), metamodelPath+"/"+l.get(i).get(j+1))));
 					
 					total = calculateMTChain1(module1);

@@ -15,7 +15,7 @@ rule Trace2TypeMap
 	to n:TM!TypeMap {
 	n.mappings=t.links;
 	//"1".println();
-	"Rule1 executed".println();
+	//"Rule1 executed".println();
 	}
 	
 rule TraceLink2TypeMapping
@@ -24,7 +24,7 @@ rule TraceLink2TypeMapping
 	//t.source=tr.sources;
 	//t.target=tr.targets;
 	t.source="source";
-	"Rule2 executed".println();
+	//"Rule2 executed".println();
 	}
 	
 post{
