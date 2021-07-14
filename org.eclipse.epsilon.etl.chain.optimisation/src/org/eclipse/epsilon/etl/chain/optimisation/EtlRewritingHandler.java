@@ -24,26 +24,40 @@ import org.eclipse.epsilon.etl.staticanalyser.EtlStaticAnalyser;
 
 public class EtlRewritingHandler {
 
-	public ArrayList<String> invokeRewriters(ArrayList<EtlModule> modules, ArrayList<EtlStaticAnalyser> staticAnlaysers) throws Exception {
+	public int invokeRewriters(ArrayList<EtlModule> modules, ArrayList<EtlStaticAnalyser> staticAnlaysers) throws Exception {
 		int index = 0;
 		List<EolType> sourceRules = new ArrayList<EolType>();
 		List<EolType> targetRules = new ArrayList<EolType>();
-		for (EtlModule module : modules) {
-
+		for (EtlModule module1 : modules) {
+			EolType type = null;
+			int c=0;
 			EtlStaticAnalyser staticAnalyser = staticAnlaysers.get(index);
-			if (index == 0)
-				for (TransformationRule tr : module.getDeclaredTransformationRules()) {
-					sourceRules.add(staticAnalyser.getType(tr.getSourceParameter()));
-				}
-			else
-				for (TransformationRule tr : module.getDeclaredTransformationRules()) {
-					for (Parameter target : tr.getTargetParameters()) {
-						EolType type = staticAnalyser.getType(target);
-						targetRules.add(type);
-						if (!(sourceRules.contains(type)))
-							module.getTransformationRules().remove(index);
+			try {
+				if (index == 0)
+					for (TransformationRule tr : module1.getDeclaredTransformationRules()) {
+						sourceRules.add(staticAnalyser.getType(tr.getSourceParameter()));
 					}
-				}
+				else
+					for (TransformationRule tr : module1.getDeclaredTransformationRules()) {
+						for (Parameter target : tr.getTargetParameters()) {
+							type = staticAnalyser.getType(target);
+							targetRules.add(type);
+							if (!(sourceRules.contains(type)))
+								module1.getTransformationRules().remove(index);
+							else
+								c++;
+
+						}
+//					if(tr.getTargetParameters().size()>0)
+						if(c==0)
+							System.out.println("No transformation rule available");
+							
+					}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+//				e.printStackTrace();
+				System.out.println(e);
+			}
 			index++;
 
 		}
@@ -61,14 +75,15 @@ public class EtlRewritingHandler {
 		
 		EtlRunConfiguration exec=null;
 		
-		int calc, total = 0;
+		int calc, total=0;
+//		ArrayList<Integer> total = null;
 		
 		for (EtlModule module : modules) {
 			System.out.println("------------------");
 			System.out.println(module.getSourceFile().getName());
 			System.out.println("------------------");
 			System.err.println("\n"+new EtlUnparser().unparse(module));
-			str.add(new EtlUnparser().unparse(module));
+//			str.add(new EtlUnparser().unparse(module));
 			//System.out.println(modules);
 			mm = ((EtlModule) module).getDeclaredModelDeclarations();
 			sourceMetamodel =  metamodelsRoot.resolve(mm.get(0).getModel().getName()+".ecore").toString();
@@ -91,33 +106,35 @@ public class EtlRewritingHandler {
 			calc = chainingmt.calculateMTChain(module);
 			
 			total+=calc;
+//			total.add(calc);
 			
-			EtlRunConfiguration runConfig = EtlRunConfiguration.Builder()
-					.withScript(scriptRoot.resolve("Script"+".etl"))
-					.withModel(new EmfModel(), sourceProperties)
-					.withModel(new EmfModel(), targetProperties)
-					.withParameter("parameterPassedFromJava", "Hello from pre15")
-					.withProfiling()
-					.build();
-			
-			EtlPreExecuteConfiguration sm1 = new EtlPreExecuteConfiguration(runConfig);
-			
-			sm1.run();
+//			EtlRunConfiguration runConfig = EtlRunConfiguration.Builder()
+//					.withScript(scriptRoot.resolve("Script"+".etl"))
+//					.withModel(new EmfModel(), sourceProperties)
+//					.withModel(new EmfModel(), targetProperties)
+//					.withParameter("parameterPassedFromJava", "Hello from pre15")
+//					.withProfiling()
+//					.build();
+//			
+//			EtlPreExecuteConfiguration sm1 = new EtlPreExecuteConfiguration(runConfig);
+//			
+//			sm1.run();
 			
 			scriptRoot.resolve("Script"+".etl").toFile().delete();
 			
-			runConfig.dispose();
+//			runConfig.dispose();
 			
+			System.out.println("No. of operator/expression in model transformation "+module.getSourceFile().getName()+" is "+calc);
 			System.out.println(sourceMetamodel);
 			System.out.println(targetMetamodel);
 			System.out.println(module.getTransformationRules());
-			System.out.println(module.getSourceFile());
-			System.out.println(module);
+//			System.out.println(module.getSourceFile());
+//			System.out.println(module);
 		}
-		System.out.println("\nTotal structural features in an optimized chain "+total);
-		sourceRules.toString();
-		targetRules.toString();
-		return str;
+//		System.out.println("\nTotal structural features in an optimized chain "+total);
+//		sourceRules.toString();
+//		targetRules.toString();
+		return total;
 	}
 
 }

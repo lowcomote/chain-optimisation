@@ -83,7 +83,7 @@ public class Chaining_MT {
 //		System.out.println(etl1);
 //		//Path etlscript1 = scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+targetMM.substring(11).replaceFirst("[.][^.]+$", "")+".etl");
 //		Path etlscript1 = scriptRoot.resolve(findETL(sourceMM, targetMM));
-		
+//		System.out.println("fhgjhf");
 		//if(etlscript1.toFile().exists())
 		if(etl1)
 		{
@@ -328,7 +328,7 @@ public class Chaining_MT {
 			for(int j=0;j<((EtlModule) module).getTransformationRules().get(i).getTargetParameters().size();j++)
 			{
 				EolModelElementType type1 =(EolModelElementType) staticAnalyser.getType(((EtlModule) module).getTransformationRules().get(i).getTargetParameters().get(j));
-				System.out.println("Total operators used in the transformation rule "+type.getTypeName()+" to "+type1.getTypeName()+":"+totalstatement+"\n");
+				System.out.println("Total expressions/operators used in the transformation rule "+type.getTypeName()+" to "+type1.getTypeName()+":"+totalstatement+"\n");
 			}
 				//return totalstatement;
 			//}
@@ -401,7 +401,7 @@ public ArrayList<String> identifybestchain(String sourceModel, String sourceMM, 
 	
 		EtlRunConfiguration exec=null;
 //		IEolModule module = null;
-		int min=9999;
+		int min=99999;
 		ArrayList<String> index = null;
 		System.out.println("\n");
 		int[] sum = new int[l.size()];
@@ -432,7 +432,7 @@ public ArrayList<String> identifybestchain(String sourceModel, String sourceMM, 
 					total = calculateMTChain(module1);
 					sum[i]=sum[i]+total;
 
-					System.out.println("Total operators used in the transformation "+l.get(i).get(j)+" -> "+l.get(i).get(j+1)+": "+total+"\n");
+					System.out.println("Total expressions/operators used in the transformation "+l.get(i).get(j)+" -> "+l.get(i).get(j+1)+": "+total+"\n");
 				}
 				
 		
@@ -443,7 +443,7 @@ public ArrayList<String> identifybestchain(String sourceModel, String sourceMM, 
 				index=l.get(i);
 			}
 			
-			System.out.println("Total operators used in the chain: "+sum[i]);
+			System.out.println("Total expressions/operators used in the chain: "+sum[i]);
 			System.out.println("---------------------------------------------------------\n");
 			
 		}
@@ -529,7 +529,7 @@ public boolean findETL(String sourceMM, String targetMM) throws Exception
 				//System.out.println(i+" "+sourceMM.substring(11).replaceFirst("[.][^.]+$", "").equals(sourceMetamodel));
 				if(sourceMM.substring(11).replaceFirst("[.][^.]+$", "").equals(sourceMetamodel) && targetMM.substring(11).replaceFirst("[.][^.]+$", "").equals(targetMetamodel))
 				{
-					
+//					System.out.println("gfjhgfj");
 //					etlname = ((EtlModule) module).getSourceFile().getName();
 //					System.out.println(etlname);
 					//return etlname;
@@ -775,7 +775,7 @@ public ArrayList<String> identifybestchain1(String sourceModel, String sourceMM,
 					total = calculateMTChain1(module1);
 					sum[i]=sum[i]+total;
 
-//					System.out.println("Total operators used in the transformation "+l.get(i).get(j)+" -> "+l.get(i).get(j+1)+": "+total+"\n");
+					System.out.println("Total operators used in the transformation "+l.get(i).get(j)+" -> "+l.get(i).get(j+1)+": "+total+"\n");
 				}
 				
 		
@@ -786,31 +786,31 @@ public ArrayList<String> identifybestchain1(String sourceModel, String sourceMM,
 				index=l.get(i);
 			}
 			
-//			System.out.println("Total operators used in the chain: "+sum[i]);
-//			System.out.println("---------------------------------------------------------\n");
+			System.out.println("Total operators used in the chain: "+sum[i]);
+			System.out.println("---------------------------------------------------------\n");
 			
 		}
 		
 //		System.out.println("\nMT Chain "+index+" has minimum structural features of " + min);
 //		System.out.println("------------------Executing best chain--------------------");
-		for(int k=0;k<index.size();k++)
-		{
-			if(k+1<index.size())
-			{
-				
-//				System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1));
-				
-				Path newsourcemodelpath = modelsRoot.resolve(index.get(k).replaceFirst("[.][^.]+$", "")+".xmi");
-				String newsourcemodel = newsourcemodelpath.toAbsolutePath().toUri().toString();
-				
-				Path newtargetmodelpath = modelsRoot.resolve(index.get(k+1).replaceFirst("[.][^.]+$", "")+".xmi");
-				String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
-				
-				exec = executeETL(newsourcemodel, metamodelPath+"/"+index.get(k), newtargetmodel, metamodelPath+"/"+index.get(k+1));
-				
-			}
-			
-		}
+//		for(int k=0;k<index.size();k++)
+//		{
+//			if(k+1<index.size())
+//			{
+//				
+////				System.out.println(l.get(i).get(j)+" -> "+l.get(i).get(j+1));
+//				
+//				Path newsourcemodelpath = modelsRoot.resolve(index.get(k).replaceFirst("[.][^.]+$", "")+".xmi");
+//				String newsourcemodel = newsourcemodelpath.toAbsolutePath().toUri().toString();
+//				
+//				Path newtargetmodelpath = modelsRoot.resolve(index.get(k+1).replaceFirst("[.][^.]+$", "")+".xmi");
+//				String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
+//				
+//				exec = executeETL(newsourcemodel, metamodelPath+"/"+index.get(k), newtargetmodel, metamodelPath+"/"+index.get(k+1));
+//				
+//			}
+//			
+//		}
 		return index;
 
 }
