@@ -136,5 +136,47 @@ public class EtlRewritingHandler {
 //		targetRules.toString();
 		return total;
 	}
+	
+	public void invokeRewriters1(ArrayList<EtlModule> modules, ArrayList<EtlStaticAnalyser> staticAnlaysers) throws Exception {
+		int index = 0;
+		List<EolType> sourceRules = new ArrayList<EolType>();
+		List<EolType> targetRules = new ArrayList<EolType>();
+	for(EtlModule module : modules) {
+//		System.out.println("------------------");
+//		System.out.println(module.getSourceFile().getName());
+//		System.out.println("------------------");
+		EtlStaticAnalyser staticAnalyser = staticAnlaysers.get(index);
+		try {
+			if(index == 0)
+			for(TransformationRule tr: module.getDeclaredTransformationRules()) {
+				sourceRules.add(staticAnalyser.getType(tr.getSourceParameter()));
+			}
+			else
+			for(TransformationRule tr: module.getDeclaredTransformationRules()) {
+				for(Parameter target: tr.getTargetParameters()) {
+					EolType type = staticAnalyser.getType(target);
+				targetRules.add(type);
+				if(!(sourceRules.contains(type)))
+					module.getTransformationRules().remove(index);
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+			System.out.println(e);
+		}
+		index++;
+		
+	}
+	Collections.reverse(modules);
+	for (EtlModule module : modules) {
+		System.out.println("------------------");
+		System.out.println(module.getSourceFile().getName());
+		System.out.println("------------------");
+		System.err.println(new EtlUnparser().unparse(module));
+	}
+//	sourceRules.toString();
+//	targetRules.toString();
+	}
 
 }
