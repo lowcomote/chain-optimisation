@@ -41,7 +41,7 @@ public class EtlChainOptimiser {
 	static String sourceMM = metamodelsRoot.resolve("Tree.ecore").toString();
 	static String targetMM = metamodelsRoot.resolve("DB.ecore").toString();
 	static String sourceModel=modelsRoot.resolve("Tree.xmi").toAbsolutePath().toUri().toString();
-	static String targetModel= genmodelsRoot.resolve("DB.xmi").toAbsolutePath().toUri().toString();
+	static String targetModel= genmodelsRoot.resolve("DB3.xmi").toAbsolutePath().toUri().toString();
 	
 	static Chaining_MT chainingmt = new Chaining_MT();
 	
@@ -54,10 +54,11 @@ public class EtlChainOptimiser {
 		System.out.println("\n 2: Select chain with required transformation rules only\n");
 		System.out.println("\n 3: First select least complex chain with minimum structural features and then select chain with required transformation rules\n");
 		System.out.println("\n 4: First select chain with required transformation rules only and then select least complex chain with minimum structural features\n");
-		
-		Scanner sc= new Scanner(System.in);  
 		System.out.println("\nSelect the execute type number ");
-		int number= sc.nextInt();
+		
+		Scanner scanner = new Scanner(System.in);
+		int number= scanner.nextInt();
+		scanner.close();
 		switch(number)
 		{
 		case 1: ArrayList<String> bestchain = chainingmt.identifybestchain(sourceModel, sourceMM, targetModel, targetMM);
