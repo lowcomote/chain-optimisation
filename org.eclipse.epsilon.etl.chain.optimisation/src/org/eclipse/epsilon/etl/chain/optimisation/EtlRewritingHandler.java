@@ -113,13 +113,15 @@ public class EtlRewritingHandler {
 
 	public void invokeRewriters1(ArrayList<EtlModule> modules, ArrayList<EtlStaticAnalyser> staticAnlaysers)
 			throws Exception {
-		int index = 0;
+		
+		List<Integer> indicesToRemove = new ArrayList<Integer>();
 		List<EolType> sourceRules = new ArrayList<EolType>();
 		List<EolType> targetRules = new ArrayList<EolType>();
 		for (EtlModule module : modules) {
+			int index = 0;
 			EtlStaticAnalyser staticAnalyser = staticAnlaysers.get(index);
 			try {
-				if (index == 0)
+				if (module.equals(modules.get(0)))
 					for (TransformationRule tr : module.getDeclaredTransformationRules()) {
 						sourceRules.add(staticAnalyser.getType(tr.getSourceParameter()));
 					}
@@ -129,14 +131,23 @@ public class EtlRewritingHandler {
 							EolType type = staticAnalyser.getType(target);
 							targetRules.add(type);
 							if (!(sourceRules.contains(type)))
-								module.getTransformationRules().remove(index);
+								indicesToRemove.add(index);
 						}
+						index++;
+
 					}
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-			index++;
-
+			Collections.reverse(indicesToRemove);
+			for(int one: indicesToRemove)
+			module.getTransformationRules().remove(one);
+			indicesToRemove.clear();
+			sourceRules.clear();
+			for (TransformationRule tr : module.getTransformationRules()) {
+				sourceRules.add(staticAnalyser.getType(tr.getSourceParameter()));
+			}
+			
 		}
 		Collections.reverse(modules);
 		for (EtlModule module : modules) {
