@@ -48,12 +48,10 @@ public class EtlChainOptimiser {
 
 		// User input about permutation combination of chain composition and
 		// optimisation
-		System.out.println("\n 1: Select least complex chain with minimum structural features\n");
-		System.out.println("\n 2: Select chain with required transformation rules only\n");
-		System.out.println(
-				"\n 3: First select least complex chain with minimum structural features and then select chain with required transformation rules\n");
-		System.out.println(
-				"\n 4: First select chain with required transformation rules only and then select least complex chain with minimum structural features\n");
+		System.out.println("\n 1: Select chain with minimum complexity \n");
+		System.out.println("\n 2: Optimise each identified chain \n");
+		System.out.println("\n 3: Select chain with minimum complexity -> Optimise \n");
+		System.out.println("\n 4: Optimise -> Select chain with minimum complexity \n");
 		System.out.println("\nSelect the type of execution by inputting a number as described above ");
 
 		Scanner scanner = new Scanner(System.in);
