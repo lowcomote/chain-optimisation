@@ -1,3 +1,5 @@
 /bin/
 org.eclipse.epsilon.etl.chain.selection/bin
 org.eclipse.epsilon.etl.chain.optimisation/bin
+org.eclipse.epsilon.etl.chain.optimisation/.DS_Store
+.DS_Store
