@@ -54,7 +54,7 @@ public class EtlChainOptimiser {
 				"\n 3: First select least complex chain with minimum structural features and then select chain with required transformation rules\n");
 		System.out.println(
 				"\n 4: First select chain with required transformation rules only and then select least complex chain with minimum structural features\n");
-		System.out.println("\nSelect the execute type number ");
+		System.out.println("\nSelect the type of execution by inputting a number as described above ");
 
 		Scanner scanner = new Scanner(System.in);
 		int number = scanner.nextInt();
@@ -72,14 +72,14 @@ public class EtlChainOptimiser {
 			optimize();
 			break;
 		case 4:
-			newexecute();
+			optimizeThenSelect();
 			break;
 		default:
-			System.out.println("Wrong input");
+			System.out.println("Invalid number");
 		}
 	}
 	
-public static void newexecute() throws Exception
+public static void optimizeThenSelect() throws Exception
 {
 	List<ArrayList<String>> chain = chainingMt.identifyChain(sourceModel, sourceMM, targetModel, targetMM);
 	ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
