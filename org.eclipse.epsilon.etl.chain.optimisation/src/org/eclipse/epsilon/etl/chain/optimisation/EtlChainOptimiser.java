@@ -21,7 +21,6 @@ import org.eclipse.epsilon.eol.dom.ModelDeclaration;
 import org.eclipse.epsilon.eol.staticanalyser.SubEmfModelFactory;
 import org.eclipse.epsilon.etl.EtlModule;
 import org.eclipse.epsilon.etl.chain.selection.Chaining_MT;
-import org.eclipse.epsilon.etl.launch.EtlRunConfiguration;
 import org.eclipse.epsilon.etl.staticanalyser.EtlStaticAnalyser;
 
 /**
@@ -159,7 +158,7 @@ public static void optimize() throws Exception
 	ArrayList<EtlModule> modules = new ArrayList<>();
 
 	ArrayList<String> bestchain = chainingmt.identifybestchain2(sourceModel, sourceMM, targetModel, targetMM);
-	int rewritetotal = 0;
+
 	for (int i = 0; i < bestchain.size(); i++) {
 		EtlModule module1 = new EtlModule();
 
@@ -194,7 +193,7 @@ public static void optimize() throws Exception
 			Path newtargetmodelpath = modelsRoot.resolve(bestchain.get(k+1).replaceFirst("[.][^.]+$", "")+".xmi");
 			String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
 			
-			EtlRunConfiguration exec = chainingmt.executeETL(newsourcemodel, metamodelPath+"/"+bestchain.get(k), newtargetmodel, metamodelPath+"/"+bestchain.get(k+1));
+			chainingmt.executeETL(newsourcemodel, metamodelPath+"/"+bestchain.get(k), newtargetmodel, metamodelPath+"/"+bestchain.get(k+1));
 		}
 		
 	}
@@ -206,7 +205,6 @@ public static void optimizeonly() throws Exception
 	List<ArrayList<String>> chain = chainingmt.identifychain(sourceModel, sourceMM, targetModel, targetMM);
 	ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
 	ArrayList<EtlModule> modules = new ArrayList<>();
-	EtlRewritingHandler etlRewritingHandler = new EtlRewritingHandler();
 	
 	for (int j = 0; j < chain.size(); j++) {
 		System.out.println("\nChain"+(j+1)+" "+chain.get(j)+"\n");
