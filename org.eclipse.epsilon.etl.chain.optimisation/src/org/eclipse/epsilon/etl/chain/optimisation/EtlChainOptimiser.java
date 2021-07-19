@@ -81,7 +81,6 @@ public static void newexecute() throws Exception
 	ArrayList<EtlModule> modules = new ArrayList<>();
 	EtlRewritingHandler etlRewritingHandler = new EtlRewritingHandler();
 	
-	EtlRunConfiguration exec=null;
 	int min=99999;
 	int[] sum = new int[chain.size()];
 	ArrayList<String> index = null;
@@ -146,7 +145,7 @@ public static void newexecute() throws Exception
 			Path newtargetmodelpath = modelsRoot.resolve(index.get(k+1).replaceFirst("[.][^.]+$", "")+".xmi");
 			String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
 			
-			exec = chainingmt.executeETL(newsourcemodel, metamodelPath+"/"+index.get(k), newtargetmodel, metamodelPath+"/"+index.get(k+1));
+			chainingmt.executeETL(newsourcemodel, metamodelPath+"/"+index.get(k), newtargetmodel, metamodelPath+"/"+index.get(k+1));
 			
 		}
 		
