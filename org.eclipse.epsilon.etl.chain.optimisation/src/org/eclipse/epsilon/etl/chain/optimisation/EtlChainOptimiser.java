@@ -39,11 +39,9 @@ public class EtlChainOptimiser {
 	static File metamodelPath = new File("metamodels");
 	
 	static String sourceMM = metamodelsRoot.resolve("Tree.ecore").toString();
-	String simpleTraceMM = metamodelsRoot.resolve("SimpleTrace.ecore").toString();
-	static String dbMM = metamodelsRoot.resolve("DB.ecore").toString();
-	String sourcemodel=modelsRoot.resolve("SimpleTrace.xmi").toAbsolutePath().toUri().toString();
+	static String targetMM = metamodelsRoot.resolve("DB.ecore").toString();
 	static String sourceModel=modelsRoot.resolve("Tree.xmi").toAbsolutePath().toUri().toString();
-	static String targetModel= genmodelsRoot.resolve("Gen_Graph20.xmi").toAbsolutePath().toUri().toString();
+	static String targetModel= genmodelsRoot.resolve("DB.xmi").toAbsolutePath().toUri().toString();
 	
 	static Chaining_MT chainingmt = new Chaining_MT();
 	
@@ -62,7 +60,7 @@ public class EtlChainOptimiser {
 		int number= sc.nextInt();
 		switch(number)
 		{
-		case 1: ArrayList<String> bestchain = chainingmt.identifybestchain(sourceModel, sourceMM, targetModel, dbMM);
+		case 1: ArrayList<String> bestchain = chainingmt.identifybestchain(sourceModel, sourceMM, targetModel, targetMM);
 				System.out.println("Best chain: "+bestchain);
 				break;
 		case 2: optimizeonly();
@@ -77,7 +75,7 @@ public class EtlChainOptimiser {
 	
 public static void newexecute() throws Exception
 {
-	List<ArrayList<String>> chain = chainingmt.identifychain(sourceModel, sourceMM, targetModel, dbMM);
+	List<ArrayList<String>> chain = chainingmt.identifychain(sourceModel, sourceMM, targetModel, targetMM);
 	ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
 	ArrayList<EtlModule> modules = new ArrayList<>();
 	EtlRewritingHandler etlRewritingHandler = new EtlRewritingHandler();
@@ -160,7 +158,7 @@ public static void optimize() throws Exception
 	ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
 	ArrayList<EtlModule> modules = new ArrayList<>();
 
-	ArrayList<String> bestchain = chainingmt.identifybestchain2(sourceModel, sourceMM, targetModel, dbMM);
+	ArrayList<String> bestchain = chainingmt.identifybestchain2(sourceModel, sourceMM, targetModel, targetMM);
 	int rewritetotal = 0;
 	for (int i = 0; i < bestchain.size(); i++) {
 		EtlModule module1 = new EtlModule();
@@ -205,7 +203,7 @@ public static void optimize() throws Exception
 
 public static void optimizeonly() throws Exception
 {
-	List<ArrayList<String>> chain = chainingmt.identifychain(sourceModel, sourceMM, targetModel, dbMM);
+	List<ArrayList<String>> chain = chainingmt.identifychain(sourceModel, sourceMM, targetModel, targetMM);
 	ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
 	ArrayList<EtlModule> modules = new ArrayList<>();
 	EtlRewritingHandler etlRewritingHandler = new EtlRewritingHandler();
