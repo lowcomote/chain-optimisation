@@ -6,11 +6,11 @@ model SimpleTrace driver EMF {
 nsuri = "SimpleTrace"
 };
 
-//rule Graph2Trace
-//	transform g:Graph!Graph
-//	to st:SimpleTrace!Trace {
-//	st.links=g.elements;
-//	}
+rule Graph2Trace
+	transform g:Graph!Graph
+		to st:SimpleTrace!Trace {
+	st.links=g.elements;
+	}
 	
 rule Node2TraceLink
 	transform n:Graph!Node
