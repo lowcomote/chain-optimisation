@@ -29,21 +29,21 @@ import org.eclipse.epsilon.etl.staticanalyser.EtlStaticAnalyser;
  * @author Qurat ul ain Ali
  */
 public class EtlChainOptimiser {
-	
+
 	static Path modelsRoot = Paths.get("models");
 	static Path scriptRoot = Paths.get("scripts");
 	static Path metamodelsRoot = Paths.get("metamodels");
 	static Path genmodelsRoot = Paths.get("models/generatedmodels");
-	
+
 	static File metamodelPath = new File("metamodels");
-	
+
 	static String sourceMM = metamodelsRoot.resolve("Tree.ecore").toString();
 	static String targetMM = metamodelsRoot.resolve("DB.ecore").toString();
-	static String sourceModel=modelsRoot.resolve("Tree.xmi").toAbsolutePath().toUri().toString();
-	static String targetModel= genmodelsRoot.resolve("DB3.xmi").toAbsolutePath().toUri().toString();
-	
+	static String sourceModel = modelsRoot.resolve("Tree.xmi").toAbsolutePath().toUri().toString();
+	static String targetModel = genmodelsRoot.resolve("DB3.xmi").toAbsolutePath().toUri().toString();
+
 	static Chaining_MT chainingMt = new Chaining_MT();
-	
+
 	public static void main(String[] args) throws Exception {
 
 		// User input about permutation combination of chain composition and
@@ -78,152 +78,96 @@ public class EtlChainOptimiser {
 			System.out.println("Invalid number");
 		}
 	}
-	
-public static void optimizeThenSelect() throws Exception
-{
-	List<ArrayList<String>> chain = chainingMt.identifyChain(sourceModel, sourceMM, targetModel, targetMM);
-	ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
-	ArrayList<EtlModule> modules = new ArrayList<>();
-	EtlRewritingHandler etlRewritingHandler = new EtlRewritingHandler();
-	
-	int min=99999;
-	int[] sum = new int[chain.size()];
-	ArrayList<String> index = null;
-	
-	for (int j = 0; j < chain.size(); j++) {
-		
-		int rewritetotal = 0;
-		System.out.println("\nChain"+(j+1)+" "+chain.get(j)+"\n");
-		
-		for(int i=0;i<chain.get(j).size();i++)
-		{
-		EtlModule module1 = new EtlModule();
-		
-		if (i + 1 < chain.get(j).size()) {
 
-			EtlStaticAnalyser staticAnlayser = new EtlStaticAnalyser();
-			module1.parse(scriptRoot.resolve(chainingMt.identifyETL(metamodelPath + "/" + chain.get(j).get(i),
-					metamodelPath + "/" + (chain.get(j).get(i + 1)))));
-			for (ModelDeclaration modelDeclaration : module1.getDeclaredModelDeclarations()) {
-				if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
-					staticAnlayser.getContext().setModelFactory(new SubEmfModelFactory());
+	public static void optimizeThenSelect() throws Exception {
+		List<ArrayList<String>> chain = chainingMt.identifyChain(sourceModel, sourceMM, targetModel, targetMM);
+		ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
+		ArrayList<EtlModule> modules = new ArrayList<>();
+		EtlRewritingHandler etlRewritingHandler = new EtlRewritingHandler();
+
+		int min = 99999;
+		int[] sum = new int[chain.size()];
+		ArrayList<String> index = null;
+
+		for (int j = 0; j < chain.size(); j++) {
+
+			int rewritetotal = 0;
+			System.out.println("\nChain" + (j + 1) + " " + chain.get(j) + "\n");
+
+			for (int i = 0; i < chain.get(j).size(); i++) {
+				EtlModule module1 = new EtlModule();
+
+				if (i + 1 < chain.get(j).size()) {
+
+					EtlStaticAnalyser staticAnlayser = new EtlStaticAnalyser();
+					module1.parse(scriptRoot.resolve(chainingMt.identifyETL(metamodelPath + "/" + chain.get(j).get(i),
+							metamodelPath + "/" + (chain.get(j).get(i + 1)))));
+					for (ModelDeclaration modelDeclaration : module1.getDeclaredModelDeclarations()) {
+						if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
+							staticAnlayser.getContext().setModelFactory(new SubEmfModelFactory());
+						}
+					}
+
+					staticAnlayser.validate(module1);
+
+					modules.add(module1);
+
+					staticAnalysers.add(staticAnlayser);
+
 				}
-			}
-			
-			staticAnlayser.validate(module1);
-			
-			modules.add(module1);
-			
-			staticAnalysers.add(staticAnlayser);
-			
-		}
-		
-	}
-	
-	
-	Collections.reverse(modules);
-	Collections.reverse(staticAnalysers);
-	
-	rewritetotal = etlRewritingHandler.invokeRewriters(modules, staticAnalysers);
-	modules.clear();
-	staticAnalysers.clear();
-	sum[j]=rewritetotal;
-	System.out.println("\nTotal structural features of optimized "+"Chain"+(j+1)+" "+chain.get(j)+" is "+rewritetotal);
-	if(sum[j]<min)
-	{
-		min=sum[j];
-		index=chain.get(j);
-	}
-	continue;
-}
-	
-	System.out.println("\nOptmized MT Chain "+index+" has minimum structural features of " + min);
-	System.out.println("------------------Executing best optimized chain--------------------");
-	for(int k=0;k<index.size();k++)
-	{
-		if(k+1<index.size())
-		{
-			
-			Path newsourcemodelpath = modelsRoot.resolve(index.get(k).replaceFirst("[.][^.]+$", "")+".xmi");
-			String newsourcemodel = newsourcemodelpath.toAbsolutePath().toUri().toString();
-			
-			Path newtargetmodelpath = modelsRoot.resolve(index.get(k+1).replaceFirst("[.][^.]+$", "")+".xmi");
-			String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
-			
-			chainingMt.executeETL(newsourcemodel, metamodelPath+"/"+index.get(k), newtargetmodel, metamodelPath+"/"+index.get(k+1));
-			
-		}
-		
-	}
-	
-}
 
-public static void optimize() throws Exception
-{
-	ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
-	ArrayList<EtlModule> modules = new ArrayList<>();
-
-	ArrayList<String> bestchain = chainingMt.identifyBestChain2(sourceModel, sourceMM, targetModel, targetMM);
-
-	for (int i = 0; i < bestchain.size(); i++) {
-		EtlModule module1 = new EtlModule();
-
-		if (i + 1 < bestchain.size()) {
-
-			EtlStaticAnalyser staticAnlayser = new EtlStaticAnalyser();
-			module1.parse(scriptRoot.resolve(chainingMt.identifyETL(metamodelPath + "/" + bestchain.get(i),
-					metamodelPath + "/" + (bestchain.get(i + 1)))));
-			for (ModelDeclaration modelDeclaration : module1.getDeclaredModelDeclarations()) {
-				if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
-					staticAnlayser.getContext().setModelFactory(new SubEmfModelFactory());
-				}
 			}
 
-			staticAnlayser.validate(module1);
+			Collections.reverse(modules);
+			Collections.reverse(staticAnalysers);
 
-			modules.add(module1);
-			staticAnalysers.add(staticAnlayser);
+			rewritetotal = etlRewritingHandler.invokeRewriters(modules, staticAnalysers);
+			modules.clear();
+			staticAnalysers.clear();
+			sum[j] = rewritetotal;
+			System.out.println("\nTotal structural features of optimized " + "Chain" + (j + 1) + " " + chain.get(j)
+					+ " is " + rewritetotal);
+			if (sum[j] < min) {
+				min = sum[j];
+				index = chain.get(j);
+			}
+			continue;
+		}
+
+		System.out.println("\nOptmized MT Chain " + index + " has minimum structural features of " + min);
+		System.out.println("------------------Executing best optimized chain--------------------");
+		for (int k = 0; k < index.size(); k++) {
+			if (k + 1 < index.size()) {
+
+				Path newsourcemodelpath = modelsRoot.resolve(index.get(k).replaceFirst("[.][^.]+$", "") + ".xmi");
+				String newsourcemodel = newsourcemodelpath.toAbsolutePath().toUri().toString();
+
+				Path newtargetmodelpath = modelsRoot.resolve(index.get(k + 1).replaceFirst("[.][^.]+$", "") + ".xmi");
+				String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
+
+				chainingMt.executeETL(newsourcemodel, metamodelPath + "/" + index.get(k), newtargetmodel,
+						metamodelPath + "/" + index.get(k + 1));
+
+			}
 
 		}
 
 	}
-	Collections.reverse(modules);
-	Collections.reverse(staticAnalysers);
-	new EtlRewritingHandler().invokeRewriters1(modules, staticAnalysers);
-	for (int k = 0; k < bestchain.size(); k++) {
-		if(k+1<bestchain.size())
-		{
-			Path newsourcemodelpath = modelsRoot.resolve(bestchain.get(k).replaceFirst("[.][^.]+$", "")+".xmi");
-			String newsourcemodel = newsourcemodelpath.toAbsolutePath().toUri().toString();
-			
-			Path newtargetmodelpath = modelsRoot.resolve(bestchain.get(k+1).replaceFirst("[.][^.]+$", "")+".xmi");
-			String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
-			
-			chainingMt.executeETL(newsourcemodel, metamodelPath+"/"+bestchain.get(k), newtargetmodel, metamodelPath+"/"+bestchain.get(k+1));
-		}
-		
-	}
-}
 
+	public static void optimize() throws Exception {
+		ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
+		ArrayList<EtlModule> modules = new ArrayList<>();
 
-public static void optimizeOnly() throws Exception {
-	
-	List<ArrayList<String>> chain = chainingMt.identifyChain(sourceModel, sourceMM, targetModel, targetMM);
-	
-	ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
-	ArrayList<EtlModule> modules = new ArrayList<>();
+		ArrayList<String> bestchain = chainingMt.identifyBestChain2(sourceModel, sourceMM, targetModel, targetMM);
 
-	for (int j = 0; j < chain.size(); j++) {
-		System.out.println("\nChain" + (j + 1) + " " + chain.get(j) + "\n");
-
-		for (int i = 0; i < chain.get(j).size(); i++) {
+		for (int i = 0; i < bestchain.size(); i++) {
 			EtlModule module1 = new EtlModule();
 
-			if (i + 1 < chain.get(j).size()) {
+			if (i + 1 < bestchain.size()) {
 
 				EtlStaticAnalyser staticAnlayser = new EtlStaticAnalyser();
-				module1.parse(scriptRoot.resolve(chainingMt.identifyETL(metamodelPath + "/" + chain.get(j).get(i),
-						metamodelPath + "/" + (chain.get(j).get(i + 1)))));
+				module1.parse(scriptRoot.resolve(chainingMt.identifyETL(metamodelPath + "/" + bestchain.get(i),
+						metamodelPath + "/" + (bestchain.get(i + 1)))));
 				for (ModelDeclaration modelDeclaration : module1.getDeclaredModelDeclarations()) {
 					if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
 						staticAnlayser.getContext().setModelFactory(new SubEmfModelFactory());
@@ -233,20 +177,71 @@ public static void optimizeOnly() throws Exception {
 				staticAnlayser.validate(module1);
 
 				modules.add(module1);
-
 				staticAnalysers.add(staticAnlayser);
 
 			}
 
 		}
-
 		Collections.reverse(modules);
 		Collections.reverse(staticAnalysers);
-
 		new EtlRewritingHandler().invokeRewriters1(modules, staticAnalysers);
-		modules.clear();
-		staticAnalysers.clear();
+		for (int k = 0; k < bestchain.size(); k++) {
+			if (k + 1 < bestchain.size()) {
+				Path newsourcemodelpath = modelsRoot.resolve(bestchain.get(k).replaceFirst("[.][^.]+$", "") + ".xmi");
+				String newsourcemodel = newsourcemodelpath.toAbsolutePath().toUri().toString();
+
+				Path newtargetmodelpath = modelsRoot
+						.resolve(bestchain.get(k + 1).replaceFirst("[.][^.]+$", "") + ".xmi");
+				String newtargetmodel = newtargetmodelpath.toAbsolutePath().toUri().toString();
+
+				chainingMt.executeETL(newsourcemodel, metamodelPath + "/" + bestchain.get(k), newtargetmodel,
+						metamodelPath + "/" + bestchain.get(k + 1));
+			}
+
+		}
 	}
-}
-	
+
+	public static void optimizeOnly() throws Exception {
+
+		List<ArrayList<String>> chain = chainingMt.identifyChain(sourceModel, sourceMM, targetModel, targetMM);
+
+		ArrayList<EtlStaticAnalyser> staticAnalysers = new ArrayList<>();
+		ArrayList<EtlModule> modules = new ArrayList<>();
+
+		for (int j = 0; j < chain.size(); j++) {
+			System.out.println("\nChain" + (j + 1) + " " + chain.get(j) + "\n");
+
+			for (int i = 0; i < chain.get(j).size(); i++) {
+				EtlModule module1 = new EtlModule();
+
+				if (i + 1 < chain.get(j).size()) {
+
+					EtlStaticAnalyser staticAnlayser = new EtlStaticAnalyser();
+					module1.parse(scriptRoot.resolve(chainingMt.identifyETL(metamodelPath + "/" + chain.get(j).get(i),
+							metamodelPath + "/" + (chain.get(j).get(i + 1)))));
+					for (ModelDeclaration modelDeclaration : module1.getDeclaredModelDeclarations()) {
+						if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
+							staticAnlayser.getContext().setModelFactory(new SubEmfModelFactory());
+						}
+					}
+
+					staticAnlayser.validate(module1);
+
+					modules.add(module1);
+
+					staticAnalysers.add(staticAnlayser);
+
+				}
+
+			}
+
+			Collections.reverse(modules);
+			Collections.reverse(staticAnalysers);
+
+			new EtlRewritingHandler().invokeRewriters1(modules, staticAnalysers);
+			modules.clear();
+			staticAnalysers.clear();
+		}
+	}
+
 }
