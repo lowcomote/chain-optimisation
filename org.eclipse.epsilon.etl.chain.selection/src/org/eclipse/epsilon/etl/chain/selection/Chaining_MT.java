@@ -65,7 +65,7 @@ public class Chaining_MT {
 //		return null;
 //	}
 	
-	public List<ArrayList<String>> identifychain(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
+	public List<ArrayList<String>> identifyChain(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
 	{
 		List<ArrayList<String>> newmodelsuse = new ArrayList<ArrayList<String>>();
 		ArrayList<ArrayList<String>> newmodelsuse1 = new ArrayList<ArrayList<String>>();
@@ -113,7 +113,7 @@ public class Chaining_MT {
 					if(findETL(sourceMM, intermetamodel))
 					{	
 //						System.out.println("123");
-						identifychain(sourceModel, sourceMM, intermodel, intermetamodel);
+						identifyChain(sourceModel, sourceMM, intermodel, intermetamodel);
 						
 						//boolean s1 = scriptRoot.resolve(sourceMM.substring(11).replaceFirst("[.][^.]+$", "")+"2"+intermetamodel.substring(11).replaceFirst("[.][^.]+$", "")+".etl").toFile().exists();
 						boolean s1 = findETL(sourceMM, intermetamodel);
@@ -393,11 +393,11 @@ public List<List<ModuleElement>> calculateExpressions(List<ModuleElement> expNam
 		//return null;
 	}
 
-public ArrayList<String> identifybestchain(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
+public ArrayList<String> identifyBestChain(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
 {
 	
 	//List<ArrayList<String>> l1 = chainingmt.identifyMT(sourcemodel, sourceMM, targetmodel, targetMM);
-	List<ArrayList<String>> l = identifychain(sourceModel, sourceMM, targetModel, targetMM);
+	List<ArrayList<String>> l = identifyChain(sourceModel, sourceMM, targetModel, targetMM);
 	
 		EtlRunConfiguration exec=null;
 //		IEolModule module = null;
@@ -740,7 +740,7 @@ public ArrayList<String> identifybestchain1(String sourceModel, String sourceMM,
 {
 //	System.out.println("123");
 	//List<ArrayList<String>> l1 = chainingmt.identifyMT(sourcemodel, sourceMM, targetmodel, targetMM);
-	List<ArrayList<String>> l = identifychain(sourceModel, sourceMM, targetModel, targetMM);
+	List<ArrayList<String>> l = identifyChain(sourceModel, sourceMM, targetModel, targetMM);
 	
 		EtlRunConfiguration exec=null;
 //		IEolModule module = null;
@@ -815,11 +815,11 @@ public ArrayList<String> identifybestchain1(String sourceModel, String sourceMM,
 
 }
 
-public ArrayList<String> identifybestchain2(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
+public ArrayList<String> identifyBestChain2(String sourceModel, String sourceMM, String targetModel, String targetMM) throws Exception
 {
 	
 	//List<ArrayList<String>> l1 = chainingmt.identifyMT(sourcemodel, sourceMM, targetmodel, targetMM);
-	List<ArrayList<String>> l = identifychain(sourceModel, sourceMM, targetModel, targetMM);
+	List<ArrayList<String>> l = identifyChain(sourceModel, sourceMM, targetModel, targetMM);
 	
 		EtlRunConfiguration exec=null;
 //		IEolModule module = null;
