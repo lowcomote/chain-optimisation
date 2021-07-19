@@ -129,7 +129,7 @@ public class Chaining_MT {
 		if (!modelsuse5.isEmpty())
 			newmodelsuse.add(modelsuse5);
 
-		System.out.println(newmodelsuse);
+//		System.out.println(newmodelsuse);
 		return newmodelsuse;
 
 	}
@@ -206,23 +206,23 @@ public class Chaining_MT {
 					expressionName = expName.toString();
 					numberofexpression = expName.size();
 					c++;
-					System.out.println("Statement number " + c);
-					System.out.println(statementName + "\n" + expressionName + "\n");
+//					System.out.println("Statement number " + c);
+//					System.out.println(statementName + "\n" + expressionName + "\n");
 					for (int l = 0; l < numberofexpression; l++) {
 						opName = expName.get(l).getChildren();
 						if (!opName.isEmpty()) {
 							totexpName = calculateExpressions(opName);
 							for (int m = 0; m < totexpName.size(); m++) {
 								totexpSize = totexpName.get(m).size();
-								System.out.println(totexpName.get(m));
+//								System.out.println(totexpName.get(m));
 								sumofoperation = sumofoperation + totexpSize;
-								System.out.println(totexpSize);
+//								System.out.println(totexpSize);
 							}
 
 						}
 
 					}
-					System.out.println("Number of expressions and operations: " + sumofoperation + "\n");
+//					System.out.println("Number of expressions and operations: " + sumofoperation + "\n");
 					totalfeatures = totalfeatures + sumofoperation;
 				}
 				totalstatement = totalstatement + totalfeatures;
@@ -230,8 +230,8 @@ public class Chaining_MT {
 						.size(); j++) {
 					EolModelElementType type1 = (EolModelElementType) staticAnalyser
 							.getType(((EtlModule) module).getTransformationRules().get(i).getTargetParameters().get(j));
-					System.out.println("Total expressions/operators used in the transformation rule "
-							+ type.getTypeName() + " to " + type1.getTypeName() + ":" + totalstatement + "\n");
+//					System.out.println("Total expressions/operators used in the transformation rule "
+//							+ type.getTypeName() + " to " + type1.getTypeName() + ":" + totalstatement + "\n");
 				}
 				totalstructuratlfeatures = totalstructuratlfeatures + totalstatement;
 			}
@@ -282,8 +282,8 @@ public class Chaining_MT {
 					total = calculateMTChain(module1);
 					sum[i] = sum[i] + total;
 
-					System.out.println("Total expressions/operators used in the transformation " + l.get(i).get(j)
-							+ " -> " + l.get(i).get(j + 1) + ": " + total + "\n");
+//					System.out.println("Total expressions/operators used in the transformation " + l.get(i).get(j)
+//							+ " -> " + l.get(i).get(j + 1) + ": " + total + "\n");
 				}
 
 			}
@@ -292,8 +292,8 @@ public class Chaining_MT {
 				index = l.get(i);
 			}
 
-			System.out.println("Total expressions/operators used in the chain: " + sum[i]);
-			System.out.println("---------------------------------------------------------\n");
+//			System.out.println("Total expressions/operators used in the chain: " + sum[i]);
+//			System.out.println("---------------------------------------------------------\n");
 
 		}
 
@@ -481,8 +481,8 @@ public class Chaining_MT {
 					total = calculateMTChain1(module1);
 					sum[i] = sum[i] + total;
 
-					System.out.println("Total operators used in the transformation " + l.get(i).get(j) + " -> "
-							+ l.get(i).get(j + 1) + ": " + total + "\n");
+//					System.out.println("Total operators used in the transformation " + l.get(i).get(j) + " -> "
+//							+ l.get(i).get(j + 1) + ": " + total + "\n");
 				}
 
 			}
@@ -491,7 +491,7 @@ public class Chaining_MT {
 				index = l.get(i);
 			}
 
-			System.out.println("Total operators used in the chain: " + sum[i]);
+//			System.out.println("Total operators used in the chain: " + sum[i]);
 			System.out.println("---------------------------------------------------------\n");
 
 		}
@@ -524,8 +524,8 @@ public class Chaining_MT {
 					total = calculateMTChain(module1);
 					sum[i] = sum[i] + total;
 
-					System.out.println("Total expressions/operators used in the transformation " + l.get(i).get(j)
-							+ " -> " + l.get(i).get(j + 1) + ": " + total + "\n");
+//					System.out.println("Total expressions/operators used in the transformation " + l.get(i).get(j)
+//							+ " -> " + l.get(i).get(j + 1) + ": " + total + "\n");
 				}
 
 			}
@@ -534,8 +534,8 @@ public class Chaining_MT {
 				index = l.get(i);
 			}
 
-			System.out.println("Total expressions/operators used in the chain: " + sum[i]);
-			System.out.println("---------------------------------------------------------\n");
+//			System.out.println("Total expressions/operators used in the chain: " + sum[i]);
+//			System.out.println("---------------------------------------------------------\n");
 
 		}
 

@@ -37,9 +37,9 @@ public class EtlChainOptimiser {
 
 	static File metamodelPath = new File("metamodels");
 
-	static String sourceMM = metamodelsRoot.resolve("Tree.ecore").toString();
+	static String sourceMM = metamodelsRoot.resolve("Graph.ecore").toString();
 	static String targetMM = metamodelsRoot.resolve("DB.ecore").toString();
-	static String sourceModel = modelsRoot.resolve("Tree.xmi").toAbsolutePath().toUri().toString();
+	static String sourceModel = modelsRoot.resolve("Graph.xmi").toAbsolutePath().toUri().toString();
 	static String targetModel = genmodelsRoot.resolve("DB3.xmi").toAbsolutePath().toUri().toString();
 
 	static Chaining_MT chainingMt = new Chaining_MT();
@@ -49,7 +49,7 @@ public class EtlChainOptimiser {
 		// User input about permutation combination of chain composition and
 		// optimisation
 		System.out.println("\n 1: Select chain with minimum complexity \n");
-		System.out.println("\n 2: Optimise each identified chain \n");
+		System.out.println("\n 2: Optimise each identified chain\n");
 		System.out.println("\n 3: Select chain with minimum complexity -> Optimise \n");
 		System.out.println("\n 4: Optimise -> Select chain with minimum complexity \n");
 		System.out.println("\nSelect the type of execution by inputting a number as described above ");
