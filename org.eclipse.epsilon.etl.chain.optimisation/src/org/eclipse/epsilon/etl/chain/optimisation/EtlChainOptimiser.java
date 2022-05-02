@@ -173,7 +173,7 @@ public class EtlChainOptimiser {
 				}
 
 				staticAnlayser.validate(module1);
-
+				new EtlDependencyGraphGenerator().optimiseTrace(module1, staticAnlayser);
 				modules.add(module1);
 				staticAnalysers.add(staticAnlayser);
 
