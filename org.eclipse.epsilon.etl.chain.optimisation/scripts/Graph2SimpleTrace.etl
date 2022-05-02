@@ -9,7 +9,7 @@ nsuri = "SimpleTrace"
 rule Graph2Trace
 	transform g:Graph!Graph
 		to st:SimpleTrace!Trace {
-	st.links=g.elements;
+	st.links=g.elements.equivalent();
 	}
 	
 rule Node2TraceLink
@@ -20,16 +20,16 @@ rule Node2TraceLink
 	//var target1: Graph!Edge := n.incoming.target.equivalents();
 	//t.targets=n.outgoing.source.equivalent();
 	//t.sources=n.incoming.target.equivalent();
-	t.targets=n.outgoing;
-	t.sources=n.incoming;
+	t.targets=n.outgoing.equivalent();
+	t.sources=n.incoming.equivalent();
 	t.description=n.label;
 }
 
 rule Edge2TraceLink
 	transform e:Graph!Edge
 	to s:SimpleTrace!TraceLink {
-	s.sources=e.source.equivalents();
-	s.targets=e.target.equivalents();
+	s.sources=e.source.equivalent();
+	s.targets=e.target.equivalent();
 	}
 	
 post {
