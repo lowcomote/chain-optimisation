@@ -16,3 +16,27 @@ A prototype for optimisation of transformation chains built on-the-top of Epsilo
 7. Clone this repository master branch and import all plugins in your workspace.
 
 8. Right-click on org.eclipse.epsilon.chain.selection/src/org.eclipse.epsilon.chain.selection/Chain_MT.java in the Project Explorer and select Run as → Java Application.
+
+
+**For Extracting Dependency Graph:**
+
+1. **EtlDependencyGraphGenerator** generates a dependency graph by adding information such as traceableBy, needTraceOf to the data field of each transformation rule.
+
+2. For understanding which statement need to be removed, we need to keep hold of the line numbers which are responsible for each dependency, that information is present in a HashMap called as lineNumber.
+
+For example,
+1. rule Node2TraceLink
+2.	transform n:Graph!Node
+3.	to t:SimpleTrace!TraceLink {
+4.	}
+5. 
+6. rule Edge2TraceLink
+7. 	transform e:Graph!Edge
+8.	  to s:SimpleTrace!TraceLink {
+9.	  s.sources=e.source.equivalent();
+10. }
+ 
+ rule Edge2Tracelink's data field would be like this: needTraceOf = Node2TraceLink, traceableBy= {}
+ linNumber would contain  
+ Edge2TraceLink, Node2TraceLink.  9 <- indicates the lineNumber
+  
