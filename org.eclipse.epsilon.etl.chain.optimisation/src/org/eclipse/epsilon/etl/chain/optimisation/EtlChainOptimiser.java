@@ -166,6 +166,14 @@ public class EtlChainOptimiser {
 				EtlStaticAnalyser staticAnlayser = new EtlStaticAnalyser();
 				module1.parse(scriptRoot.resolve(chainingMt.identifyETL(metamodelPath + "/" + bestchain.get(i),
 						metamodelPath + "/" + (bestchain.get(i + 1)))));
+				EmfUtil.register(URI.createFileURI(modelsRoot.resolve("Graph.ecore").toAbsolutePath().toString()),
+						EPackage.Registry.INSTANCE);
+				EmfUtil.register(URI.createFileURI(modelsRoot.resolve("SimpleTrace.ecore").toAbsolutePath().toString()),
+						EPackage.Registry.INSTANCE);
+//				EmfUtil.register(URI.createFileURI(modelsRoot.resolve("TM.ecore").toAbsolutePath().toString()),
+//						EPackage.Registry.INSTANCE);
+//				EmfUtil.register(URI.createFileURI(modelsRoot.resolve("DB.ecore").toAbsolutePath().toString()),
+//						EPackage.Registry.INSTANCE);
 				for (ModelDeclaration modelDeclaration : module1.getDeclaredModelDeclarations()) {
 					if (modelDeclaration.getDriverNameExpression().getName().equals("EMF")) {
 						staticAnlayser.getContext().setModelFactory(new SubEmfModelFactory());
