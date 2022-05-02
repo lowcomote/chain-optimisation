@@ -17,6 +17,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.epsilon.emc.emf.EmfUtil;
 import org.eclipse.epsilon.eol.dom.ModelDeclaration;
 import org.eclipse.epsilon.eol.staticanalyser.SubEmfModelFactory;
 import org.eclipse.epsilon.etl.EtlModule;
@@ -38,9 +41,9 @@ public class EtlChainOptimiser {
 	static File metamodelPath = new File("metamodels");
 
 	static String sourceMM = metamodelsRoot.resolve("Graph.ecore").toString();
-	static String targetMM = metamodelsRoot.resolve("DB.ecore").toString();
+	static String targetMM = metamodelsRoot.resolve("TM.ecore").toString();
 	static String sourceModel = modelsRoot.resolve("Graph.xmi").toAbsolutePath().toUri().toString();
-	static String targetModel = genmodelsRoot.resolve("DB3.xmi").toAbsolutePath().toUri().toString();
+	static String targetModel = genmodelsRoot.resolve("Tree2TM_new.xmi").toAbsolutePath().toUri().toString();
 
 	static Chaining_MT chainingMt = new Chaining_MT();
 
@@ -190,6 +193,7 @@ public class EtlChainOptimiser {
 		}
 		Collections.reverse(modules);
 		Collections.reverse(staticAnalysers);
+		
 		new EtlRewritingHandler().invokeRewriters1(modules, staticAnalysers);
 		for (int k = 0; k < bestchain.size(); k++) {
 			if (k + 1 < bestchain.size()) {
