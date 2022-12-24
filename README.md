@@ -43,9 +43,9 @@ For example,
  **For Chain Identification**
  Run \src\org\eclipse\epsilon\etl\chain\optimisation\EtlChainOptimiser.java and press 11
  
- #For running chain optimization code
+ **For running chain optimization code**
  
- Run \src\org\eclipse\epsilon\etl\chain\optimisation\EtlChainOptimiser.java and press 5 to run the findTransformationRuleIndex() function in order to get the optimized version of ETL files.
+1. Run \src\org\eclipse\epsilon\etl\chain\optimisation\EtlChainOptimiser.java and press 5 to run the findTransformationRuleIndex() function in order to get the  optimized version of ETL files.
  
- We can then run the normal and optimized version of the file by re-running Run \src\org\eclipse\epsilon\etl\chain\optimisation\EtlChainOptimiser.java and choosing case no. 101 and 102 respectively.
+2. We can then run the normal and optimized version of the file by re-running Run \src\org\eclipse\epsilon\etl\chain\optimisation\EtlChainOptimiser.java and choosing case no. 101 and 102 respectively.
   
