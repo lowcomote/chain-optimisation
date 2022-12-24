@@ -40,7 +40,7 @@ For example,
  linNumber would contain  
  Edge2TraceLink, Node2TraceLink.  9 <- indicates the lineNumber
  
- **For running optimizing code**
+ **For running chain optimization code**
  
  Run \src\org\eclipse\epsilon\etl\chain\optimisation\EtlChainOptimiser.java and press 5 to run the findTransformationRuleIndex() function in order to get the optimized version of ETL files.
  
