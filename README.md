@@ -39,4 +39,10 @@ For example,
  rule Edge2Tracelink's data field would be like this: needTraceOf = Node2TraceLink, traceableBy= {}
  linNumber would contain  
  Edge2TraceLink, Node2TraceLink.  9 <- indicates the lineNumber
+ 
+ **For running optimizing code**
+ 
+ Run \src\org\eclipse\epsilon\etl\chain\optimisation\EtlChainOptimiser.java and press 5 to run the findTransformationRuleIndex() function in order to get the optimized version of ETL files.
+ 
+ We can then run the normal and optimized version of the file by re-running Run \src\org\eclipse\epsilon\etl\chain\optimisation\EtlChainOptimiser.java and choosing case no. 101 and 102 respectively.
   
