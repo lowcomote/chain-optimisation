@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this application, please cite it as below."
+authors:
+  - family-names: Ali, Sahay
+    given-names: Qurat ul ain, Apurvanand
+title: "chain-optimisation"
+url:
+version: 1.0.1
+date-released: 2022-12-24
