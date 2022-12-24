@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:XML="xml.com" xsi:schemaLocation="xml.com metamodels/XML.ecore#/0">
+  <XML:Element name="abc">
+    <children xsi:type="XML:Element">
+      <children xsi:type="XML:Element" name="th"/>
+    </children>
+  </XML:Element>
+  <XML:Element name="abc">
+    <children xsi:type="XML:Element">
+      <children xsi:type="XML:Element" name="th"/>
+    </children>
+  </XML:Element>
+  <XML:Element>
+    <children xsi:type="XML:Element" name="th"/>
+  </XML:Element>
+  <XML:Element>
+    <children xsi:type="XML:Element" name="th"/>
+  </XML:Element>
+  <XML:Element>
+    <children xsi:type="XML:Element" name="th"/>
+  </XML:Element>
+  <XML:Element>
+    <children xsi:type="XML:Element" name="th"/>
+  </XML:Element>
+</xmi:XMI>

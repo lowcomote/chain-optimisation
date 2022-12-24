@@ -1,0 +1,88 @@
+model JavaSource2 driver EMF {
+nsuri = "http://www.eclipse.org/gmt/2005/JavaSource2"
+};
+
+model Table1 driver EMF {
+nsuri = "http://www.eclipse.org/gmt/2005/Table1"
+};
+
+pre { "Java2Table Transformation starts". println();}
+
+operation allMethodDefs() : Sequence(JavaSource2!MethodDefinition) {
+	//"abc".println();
+	if(JavaSource2!ClassDeclaration.isDefined() and JavaSource2!MethodDefinition.class.isDefined()) {
+	return JavaSource2!MethodDefinition.all.sortBy(e |'_' +  e.name);
+	}
+	else {return null;}
+	
+}
+	
+operation JavaSource2!MethodDefinition
+	computeContent(col : JavaSource2!MethodDefinition) : Integer {
+	//"def".println();
+	if(JavaSource2!MethodInvocation.isDefined() and JavaSource2!MethodDefinition.isDefined())
+	return self.invocations.select(i | i.method.name = col.name
+					and i.method.class.name = col.class.name).size();
+	}
+		
+rule Main
+	transform
+		s : JavaSource2!JavaSource
+	to
+		t : Table1!Table, first_row : Table1!Row, first_col : Table1!Cell {	
+			
+			t.rows = Sequence{first_row, allMethodDefs().collect(e | e.equivalents("row"))}.flatten();//delete
+			first_row.cells = Sequence{first_col, allMethodDefs().collect(md | md.equivalents("tFilled"))}.flatten();
+			first_col.content = '';	
+}
+
+//@unique
+@lazy
+rule TitleCols 
+	transform
+		md: JavaSource2!MethodDefinition
+	to
+		tFilled: Table1!Cell {
+		//"x".println();
+		if(md.class.isDefined() and md.isDefined()) //delete
+		tFilled.content = md.class.name + '.' +  md.name; //delete
+}
+
+
+rule MethodDefinition
+	transform
+		m : JavaSource2!MethodDefinition
+
+	to
+		// Rows are composed of the first (title) cell + data cells
+		row : Table1!Row, title_cel : Table1!Cell {
+			//row.cells := Sequence{title_cel, m.allMethodDefs.
+			//	collect(md | title_cel.DataCells(md, m))}.flatten();
+			
+		//"y".println();
+		row.cells = Sequence{title_cel, allMethodDefs().collect(md|md.equivalents("cell"))}.flatten();
+		//row.cells = Sequence{title_cel, allMethodDefs().collect(md|md.computeContent(m).toString)}.flatten().println();
+		//"z".println();
+		//if(m.isDefined())//delete
+		//title_cel.content = m.class.name + '.' + m.name;//delete	
+		//"w".println();	
+}
+
+
+@lazy
+rule DataCells 
+	transform
+		md: JavaSource2!MethodDefinition
+	to
+		cell: Table1!Cell {
+			var m : JavaSource2!MethodDefinition;
+			//"vsnav".println();
+			cell.content = md.computeContent(m).toString();
+			//"last".println();
+			
+}
+
+
+post { "Java2Table Transformation ends". println();}
+	
+	

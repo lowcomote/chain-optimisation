@@ -1,0 +1,65 @@
+
+ 0: Execute chains of ETL 
+
+
+ 1: Select chain with minimum complexity 
+
+
+ 2: Optimise each identified chain
+
+
+ 3: Select chain with minimum complexity -> Optimise 
+
+
+ 4: Optimise -> Select chain with minimum complexity 
+
+
+ 5: Find transformation rule index to delete unused statements and rewrite the optimized transformation 
+
+
+ 6: Calculate transformation coverage of the original transformation chain 
+
+
+ 7: Calculate transformation coverage of the maximum of optimized and original transformation chain 
+
+
+ 8: Calculate the execution time of the optimized transformation chain 
+
+
+ 11: Calculate possible transformations from source metamodel metamodels\KM3.ecore and print all possible chains 
+
+
+ 12: Calculate possible transformations to target metamodel metamodels\XML.ecore
+
+
+ 13: Calculate and print coverage of all transformations and store it in a file 
+
+
+ 14: Print complexity of all transformations and store it in a file 
+
+
+ 15: Print coverage of all transformations 
+
+
+ 100: Execute direct model transformation from metamodels\KM3.ecore to metamodels\XML.ecore
+
+
+ 101: Execute normal chains of ETL 
+
+
+ 102: Execute optimized chains of ETL 
+
+
+ 1000: Find dependency graph for chain optimization (Rule [DependentRule] [ETL]) 
+
+
+ 1002: Execute best normal chain 
+
+
+ 1003: Execute best optimized chain 
+
+
+ 1111: Create list 
+
+
+Select the type of execution by inputting a number as described above 

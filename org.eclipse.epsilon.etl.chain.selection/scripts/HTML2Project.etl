@@ -1,0 +1,9 @@
+model HTML driver EMF {
+nsuri = "nsURI"
+};
+
+model Project driver EMF {
+nsuri = "pdl"
+};
+
+pre {"HTML2Project transformation starts". println();}

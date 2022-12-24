@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<XML:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:XML="xml.com" xsi:schemaLocation="xml.com metamodels\XML.ecore#/0" name="Metamodel">
+  <children xsi:type="XML:Attribute" name="name"/>
+  <children xsi:type="XML:Element" name="Package">
+    <children xsi:type="XML:Attribute" name="name" value="String"/>
+    <children xsi:type="XML:Element" name="DataType" value="String"/>
+    <children xsi:type="XML:Attribute" name="name" value="Graph"/>
+    <children xsi:type="XML:Element" name="Class"/>
+    <children xsi:type="XML:Attribute" name="isAbstract"/>
+    <children xsi:type="XML:Attribute" name="supertypes"/>
+    <children xsi:type="XML:Attribute" name="name" value="Node"/>
+    <children xsi:type="XML:Element" name="Class"/>
+    <children xsi:type="XML:Attribute" name="isAbstract"/>
+    <children xsi:type="XML:Attribute" name="supertypes"/>
+    <children xsi:type="XML:Attribute" name="name" value="Edge"/>
+    <children xsi:type="XML:Element" name="Class">
+      <children xsi:type="XML:Attribute" name="name" value="sourceNode"/>
+      <children xsi:type="XML:Element" name="Reference" value="sourceNode"/>
+      <children xsi:type="XML:Attribute" name="isContainer" value="false"/>
+      <children xsi:type="XML:Attribute" name="opposite" value=""/>
+      <children xsi:type="XML:Attribute" name="name" value="targetNode"/>
+      <children xsi:type="XML:Element" name="Reference" value="targetNode"/>
+      <children xsi:type="XML:Attribute" name="isContainer" value="false"/>
+      <children xsi:type="XML:Attribute" name="opposite" value=""/>
+    </children>
+    <children xsi:type="XML:Attribute" name="isAbstract"/>
+    <children xsi:type="XML:Attribute" name="supertypes"/>
+  </children>
+  <children xsi:type="XML:Attribute" name="name"/>
+  <children xsi:type="XML:Element" name="Package"/>
+</XML:Root>

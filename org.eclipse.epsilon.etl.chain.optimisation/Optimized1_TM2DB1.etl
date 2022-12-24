@@ -1,0 +1,20 @@
+model TM driver EMF {nsuri = "TM"};
+model DB driver EMF {nsuri = "DB"};
+rule TypeMapping2Database
+transform t : TM!TypeMapping
+to d : DB!Table
+ {
+	d.name = t.source;
+	if (t.map.isDefined()) {
+		d.name = t.map.toString();
+	}
+	helloWorld(t);
+}
+post {
+	"TM2DB transformation finished.".println();
+}
+
+operation helloWorld(a : TM!TypeMapping) {
+	var b = a.target;
+	b.println();
+}

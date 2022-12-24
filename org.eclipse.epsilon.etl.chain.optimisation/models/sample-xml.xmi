@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:XML="xml.com" xsi:schemaLocation="xml.com metamodels/XML.ecore#/0" name="Metamodel">
+  <children xsi:type="XML:Attribute" name="name" value="Graph Package Content"/>
+  <children xsi:type="XML:Element" name="Package">
+    <children xsi:type="XML:Attribute" name="name" value="String"/>
+    <children xsi:type="XML:Element" name="DataType" value="String"/>
+    <children xsi:type="XML:Attribute" name="name" value="Graph"/>
+    <children xsi:type="XML:Element" name="Class" value="Graph"/>
+    <children xsi:type="XML:Attribute" name="isAbstract" value="true"/>
+    <children xsi:type="XML:Attribute" name="supertypes"/>
+    <children xsi:type="XML:Attribute" name="name" value="Node"/>
+    <children xsi:type="XML:Element" name="Class" value="Node">
+      <children xsi:type="XML:Attribute" name="name" value="name"/>
+      <children xsi:type="XML:Element" name="Attribute" value="name">
+        <children xsi:type="XML:Attribute" name="isUnique" value="true"/>
+      </children>
+    </children>
+    <children xsi:type="XML:Attribute" name="isAbstract" value="false"/>
+    <children xsi:type="XML:Attribute" name="supertypes" value="Graph Package Content::Graph"/>
+    <children xsi:type="XML:Attribute" name="name" value="Edge"/>
+    <children xsi:type="XML:Element" name="Class" value="Edge">
+      <children xsi:type="XML:Attribute" name="name" value="name"/>
+      <children xsi:type="XML:Element" name="Attribute" value="name">
+        <children xsi:type="XML:Attribute" name="isUnique" value="true"/>
+      </children>
+      <children xsi:type="XML:Attribute" name="name" value="sourceNode"/>
+      <children xsi:type="XML:Element" name="Reference" value="sourceNode">
+        <children xsi:type="XML:Attribute" name="isContainer" value="false"/>
+        <children xsi:type="XML:Attribute" name="opposite" value=""/>
+      </children>
+      <children xsi:type="XML:Attribute" name="name" value="targetNode"/>
+      <children xsi:type="XML:Element" name="Reference" value="targetNode">
+        <children xsi:type="XML:Attribute" name="isContainer" value="false"/>
+        <children xsi:type="XML:Attribute" name="opposite" value=""/>
+      </children>
+    </children>
+    <children xsi:type="XML:Attribute" name="isAbstract" value="false"/>
+    <children xsi:type="XML:Attribute" name="supertypes" value="Graph Package Content::Graph"/>
+  </children>
+  <children xsi:type="XML:Attribute" name="name" value="Operations"/>
+  <children xsi:type="XML:Element" name="Package"/>
+</XML:Root>

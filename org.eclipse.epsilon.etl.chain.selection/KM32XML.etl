@@ -1,0 +1,173 @@
+model KM3 driver EMF {
+nsuri = "http://www.eclipse.org/gmt/2005/KM31"
+};
+
+model XML driver EMF {
+nsuri = "http://www.xml.com"
+};
+
+pre {"KM32XML Transformation starts".println(); }
+
+operation KM3!ModelElement getFQL() : String {
+	self.getFQLWithSeparator('::');
+	}
+
+operation KM3!ModelElement getFQLWithSeparator(separator: String) : String {
+	if (self.isKindOf(KM3!EnumLiteral)) {
+		if (self.enumeration <> isUndefined) 
+			self.enumeration.getFQLWithSeparator(separator) + separator + self.name;
+		else 
+			self.name;
+		}
+	else
+		if (self.isKindOf(KM3!StructuralFeature)) {
+				if (self.owner <> isUndefined) 
+					self.owner.getFQLWithSeparator(separator) + separator + self.name;
+				else
+					self.name;
+				}
+		else
+			if (self.isKindOf(KM3!Classifier)) {
+				if (self.package <> iUndefined) 
+					self.package.getFQLWithSeparator(separator) + separator + self.name;
+				else 
+					self.name;
+				}
+			else
+				self.name;
+		}
+		
+
+
+rule Metamodel 
+	transform 
+		i: KM3!Metamodel
+	to
+		o: XML!Root {
+			o.name = 'Metamodel';
+			o.children = i.contents;
+		}
+
+
+rule Package
+	transform
+		i: KM3!Package
+	to
+		attribute_name: XML!Attribute, o: XML!Element {
+				attribute_name.name = 'name';
+				attribute_name.value = i.name;
+				o.name = 'Package';
+				o.children = Sequence{attribute_name}->union(i.contents);
+		}
+
+
+rule Class
+	transform
+		i: KM3!Class
+	to
+		attribute_name: XML!Attribute, o: XML!Element, attribute_isAbstract: XML!Attribute, reference_supertypes: XML!Attribute  {
+				
+				attribute_name.name <- 'name';
+				attribute_name.value <- i.name;
+
+			o.name = 'Class';
+			o.value = i.name;
+			o.children = Sequence{attribute_name, attribute_isAbstract, reference_supertypes}.union(i.structuralFeatures);
+			attribute_isAbstract.name = 'isAbstract';
+			attribute_isAbstract.value = i.isAbstract->toString();
+			reference_supertypes.name = 'supertypes';
+			//reference_supertypes.value = i.supertypes.iterate(e ; acc : String = '' | ((acc = '') ? acc : (acc + ', ' )) + e.getFQL());
+		}
+
+
+rule DataType
+	transform
+		i: KM3!DataType
+	to
+	attribute_name: XML!Attribute, o: XML!Element {
+				attribute_name.name = 'name';
+				attribute_name.value = i.name;
+			o.name = 'DataType';
+			o.value = i.name;
+			o.children = Sequence{attribute_name};
+		}
+
+rule Enumeration
+	transform
+		i: KM3!Enumeration
+	to
+	attribute_name: XML!Attribute, o: XML!Element {
+				attribute_name.name <- 'name';
+				attribute_name.value <- i.name;
+			o.name <- 'Enumeration';
+			o.value <- i.name;
+			o.children <- Sequence{attribute_name}->union(i.literals);
+		}
+
+
+rule EnumLiteral
+	transform
+		i: KM3!EnumLiteral
+	to
+	attribute_name: XML!Attribute, o: XML!Element {
+				attribute_name.name <- 'name';
+				attribute_name.value <- i.name;
+		
+			o.name <- 'EnumLiteral';
+			o.value <- i.name;
+			o.children <- Sequence{attribute_name};
+	}
+
+@abstract 
+rule StructuralFeature 
+	transform
+		i: KM3!StructuralFeature
+	to
+		attribute_lower: XML!Attribute, attribute_upper: XML!Attribute, attribute_isOrdered: XML!Attribute, reference_type: XML!Attribute {
+			attribute_lower.name <- 'lower';
+			attribute_lower.value <- i.lower->toString();
+		
+			attribute_upper.name <- 'upper';
+			attribute_upper.value <- i.upper->toString();
+		
+			attribute_isOrdered.name <- 'isOrdered';
+			attribute_isOrdered.value <- i.isOrdered->toString();
+		
+			reference_type.name <- 'type';
+			reference_type.value <- i.type.getFQL();
+	}
+
+rule Attribute  
+	transform
+		i: KM3!Attribute
+	to
+	attribute_name: XML!Attribute, o: XML!Element, attribute_isUnique: XML!Attribute extends StructuralFeature {
+				attribute_name.name <- 'name';
+				attribute_name.value <- i.name;
+			
+			o.name <- 'Attribute';
+			o.value <- i.name;
+			o.children <- Sequence{attribute_name, attribute_lower, attribute_upper, attribute_isOrdered, attribute_isUnique, reference_type};
+		
+			attribute_isUnique.name <- 'isUnique';
+			attribute_isUnique.value <- i.isUnique->toString();
+	}
+
+rule Reference  
+	transform
+		i: KM3!Reference
+	to
+	attribute_name: XML!Attribute, o: XML!Element, attribute_isContainer: XML!Attribute, reference_opposite: XML!Attribute extends StructuralFeature {
+				attribute_name.name <- 'name';
+				attribute_name.value <- i.name;
+			
+			o.name <- 'Reference';
+			o.value <- i.name;
+			o.children <- Sequence{attribute_name, attribute_lower, attribute_upper, attribute_isOrdered, attribute_isContainer, reference_type, reference_opposite};
+		
+			attribute_isContainer.name <- 'isContainer';
+			attribute_isContainer.value <- i.isContainer->toString();
+	
+			reference_opposite.name <- 'opposite';
+			reference_opposite.value <- (i.opposite.isUndefined() ? '' :  i.opposite.getFQL());
+		}

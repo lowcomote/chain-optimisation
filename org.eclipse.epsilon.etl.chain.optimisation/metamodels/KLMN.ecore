@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="KLMN" nsURI="http://klmn" nsPrefix="klmn">
+  <eClassifiers xsi:type="ecore:EClass" name="K">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="k" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ls" upperBound="-1" eType="#//L"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ms" upperBound="-1" eType="#//M"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="L">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="l" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="M">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ns" upperBound="-1" eType="#//N"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="N">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ks" upperBound="-1" eType="#//K"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ls" upperBound="-1" eType="#//L"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ms" upperBound="-1" eType="#//M"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

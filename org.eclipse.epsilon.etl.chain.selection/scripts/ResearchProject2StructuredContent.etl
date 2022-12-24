@@ -1,0 +1,58 @@
+pre { "Transformation starting". println();}
+
+rule Project2DeliverablesTable
+	transform p: ResearchProject!Project
+	to t: StructuredContent!Table {
+	t.id="project_deliverables";
+	t.createRow(Sequence{"Deliverable","WP","Due"});
+	//"0".println();
+	for(d in Deliverable.all.sortBy(d|d.due))
+	{
+		t.createRow(Sequence{d.getId(),d.wp.number,d.due});
+	}
+	//"1".println();
+}
+
+rule WP2Table
+	transform wp:ResearchProject!WP
+	to t: StructuredContent!Table {
+	guard:wp.deliverables.size()>0
+	t.id="wp"+wp.number+"_deliverable";
+	t.createRow(Sequence{"Deliverable","Title","Due"});
+	t.rows.addAll(wp.deliverables.equivalent());
+	//"2".println();
+}
+
+rule Deliverable2Row
+	transform d:ResearchProject!Deliverable
+	to r:StructuredContent!Row {
+	r.createCell(d.getId());
+	r.createCell(d.title);
+	r.createCell(d.due);
+	//"3".println();
+}
+
+operation ResearchProject!Deliverable getId() {
+	return "D"+self.wp.number+"."+self.number;
+}
+
+operation StructuredContent!Table createRow(content:Sequence) {
+	var row : new StructuredContent!Row;
+	for(c in content)
+	{
+		row.createCell(c);
+	}
+	self.rows.add(row);
+}
+
+operation StructuredContent!Row createCell(content:Any){
+	var cell : new StructuredContent!Cell;
+	cell.content = content + "";
+	self.cells.add(cell);
+}
+
+post {
+	var root : new StructuredContent!Content;
+	root.tables.addAll(StructuredContent!Table.all);
+	"Transformation finished".println();
+}

@@ -1,0 +1,12 @@
+Table.ecore XML.ecore:Table2XML.etl
+KM3.ecore JavaSource.ecore:km3_2_java.etl
+JavaSource.ecore HTML.ecore:Java2HTML.etl
+KM3.ecore Table.ecore:KM32Table.etl
+JavaSource.ecore Table.ecore:Java2Table.etl
+Ecore.ecore Table.ecore:EMF2Table.etl
+JavaSource.ecore XML.ecore:Java2XML.etl
+HTML.ecore XML.ecore:HTML2XML.etl
+Ecore.ecore JavaSource.ecore:EMF2Java.etl
+KM3.ecore XML.ecore:KM32XML.etl
+KM3.ecore Ecore.ecore:KM32EMF.etl
+Table.ecore HTML.ecore:Table2HTML.etl

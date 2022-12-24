@@ -1,0 +1,28 @@
+model SimpleTrace driver EMF {nsuri = "SimpleTrace"};
+model TM driver EMF {nsuri = "TM"};
+pre {
+	"SimpleTrace2TM transformation begins".println();
+}
+rule Trace2TypeMap
+transform t : SimpleTrace!Trace
+to n : TM!TypeMap
+ {
+	n.mappings = t.links.equivalent();
+}
+rule TraceLink2TypeMapping
+transform tr : SimpleTrace!TraceLink
+to t : TM!TypeMapping
+ {
+	if (tr.sources.isDefined()) {
+		t.source = tr.sources.toString();
+	}
+	if (tr.targets.isDefined()) {
+		t.target = tr.targets.toString();
+	}
+	if (tr.trace.size() > 0) {
+		t.map = tr.trace.equivalent();
+	}
+}
+post {
+	"SimpleTrace2TM transformation ends".println();
+}

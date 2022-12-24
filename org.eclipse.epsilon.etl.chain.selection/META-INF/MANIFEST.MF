@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Selection
+Bundle-SymbolicName: org.eclipse.epsilon.etl.chain.selection
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: org.eclipse.epsilon.etl.chain.selection
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.epsilon.emc.emf,
+ org.eclipse.epsilon.eol.engine,
+ org.eclipse.epsilon.etl.engine,
+ org.eclipse.epsilon.etl.staticanalyser,
+ org.eclipse.epsilon.eol.staticanalyser,
+ org.eclipse.epsilon.examples.staticanalysis.eol;bundle-version="1.0.0",
+ org.eclipse.epsilon.examples.staticanalyser;bundle-version="1.0.0"
+Export-Package: org.eclipse.epsilon.etl.chain.selection
+Import-Package: org.apache.commons.io.output,
+ org.apache.commons.lang.math;version="2.6.0"

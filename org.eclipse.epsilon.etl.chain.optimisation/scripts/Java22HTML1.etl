@@ -1,0 +1,57 @@
+model JavaSource2 driver EMF {nsuri = "http://www.eclipse.org/gmt/2005/JavaSource2"};
+model HTML1 driver EMF {nsuri = "nsUri1"};
+
+pre {"JavaSource2HTML transformation starts". println();}
+
+operation allMethodDefs() : Sequence(JavaSource2!MethodDefinition) {
+	//"abc".println();
+	if(JavaSource2!ClassDeclaration.isDefined() and JavaSource2!MethodDefinition.class.isDefined()) {
+	return JavaSource2!MethodDefinition.all.sortBy(e | e.class.name + '_' +  e.name);
+	}
+	else {return null;}
+	
+}
+
+operation JavaSource2!MethodDefinition
+computeContent(col : JavaSource2!MethodDefinition) : Integer {
+//"def".println();
+if(JavaSource2!MethodInvocation.isDefined() and JavaSource2!MethodDefinition.isDefined())
+return self.invocations.select(i | i.method.name = col.name
+				and i.method.class.name = col.class.name).size();
+}
+
+rule JavaS2Root
+transform
+	s : JavaSource2!JavaSource
+to
+	x : HTML1!TABLE {	
+		
+	//x.head = 'html';
+	x.trs = Sequence{allMethodDefs().collect(e | e.equivalent())}.flatten();
+	
+}
+
+rule MethodDefinition2HTMLElement
+transform
+	m : JavaSource2!MethodDefinition
+
+to
+	x : HTML1!TR, th : HTML1!TH {
+	//x.children = Sequence{allMethodDefs().collect(md|md.equivalents())}.flatten();
+	//var md : JavaSource!MethodDefinition;
+	x.tds = Sequence{th, allMethodDefs().collect(md|md.equivalent("MethodDefinition2TH"))}.flatten();
+	
+	//x.tds = Sequence{allMethodDefs().collect(e | e.equivalent())}.flatten();
+		
+}
+
+rule MethodDefinition2TH 
+	transform
+		md: JavaSource2!MethodDefinition
+	to
+		th : HTML1!TH {
+			//var m : JavaSource!MethodDefinition;
+			th.value = md.computeContent(md).toString();
+		}
+
+post {"JavaSource2HTML transformation ends". println();}

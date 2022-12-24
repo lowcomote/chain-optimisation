@@ -1,0 +1,1936 @@
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:52:26 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 008 (8 ms), 0 MB
+Loading model(s): 424 (424 ms), 2 MB
+GARBAGE_COLLECTION: 451 (451 ms), 0 MB
+execute(): 230 (230 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:52:27 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:52:34 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 004 (4 ms), 0 MB
+Loading model(s): 028 (28 ms), 0 MB
+GARBAGE_COLLECTION: 289 (289 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:52:34 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:52:38 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 005 (5 ms), 2 MB
+Loading model(s): 057 (57 ms), 3 MB
+GARBAGE_COLLECTION: 277 (277 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:52:39 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 80 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:52:41 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 002 (2 ms), 1 MB
+Loading model(s): 025 (25 ms), 1 MB
+GARBAGE_COLLECTION: 223 (223 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:52:42 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:00 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 004 (4 ms), 0 MB
+Loading model(s): 153 (153 ms), 2 MB
+GARBAGE_COLLECTION: 251 (251 ms), 0 MB
+execute(): 023 (23 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:01 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:02 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 084 (84 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:02 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:02 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 082 (82 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:03 PM
+-----------------------------------------------------
+'post' took 000,
+'pre' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:03 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 093 (93 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:03 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:04 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 084 (84 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:04 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:05 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 081 (81 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:05 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:05 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 078 (78 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:05 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:06 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 074 (74 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:06 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:07 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 078 (78 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:07 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:07 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 081 (81 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:07 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:11 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 0 MB
+Loading model(s): 117 (117 ms), 0 MB
+GARBAGE_COLLECTION: 265 (265 ms), 0 MB
+execute(): 002 (2 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:11 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:12 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 069 (69 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:12 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:12 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 063 (63 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:12 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:13 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 073 (73 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:13 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:13 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 071 (71 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:13 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:14 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 070 (70 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:14 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:14 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 071 (71 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:14 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:15 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 071 (71 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:15 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:15 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 065 (65 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:15 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:16 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 065 (65 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:16 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 80 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:19 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 2 MB
+Loading model(s): 053 (53 ms), 3 MB
+GARBAGE_COLLECTION: 242 (242 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:19 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:19 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 080 (80 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:20 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:20 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 080 (80 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:20 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:21 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 080 (80 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:21 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:21 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 074 (74 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:21 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:22 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 088 (88 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:22 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:22 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 103 (103 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:22 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:23 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 127 (127 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:23 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:24 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 101 (101 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:24 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:26 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 103 (103 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:26 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:28 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 1 MB
+Loading model(s): 030 (30 ms), 1 MB
+GARBAGE_COLLECTION: 272 (272 ms), 0 MB
+execute(): 002 (2 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:29 PM
+-----------------------------------------------------
+'post' took 000,
+'pre' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:29 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 090 (90 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:29 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:30 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 086 (86 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:30 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:30 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 092 (92 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:31 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:31 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 090 (90 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:31 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:32 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 074 (74 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:32 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:32 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 089 (89 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:32 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:33 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 088 (88 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:33 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:33 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 087 (87 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:34 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 4:59:34 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 081 (81 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 4:59:34 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:46 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 004 (4 ms), 0 MB
+Loading model(s): 128 (128 ms), 2 MB
+GARBAGE_COLLECTION: 226 (226 ms), 0 MB
+execute(): 021 (21 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:47 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:48 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 088 (88 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:48 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:48 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 077 (77 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:48 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:49 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 080 (80 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:49 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:50 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 098 (98 ms), 0 MB
+execute(): 009 (9 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:50 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:51 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 077 (77 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:51 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:52 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 079 (79 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:52 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:52 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 067 (67 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:52 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:53 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 068 (68 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:53 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:53 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 065 (65 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:53 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:55 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 002 (2 ms), 0 MB
+Loading model(s): 027 (27 ms), 0 MB
+GARBAGE_COLLECTION: 198 (198 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:56 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:56 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 067 (67 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:56 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:57 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 069 (69 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:57 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:57 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 072 (72 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:57 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:58 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 071 (71 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:58 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:58 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 077 (77 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:59 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:59 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 069 (69 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:02:59 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:02:59 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 081 (81 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:00 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:00 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 075 (75 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:00 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:01 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 072 (72 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:01 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:05 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 004 (4 ms), 2 MB
+Loading model(s): 094 (94 ms), 3 MB
+GARBAGE_COLLECTION: 250 (250 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:05 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:05 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 076 (76 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:06 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:07 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 097 (97 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:07 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:08 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 111 (111 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:08 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:08 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 098 (98 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:08 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:09 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 110 (110 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:09 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:10 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 112 (112 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:10 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:11 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 188 (188 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:12 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:14 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 186 (186 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:14 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:16 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 186 (186 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:16 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 80 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:20 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 1 MB
+Loading model(s): 047 (47 ms), 1 MB
+GARBAGE_COLLECTION: 377 (377 ms), 0 MB
+execute(): 003 (3 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:20 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:21 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 125 (125 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:21 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:22 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 124 (124 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:22 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:23 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 124 (124 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:23 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:24 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 132 (132 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:25 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:26 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 119 (119 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:26 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:27 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 104 (104 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:27 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:28 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 103 (103 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:28 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:28 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 091 (91 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:28 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 05-Jul-2022, 5:03:29 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+GARBAGE_COLLECTION: 092 (92 ms), 0 MB
+execute(): 000 (0 ms), 0 MB
+
+Finished at 05-Jul-2022, 5:03:29 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 80 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 11:55:53 AM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 0 MB
+Loading model(s): 122 (122 ms), 2 MB
+GARBAGE_COLLECTION: 196 (196 ms), 0 MB
+execute(): 023 (23 ms), 0 MB
+
+Finished at 06-Jul-2022, 11:55:53 AM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 11:55:56 AM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 002 (2 ms), 0 MB
+Loading model(s): 025 (25 ms), 0 MB
+GARBAGE_COLLECTION: 199 (199 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 06-Jul-2022, 11:55:56 AM
+-----------------------------------------------------
+'post' took 000,
+'pre' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 11:55:59 AM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 004 (4 ms), 2 MB
+Loading model(s): 073 (73 ms), 3 MB
+GARBAGE_COLLECTION: 203 (203 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 06-Jul-2022, 11:55:59 AM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 80 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 11:56:01 AM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 002 (2 ms), 1 MB
+Loading model(s): 023 (23 ms), 1 MB
+GARBAGE_COLLECTION: 190 (190 ms), 0 MB
+execute(): 002 (2 ms), 0 MB
+
+Finished at 06-Jul-2022, 11:56:02 AM
+-----------------------------------------------------
+'post' took 000,
+'pre' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:02:12 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 002 (2 ms), 0 MB
+Loading model(s): 138 (138 ms), 2 MB
+GARBAGE_COLLECTION: 209 (209 ms), 0 MB
+execute(): 021 (21 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:02:13 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:02:15 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 002 (2 ms), 0 MB
+Loading model(s): 029 (29 ms), 0 MB
+GARBAGE_COLLECTION: 218 (218 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:02:16 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:02:18 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 2 MB
+Loading model(s): 050 (50 ms), 3 MB
+GARBAGE_COLLECTION: 207 (207 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:02:19 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:02:21 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 002 (2 ms), 1 MB
+Loading model(s): 052 (52 ms), 1 MB
+GARBAGE_COLLECTION: 255 (255 ms), 0 MB
+execute(): 002 (2 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:02:22 PM
+-----------------------------------------------------
+'post' took 000,
+'pre' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:03:59 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 0 MB
+Loading model(s): 319 (319 ms), 2 MB
+GARBAGE_COLLECTION: 262 (262 ms), 0 MB
+execute(): 031 (31 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:04:00 PM
+-----------------------------------------------------
+'post' took 001,
+'pre' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:04:07 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 0 MB
+Loading model(s): 098 (98 ms), 0 MB
+GARBAGE_COLLECTION: 278 (278 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:04:07 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:04:13 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 008 (8 ms), 2 MB
+Loading model(s): 093 (93 ms), 3 MB
+GARBAGE_COLLECTION: 368 (368 ms), 0 MB
+execute(): 004 (4 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:04:14 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 80 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:04:17 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 004 (4 ms), 1 MB
+Loading model(s): 028 (28 ms), 1 MB
+GARBAGE_COLLECTION: 240 (240 ms), 0 MB
+execute(): 002 (2 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:04:17 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:07:13 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 0 MB
+Loading model(s): 275 (275 ms), 2 MB
+GARBAGE_COLLECTION: 260 (260 ms), 0 MB
+execute(): 029 (29 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:07:14 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:07:19 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 002 (2 ms), 0 MB
+Loading model(s): 033 (33 ms), 0 MB
+GARBAGE_COLLECTION: 316 (316 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:07:19 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:07:24 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 2 MB
+Loading model(s): 059 (59 ms), 3 MB
+GARBAGE_COLLECTION: 243 (243 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:07:24 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:07:26 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 001 (1 ms), 1 MB
+Loading model(s): 034 (34 ms), 1 MB
+GARBAGE_COLLECTION: 214 (214 ms), 0 MB
+execute(): 002 (2 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:07:26 PM
+-----------------------------------------------------
+'post' took 000,
+'pre' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 74 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:11:51 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 0 MB
+Loading model(s): 204 (204 ms), 2 MB
+GARBAGE_COLLECTION: 206 (206 ms), 0 MB
+execute(): 033 (33 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:11:52 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:11:56 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 002 (2 ms), 0 MB
+Loading model(s): 047 (47 ms), 0 MB
+GARBAGE_COLLECTION: 225 (225 ms), 0 MB
+execute(): 003 (3 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:11:56 PM
+-----------------------------------------------------
+'pre' took 002,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:12:00 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 003 (3 ms), 2 MB
+Loading model(s): 050 (50 ms), 3 MB
+GARBAGE_COLLECTION: 199 (199 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:12:00 PM
+-----------------------------------------------------
+'pre' took 000,
+'post' took 000
+-----------------------------------------------------
+Windows 10
+Java HotSpot(TM) 64-Bit Server VM 11.0.13+10-LTS-370
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Logical processors: 4
+Xms: 77 MB
+Xmx: 3044 MB
+Starting execution at 06-Jul-2022, 12:12:02 PM
+-----------------------------------------------------
+-----------------------------------------------------
+Profiled processes:
+Parsing script: 001 (1 ms), 1 MB
+Loading model(s): 025 (25 ms), 1 MB
+GARBAGE_COLLECTION: 199 (199 ms), 0 MB
+execute(): 001 (1 ms), 0 MB
+
+Finished at 06-Jul-2022, 12:12:02 PM
+-----------------------------------------------------
+'post' took 000,
+'pre' took 000
+-----------------------------------------------------

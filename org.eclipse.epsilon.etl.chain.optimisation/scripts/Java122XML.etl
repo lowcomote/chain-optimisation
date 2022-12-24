@@ -1,0 +1,34 @@
+model JavaSource2 driver EMF {nsuri = "http://www.eclipse.org/gmt/2005/JavaSource2"};
+model XML driver EMF {nsuri = "xml.com"};
+pre {
+	"JavaSource2XML transformation starts".println();
+}
+rule JavaS2Root
+transform s : JavaSource2!JavaSource
+to x : XML!Root
+ {
+	x.name = "html";
+	x.children = Sequence{allMethodDefs().collect(e : JavaSource!MethodDefinition|e.equivalents())}.flatten();
+}
+rule MethodDefinition2XMLElement
+transform m : JavaSource2!MethodDefinition
+to x : XML!Element
+ {
+	if (m.isDefined() and m.class.isDefined()) {
+		//x.name = "abc";
+		//x.name = m.class.name + "." + m.name;
+		x.name = m.class.name;
+	}
+}
+post {
+	"JavaSource2XML transformation ends".println();
+}
+
+operation allMethodDefs() : Sequence(JavaSource2!MethodDefinition) {
+	if (JavaSource2!MethodDefinition.isDefined() and JavaSource2!MethodDefinition.class.isDefined()) {
+		return JavaSource2!MethodDefinition.all.sortBy(e : JavaSource2!MethodDefinition|"_" + e.name);
+	}
+	else {
+		return null;
+	}
+}

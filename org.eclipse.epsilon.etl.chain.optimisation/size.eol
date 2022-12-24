@@ -1,0 +1,43 @@
+var modelsize := 0;
+var i_weight :=1;
+var a_weight :=1;
+var r_weight :=1;
+
+//var MM =  "C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/metamodels/Ecore.ecore";
+//var m = "C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/metamodels/KM3.ecore";
+//var m = "C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/models/sample-km3.xmi";
+for(c in EClass.all){
+
+	modelsize+=(c.getSize());
+}
+("metaclass"+","+"size").println();
+
+"======================".println();
+("model size: "+modelsize).println();
+
+
+
+operation EClass getSize() : Integer {
+	var size=0;
+	var instances=m.allOfType();
+	var sizesetfeatures=0;
+	for(i in instances){
+	
+		for(f in self.eStructuralFeatures){
+			sizesetfeatures += f.getSize(i);
+		}
+	}
+	
+	size=(instances.size()*i_weight)+sizesetfeatures;
+	(self.name+","+size).println();
+ 	return size;
+}
+
+operation EAttribute getSize( i: Any) : Integer {
+	if( i.eGet(self).isDefined()){
+	return (1 * a_weight);
+	}else{return 0;}
+}
+operation EReference getSize( i: Any) : Integer {
+	return i.eGet(self).size() * r_weight;
+}

@@ -1,0 +1,26 @@
+rule Project2Project
+	transform s : Source!Project
+	to t : Target!Project {
+
+	t.title = s.title;
+	t.deliverables ::= s.tasks;
+}
+
+
+rule Task2Deliverable
+	transform t : Source!Task
+	to d : Target!Deliverable {
+
+	d.title = t.title + " Report";
+	d.due = t.start + t.duration;
+
+}
+
+
+@lazy
+rule Person2Person
+	transform s : Source!Person
+	to t : Target!Person {
+
+	t.name = s.name;
+}

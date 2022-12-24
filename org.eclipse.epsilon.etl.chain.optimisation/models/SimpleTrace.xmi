@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:SimpleTrace="SimpleTrace" xsi:schemaLocation="SimpleTrace metamodels/SimpleTrace.ecore">
+  <SimpleTrace:TraceLink targets="Graph.xmi#/6 Graph.xmi#/9"/>
+  <SimpleTrace:TraceLink sources="Graph.xmi#/6" targets="Graph.xmi#/7 Graph.xmi#/8"/>
+  <SimpleTrace:TraceLink sources="Graph.xmi#/7"/>
+  <SimpleTrace:TraceLink sources="Graph.xmi#/8"/>
+  <SimpleTrace:TraceLink sources="Graph.xmi#/9" targets="Graph.xmi#/10"/>
+  <SimpleTrace:TraceLink sources="Graph.xmi#/10"/>
+  <SimpleTrace:TraceLink sources="#/0" targets="#/1"/>
+  <SimpleTrace:TraceLink sources="#/1" targets="#/2"/>
+  <SimpleTrace:TraceLink sources="#/1" targets="#/3"/>
+  <SimpleTrace:TraceLink sources="#/0" targets="#/4"/>
+  <SimpleTrace:TraceLink sources="#/4" targets="#/5"/>
+</xmi:XMI>

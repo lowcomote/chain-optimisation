@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:TM="TM" xsi:schemaLocation="TM metamodels/TM.ecore">
+  <TM:TypeMapping source="[]" target="[org.eclipse.emf.ecore.impl.EObjectImpl@3b00856b (eProxyURI: file:///C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/models/Graph.xmi#/6), org.eclipse.emf.ecore.impl.EObjectImpl@3016fd5e (eProxyURI: file:///C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/models/Graph.xmi#/9)]"/>
+  <TM:TypeMapping source="[org.eclipse.emf.ecore.impl.EObjectImpl@6b3e12b5 (eProxyURI: file:///C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/models/Graph.xmi#/6)]"
+      target="[org.eclipse.emf.ecore.impl.EObjectImpl@5aac4250 (eProxyURI: file:///C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/models/Graph.xmi#/7), org.eclipse.emf.ecore.impl.EObjectImpl@1338fb5 (eProxyURI: file:///C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/models/Graph.xmi#/8)]"/>
+  <TM:TypeMapping source="[org.eclipse.emf.ecore.impl.EObjectImpl@42463763 (eProxyURI: file:///C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/models/Graph.xmi#/7)]"
+      target="[]"/>
+  <TM:TypeMapping source="[org.eclipse.emf.ecore.impl.EObjectImpl@59f63e24 (eProxyURI: file:///C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/models/Graph.xmi#/8)]"
+      target="[]"/>
+  <TM:TypeMapping source="[org.eclipse.emf.ecore.impl.EObjectImpl@61f05988 (eProxyURI: file:///C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/models/Graph.xmi#/9)]"
+      target="[org.eclipse.emf.ecore.impl.EObjectImpl@67c2e933 (eProxyURI: file:///C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/models/Graph.xmi#/10)]"/>
+  <TM:TypeMapping source="[org.eclipse.emf.ecore.impl.EObjectImpl@41dd05a (eProxyURI: file:///C:/Users/sahay/git/repository/org.eclipse.epsilon.etl.chain.optimisation/models/Graph.xmi#/10)]"
+      target="[]"/>
+  <TM:TypeMapping source="[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@c4ed84 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@6ad59d92 (name: TraceLink) (instanceClassName: null) (abstract: false, interface: false))]"
+      target="[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@189aa67a (eClass: org.eclipse.emf.ecore.impl.EClassImpl@6ad59d92 (name: TraceLink) (instanceClassName: null) (abstract: false, interface: false))]"/>
+  <TM:TypeMapping source="[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@189aa67a (eClass: org.eclipse.emf.ecore.impl.EClassImpl@6ad59d92 (name: TraceLink) (instanceClassName: null) (abstract: false, interface: false))]"
+      target="[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@5a9d6f02 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@6ad59d92 (name: TraceLink) (instanceClassName: null) (abstract: false, interface: false))]"/>
+  <TM:TypeMapping source="[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@189aa67a (eClass: org.eclipse.emf.ecore.impl.EClassImpl@6ad59d92 (name: TraceLink) (instanceClassName: null) (abstract: false, interface: false))]"
+      target="[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@362045c0 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@6ad59d92 (name: TraceLink) (instanceClassName: null) (abstract: false, interface: false))]"/>
+  <TM:TypeMapping source="[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@c4ed84 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@6ad59d92 (name: TraceLink) (instanceClassName: null) (abstract: false, interface: false))]"
+      target="[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@112f364d (eClass: org.eclipse.emf.ecore.impl.EClassImpl@6ad59d92 (name: TraceLink) (instanceClassName: null) (abstract: false, interface: false))]"/>
+  <TM:TypeMapping source="[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@112f364d (eClass: org.eclipse.emf.ecore.impl.EClassImpl@6ad59d92 (name: TraceLink) (instanceClassName: null) (abstract: false, interface: false))]"
+      target="[org.eclipse.emf.ecore.impl.DynamicEObjectImpl@5ccbeb64 (eClass: org.eclipse.emf.ecore.impl.EClassImpl@6ad59d92 (name: TraceLink) (instanceClassName: null) (abstract: false, interface: false))]"/>
+</xmi:XMI>
