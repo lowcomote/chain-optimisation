@@ -7,21 +7,21 @@ nsuri = "xml.com"
 };
 
 pre {"HTML2XML transformation starts". println();}
-/*
-operation Attribute(attrName : String, attrValue : String)
+
+operation XML!Attribute Attribute(attrName : String, attrValue : String)
 	{
 		var at : new XML!Attribute;
 			at.name = attrName;
 			at.value = attrValue;
 	}
 	
-operation Text(value : String)
+operation XML!Text Text(value : String)
 	{
 		var text : new XML!Text;
 		text.value = (not value.isUndefined() ? value : '');
 
 	}
-*/
+
 
 rule HTML 
 	transform
