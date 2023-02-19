@@ -40,6 +40,9 @@ For example,
  linNumber would contain  
  Edge2TraceLink, Node2TraceLink.  9 <- indicates the lineNumber
  
+ **For Chain Execution**
+ Run \src\org\eclipse\epsilon\etl\chain\optimisation\EtlChainOptimiser.java and press 0
+ 
  **For Chain Identification**
  Run \src\org\eclipse\epsilon\etl\chain\optimisation\EtlChainOptimiser.java and press 11
  
