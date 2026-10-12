@@ -1,0 +1,1 @@
+Run `python3 -m unittest discover -s review_update/tests -v` from the repository root. Requires Java 11+ and Python 3. Tests exercise restricted source rewriting only; they do not execute ETL transformations or prove EMF output equivalence.

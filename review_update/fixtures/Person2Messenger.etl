@@ -1,0 +1,8 @@
+model Persons driver EMF { nsuri = "urn:persons"; };
+model Messenger driver EMF { nsuri = "urn:messenger"; };
+rule Person2Account transform p:Persons!Person to a:Messenger!Account {
+  a.login = p.name;
+}
+rule Device2EnabledDevice transform d:Persons!Device to e:Messenger!EnabledDevice {
+  e.type = d.model;
+}

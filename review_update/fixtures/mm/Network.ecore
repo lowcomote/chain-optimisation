@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Network" nsURI="urn:network" nsPrefix="network">
+ <eClassifiers xsi:type="ecore:EClass" name="Device"><eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/></eClassifiers>
+</ecore:EPackage>

@@ -52,3 +52,8 @@ For example,
  
 2. We can then run the normal and optimized version of the file by re-running Run \src\org\eclipse\epsilon\etl\chain\optimisation\EtlChainOptimiser.java and choosing case no. 101 and 102 respectively.
   
+
+
+## Review-driven Algorithm 2 update (October 2026)
+
+An opt-in conservative optimizer is integrated as `SafeEtlChainOptimizer.java`. To invoke it through `EtlChainOptimiser`, supply `--safe-optimize --metamodels DIR --out DIR <stage1.etl> <stage2.etl> ...` as command-line arguments. Unsafe legacy rewriting menu commands are disabled by default; the `-Dchain.allowLegacyUnsafeOptimizer=true` Java property enables them only for historical reproduction. The optimizer retains unsupported rules and copies complex benchmark chains unchanged. **Native ETL execution and final-output equivalence remain unverified.** See [review_update/README.md](review_update/README.md) for scope, tests and validation requirements.

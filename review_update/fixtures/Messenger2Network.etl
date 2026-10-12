@@ -1,0 +1,5 @@
+model Messenger driver EMF { nsuri = "urn:messenger"; };
+model Network driver EMF { nsuri = "urn:network"; };
+rule Enabled2Network transform e:Messenger!EnabledDevice to n:Network!Device {
+  n.name = e.type;
+}
