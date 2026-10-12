@@ -1,0 +1,12 @@
+# Native ETL integration and reviewer validation protocol
+
+1. **Environment:** record versions/commits of Eclipse IDE, Epsilon, Epsilon static analyzer, EMF and EMF Compare. Import the upstream projects from the public README, then apply the patch and confirm that the new CLI mode appears. Record runtime and Java versions.
+2. **Functional safety:** invoke `--safe-optimize` on each CH1 and CH2 transformation chain. Inspect `optimization_report.tsv`. A chain marked `UNCHANGED_UNSUPPORTED` provides **no new optimization** and must NOT be described as a validated speedup.
+3. **Outputs:** execute both original and rewritten chains on **identical** models, settings and JVM configuration; use fresh model repositories per run. Materialize outputs separately. No files in the original repository should be overwritten.
+4. **EMF Compare:** compare each original/optimized final model under the same metamodel, configure matching identifiers and containment ordering explicitly, and save the full list of differences. Report *0 differences* only for actually executed, logged comparisons. Record validation data in `output_equivalence_manifest.csv`.
+5. **Performance:** for each of the original 16 inputs on each chain, record at least the originally planned 10 paired execution measurements if re-running is authorized. Separate optimization preprocessing time, chain execution time, JVM startup, warmup and model load times. Export raw times and calculate median, IQR, per-model speedup and confidence intervals, in addition to means. Do not silently change or overwrite old measurements.
+6. **Memory:** distinguish retained heap, peak RSS, native memory, and EMF model element counts. Counts of generated elements are NOT RAM measurements. Measure peak RSS/heap separately if making memory claims.
+7. **Algorithm scope:** benchmark the pure-subset optimizer on controlled transformations first. The KM3-to-XML example contains unsupported constructs (trace resolution, inheritance, pre/post, lazy rules); do not run the unsafe legacy optimizer and claim the new implementation has been validated on it.
+8. **Reproducibility:** publish source commit hashes, metamodels, ETL scripts, input checksums, run command lines, raw logs, EMF Compare reports, code revision and both chain paths. Compare selected-chain versus executed-chain selection consistently. Retain all files and experimental settings unchanged until replication has been completed.
+
+This protocol documents missing evidence; it is not itself evidence that tests were executed.

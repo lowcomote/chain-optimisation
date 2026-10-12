@@ -151,6 +151,12 @@ public class EtlChainOptimiser {
 	final static String outputFilePath2 = "writeComplexity.txt";
 
 	public static void main(String[] args) throws Exception {
+        // REVIEW-SAFETY-GATE v1: opt-in conservative optimization.
+        if (args != null && args.length > 0 && "--safe-optimize".equals(args[0])) {
+            SafeEtlChainOptimizer.main(java.util.Arrays.copyOfRange(args, 1, args.length));
+            return;
+        }
+
 
 		System.out.println("\n 0: Execute chains of ETL \n");
 		System.out.println("\n 1: Select chain with minimum complexity \n");
@@ -181,6 +187,15 @@ public class EtlChainOptimiser {
 
 		Scanner scanner = new Scanner(System.in);
 		int number = scanner.nextInt();
+        // REVIEW-SAFETY-GATE v1: unsafe legacy rewrite options require explicit override.
+        if (!Boolean.getBoolean("chain.allowLegacyUnsafeOptimizer") &&
+                java.util.Arrays.asList(2, 3, 4, 5, 7, 8, 70, 500, 102, 1000, 1001, 1003).contains(number)) {
+            System.err.println("Legacy ETL rewriting disabled: possible semantic changes. " +
+                "Use --safe-optimize --metamodels DIR --out DIR <etl1> <etl2>...; " +
+                "for historical reproduction ONLY, set -Dchain.allowLegacyUnsafeOptimizer=true.");
+            return;
+        }
+
 		scanner.close();
 
 		ArrayList<ArrayList<String>> l;
